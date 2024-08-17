@@ -3,12 +3,25 @@ import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "@/components/ui/link";
 import { NewsTypes } from "@/types";
+import { useEffect, useState } from "react";
 
 const News = async () => {
-	const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/news?cursor=""&limit=6`);
-	const data = await res.json();
+	const [news, setNews] = useState<NewsTypes[]>([]);
 
-	const news: NewsTypes[] = data.news;
+	useEffect(() => {
+		const getNews = async () => {
+			const res = await fetch(
+				`${process.env.NEXT_PUBLIC_APP_URL}/api/news?cursor=""&limit=6`
+			).catch(console.log);
+
+			const data = await res?.json();
+			setNews(data.news);
+		};
+
+		void getNews();
+
+		return () => setNews([]);
+	}, []);
 
 	return (
 		<Card className="flex flex-col gap-5 overflow-hidden border-none shadow-none px-6 lg:px-8">

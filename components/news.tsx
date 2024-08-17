@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -5,7 +7,7 @@ import { Link } from "@/components/ui/link";
 import { NewsTypes } from "@/types";
 import { useEffect, useState } from "react";
 
-const News = async () => {
+const News = () => {
 	const [news, setNews] = useState<NewsTypes[]>([]);
 
 	useEffect(() => {

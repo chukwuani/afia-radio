@@ -5,7 +5,7 @@ import { Link } from "@/components/ui/link";
 import { NewsTypes } from "@/types";
 
 const News = async () => {
-	const res = await fetch(`http://localhost:3000/api/news?cursor=""&limit=6`);
+	const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/news?cursor=""&limit=6`);
 	const data = await res.json();
 
 	const news: NewsTypes[] = data.news;

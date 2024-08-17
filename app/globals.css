@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 240 10% 3.9%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 240 10% 3.9%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 240 10% 3.9%;
+
+		--primary: 240 5.9% 10%;
+		--primary-foreground: 0 0% 98%;
+
+		--secondary: 210 4.8% 95.9%;
+		--secondary-foreground: 240 5.9% 10%;
+
+		--muted: 240 4.8% 95.9%;
+		--muted-foreground: 240 3.8% 46.1%;
+
+		--accent: 240 4.8% 95.9%;
+		--accent-foreground: 240 5.9% 10%;
+
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
+
+		--border: 240 5.9% 90%;
+		--input: 240 5.9% 90%;
+		--ring: 240 5.9% 10%;
+		--radius: 0.5rem;
+
+		--brand: 24 100% 49%;
+	}
+
+	.dark {
+		--background: 240 10% 3.9%;
+		--foreground: 0 0% 98%;
+
+		--card: 240 10% 3.9%;
+		--card-foreground: 0 0% 98%;
+
+		--popover: 240 10% 3.9%;
+		--popover-foreground: 0 0% 98%;
+
+		--primary: 0 0% 98%;
+		--primary-foreground: 240 5.9% 10%;
+
+		--secondary: 240 3.7% 15.9%;
+		--secondary-foreground: 0 0% 98%;
+
+		--muted: 240 3.7% 15.9%;
+		--muted-foreground: 240 5% 64.9%;
+
+		--accent: 240 3.7% 15.9%;
+		--accent-foreground: 0 0% 98%;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
+
+		--border: 240 3.7% 15.9%;
+		--input: 240 3.7% 15.9%;
+		--ring: 240 4.9% 83.9%;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	body {
+		@apply bg-background text-foreground m-0 p-0;
+	}
+
+	img {
+		@apply max-w-full h-auto;
+	}
+}
+
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+@keyframes ping {
+	75%,
+	100% {
+		transform: scale(1.5);
+		opacity: 0;
+	}
+}
+
+.ping {
+	animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pulse {
+	50% {
+		opacity: 0.4;
+		transform: scale(1.15);
+	}
+	0% {
+		transform: scale(1.11);
+		opacity: 0.4;
+	}
+	15% {
+		transform: scale(1.07);
+		opacity: 0.4;
+	}
+	30% {
+		transform: scale(1.12);
+		opacity: 0.4;
+	}
+	45% {
+		transform: scale(1.15);
+		opacity: 0.4;
+	}
+	60% {
+		transform: scale(1.04);
+		opacity: 0.4;
+	}
+	75% {
+		transform: scale(1.16);
+		opacity: 0.4;
+	}
+	90% {
+		transform: scale(1.03);
+		opacity: 0.4;
+	}
+	100% {
+		transform: scale(1.11);
+		opacity: 0.4;
+	}
+}
+
+.pulse {
+	animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.playing {
+	margin: -20px auto;
+	width: 100px;
+	height: 40px;
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+}
+
+.playing > div {
+	background-color: hsl(var(--foreground));
+	height: 100%;
+	width: 4px;
+	display: inline-block;
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	-webkit-animation: wavy 1s ease infinite forwards;
+	animation: wavy 1s ease infinite forwards;
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+	border-radius: 6px;
+}
+
+.playing .rect2 {
+	-webkit-animation-delay: 0.25s;
+	animation-delay: 0.25s;
+}
+
+.playing .rect3 {
+	-webkit-animation-delay: 0.5s;
+	animation-delay: 0.5s;
+}
+
+.playing .rect4 {
+	-webkit-animation-delay: 0.75s;
+	animation-delay: 0.75s;
+}
+
+.playing .rect5 {
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+@keyframes wavy {
+	0% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+	}
+	50% {
+		-webkit-transform: scaleY(0.6);
+		transform: scaleY(0.6);
+	}
+	100% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+	}
+}

@@ -1,0 +1,111 @@
+export type SiteConfig = typeof siteConfig;
+export type MainNav = typeof siteConfig.mainNav;
+
+const links = {
+	x: "https://twitter.com/afiatvofficial",
+	instagram: "https://instagram.com/afiatvofficial",
+	facebook: "https://facebook.com/afiatvofficial",
+	youtube: "https://youtube.com/@afiatvofficial",
+};
+
+export const siteConfig = {
+	title: "AFIA Radio",
+	description:
+		"Listen without limits. Discover the latest music tracks, explore captivating podcasts, or tune in to radio shows - all on your schedule.",
+	url: "https://afiatv.net",
+	ogImage: "https://afiatv.net/opengraph-image.png",
+	links,
+	mainNav: [
+		{
+			title: "Home",
+			href: "/",
+			external: false,
+			disabled: false,
+		},
+		{
+			title: "Music",
+			href: "/music",
+			external: false,
+			disabled: false,
+		},
+		{
+			title: "Podcasts",
+			href: "/podcasts",
+			external: false,
+			disabled: false,
+		},
+		{
+			title: "News",
+			href: "/news",
+			external: false,
+			disabled: false,
+		},
+	],
+	footerNav: [
+		{
+			title: "Help",
+			items: [
+				{
+					title: "About us",
+					href: "/about",
+					external: false,
+				},
+				{
+					title: "Advertise with us",
+					href: "/advertise",
+					external: false,
+				},
+				{
+					title: "Terms",
+					href: "/terms",
+					external: false,
+				},
+				{
+					title: "Privacy Policy",
+					href: "/privacy",
+					external: false,
+				},
+			],
+		},
+		{
+			title: "Social",
+			items: [
+				{
+					title: "X",
+					href: links.x,
+					external: true,
+				},
+				{
+					title: "Facebook",
+					href: links.facebook,
+					external: true,
+				},
+				{
+					title: "Instagram",
+					href: links.instagram,
+					external: true,
+				},
+				{
+					title: "Youtube",
+					href: links.youtube,
+					external: true,
+				},
+			],
+		},
+		{
+			title: "Contact",
+			items: [
+				{
+					title: "Info@afiatv.net",
+					href: "mailto:info@afiatv.net",
+					external: false,
+				},
+				{
+					title: "Editorial Team",
+					href: "mailto:editorial@afiatv.net",
+					external: true,
+				},
+			],
+		},
+	],
+};

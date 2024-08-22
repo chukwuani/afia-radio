@@ -1,30 +1,56 @@
+"use client";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "@/components/ui/link";
 
 const Presenters = () => {
+	const images = [
+		"https://mmo.aiircdn.com/370/63d96b191c472.jpg",
+		"https://mmo.aiircdn.com/370/6087d237a49f0.jpg",
+		"https://mmo.aiircdn.com/370/622f5f529adff.jpg",
+		"https://mmo.aiircdn.com/370/634866d65b077.jpg",
+		"https://mmo.aiircdn.com/370/60868ad95db10.jpg",
+		"https://mmo.aiircdn.com/370/660ff71a92fcc.jpg",
+		"https://mmo.aiircdn.com/370/622efac5c9f5d.jpg",
+		"https://mmo.aiircdn.com/370/668eafc862171.jpg",
+		"https://mmo.aiircdn.com/370/60868ad64fd3b.jpg",
+		"https://mmo.aiircdn.com/370/65d70945238ae.jpg",
+	];
+
+	const updateImageSrc = (index: number) => {
+		return images[index];
+	};
+
 	return (
-		<Card className="flex flex-col gap-5 overflow-hidden border-none shadow-none">
-			<CardHeader className="px-6 lg:px-8">
-				<CardTitle>Presenters</CardTitle>
-				<CardDescription>Find your favorite artists across our most popular genres</CardDescription>
-			</CardHeader>
+		<Card className="flex flex-col gap-5 overflow-hidden border-none shadow-none p-6 lg:p-14 lg:py-8">
+			<section className="flex justify-between items-center gap-10">
+				<CardHeader className="px-0">
+					<CardTitle className="text-[#F78E69]">Presenters</CardTitle>
+					<CardDescription>Meet the people who make up Afia Radio.</CardDescription>
+				</CardHeader>
+			</section>
 
-			<CardContent className="flex items-center gap-6 w-auto px-6 lg:px-8 overflow-scroll no-scrollbar">
-				{Array.from({ length: 6 }).map((_, index) => (
-					<div
+			<CardContent className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6 lg:gap-8 w-full px-0">
+				{Array.from({ length: 10 }).map((_, index) => (
+					<a
 						key={index}
-						className="group cols-span-1 min-w-[200px] gap-2 w-full text-center">
-						<section className="flex flex-col items-center justify-center">
+						href="/podcasts/1"
+						className="group cols-span-1 gap-2 w-full text-left">
+						<section className="flex items-center justify-center relative">
 							<img
-								alt="Product image"
-								className="aspect-square rounded-full object-cover size-[150px]"
-								height="150"
-								src="https://ichef.bbci.co.uk/images/ic/288x288/p0d820zg.jpg.webp"
+								alt="Sofia Davis"
+								className="aspect-square rounded-md object-cover bg-black/30 w-full"
+								height="300"
+								src={updateImageSrc(index)}
 							/>
-
-							<p className="text-base font-bold mt-6 mb-1 leading-none">DJ Rabbit</p>
-							<p className="text-sm text-muted-foreground"> Cool Nigerian Vibes</p>
 						</section>
-					</div>
+
+						<p className="text-base font-bold mt-3 mb-2 leading-none transition-colors group-hover:text-brand underline-offset-2 group-hover:underline">
+							Sofia Davis
+						</p>
+
+						<p className="text-sm text-muted-foreground mb-4">The Breakfast Show</p>
+					</a>
 				))}
 			</CardContent>
 		</Card>

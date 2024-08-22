@@ -130,12 +130,12 @@ export default async function PostPage({ params }: PageProps) {
 				</div>
 			</div>
 
-			<AspectRatio ratio={16 / 9}>
+			<AspectRatio ratio={16 / 11}>
 				<Image
 					src={news.mainImage}
 					alt={news.altText}
 					fill
-					className="rounded-md border bg-muted"
+					className="rounded-md border bg-muted object-cover"
 					priority
 				/>
 			</AspectRatio>

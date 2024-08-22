@@ -15,21 +15,6 @@ export default function MainNav() {
 
 	return (
 		<div className="hidden lg:flex w-full relative">
-			<Link
-				href="/"
-				className="flex items-center space-x-2 w-[30px] absolute left-0 top-[6px]">
-				<Image
-					width={80}
-					height={80}
-					className="w-[30px]"
-					src={"/afia-indent.png"}
-					alt="Afia Radio"
-					title="Afia Radio"
-				/>
-
-				<span className="sr-only">Home</span>
-			</Link>
-
 			<NavigationMenu className="m-auto w-full">
 				<NavigationMenuList>
 					{siteConfig.mainNav.map((navItems, index) => (

@@ -11,6 +11,10 @@ import Footer from "@/components/layouts/site-footer";
 import { siteConfig } from "@/siteConfig";
 import AudioPlayer from "@/components/audio-player";
 
+import { Hanken_Grotesk } from "next/font/google";
+
+const inter = Hanken_Grotesk({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
 	title: siteConfig.title,
 	description: siteConfig.description,
@@ -24,7 +28,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={GeistSans.className}>
+			<body className={inter.className}>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="light"

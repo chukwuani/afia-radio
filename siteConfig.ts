@@ -23,8 +23,8 @@ export const siteConfig = {
 			disabled: false,
 		},
 		{
-			title: "Music",
-			href: "/music",
+			title: "Playlists",
+			href: "/playlists",
 			external: false,
 			disabled: false,
 		},
@@ -42,6 +42,31 @@ export const siteConfig = {
 		},
 	],
 	footerNav: [
+		{
+			title: "Explore",
+			items: [
+				{
+					title: "Live Radio",
+					href: "/radio",
+					external: false,
+				},
+				{
+					title: "Podcasts",
+					href: "/podcasts",
+					external: false,
+				},
+				{
+					title: "Playlists",
+					href: "/playlists",
+					external: false,
+				},
+				{
+					title: "News",
+					href: "/news",
+					external: false,
+				},
+			],
+		},
 		{
 			title: "Help",
 			items: [

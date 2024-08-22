@@ -83,7 +83,7 @@ export function MobileNav() {
 				</SheetContent>
 			</Sheet>
 
-			<Link
+			{/* <Link
 				href="/"
 				className="flex items-center space-x-2 w-[inherit] justify-center">
 				<section className="flex lg:hidden w-[80px] mr-[45px]">
@@ -106,7 +106,7 @@ export function MobileNav() {
 				</section>
 
 				<span className="sr-only">Home</span>
-			</Link>
+			</Link> */}
 		</section>
 	);
 }

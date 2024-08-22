@@ -5,10 +5,15 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { IconProps } from "./icons";
 import { useEffect, useRef, useState } from "react";
-import { PauseIcon } from "lucide-react";
+import { PauseIcon, Volume1Icon, VolumeXIcon } from "lucide-react";
 import { useLivePlayer } from "@/store/useLivePlayer";
 
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Slider } from "./ui/slider";
+
 const AudioPlayer = () => {
+	const [volume, setVolume] = useState([100]);
+
 	const { isOpen, onCollapse, isPlaying, onPause, onPlay } = useLivePlayer((state) => state);
 
 	const audioUrl = "https://stm01.virtualcast.com.br:8248/acusticacamaqua";
@@ -45,6 +50,12 @@ const AudioPlayer = () => {
 		}
 	}, [isPlaying]);
 
+	useEffect(() => {
+		if (audioRef.current) {
+			audioRef.current.volume = volume[0] / 100;
+		}
+	}, [volume]);
+
 	const togglePlayPause = () => {
 		if (audioRef.current) {
 			if (isPlaying) {
@@ -57,6 +68,18 @@ const AudioPlayer = () => {
 		}
 	};
 
+	const toggleMute = () => {
+		if (volume[0] === 0) {
+			setVolume([100]);
+		} else {
+			setVolume([0]);
+		}
+	};
+
+	const handleVolumeChange = (newVolume: number[]) => {
+		setVolume(newVolume);
+	};
+
 	const formatTime = (time: number): string => {
 		const minutes = Math.floor(time / 60);
 		const seconds = Math.floor(time % 60);
@@ -66,11 +89,11 @@ const AudioPlayer = () => {
 	return (
 		<>
 			{isOpen && (
-				<div className="fixed bottom-0 md:bottom-8 left-1/2 -translate-x-1/2 md:rounded-lg p-4 border shadow-lg mt-auto mx-auto flex flex-col items-center w-full md:max-w-[500px] px-4 bg-background z-10">
-					<div className="flex items-center w-full justify-between">
+				<div className="fixed max-md:w-full bottom-0 md:bottom-8 md:right-10 md:rounded-lg p-3 border shadow-lg mt-auto mx-auto flex flex-col items-center px-3 bg-background z-10">
+					<div className="flex items-center w-full justify-between gap-10">
 						<div className="flex items-center gap-2">
 							<Image
-								src="https://images.audacy2-prod.ext.audacy.com/4a400168-47f2-409c-965d-de711246bee3.jpeg?auto=webp&width=125"
+								src="https://images.audacy2-prod.ext.audacy.com/9d337f80-58d1-4891-8a76-d327c98d0c82.png?auto=webp&width=125 1x, https://images.audacy2-prod.ext.audacy.com/9d337f80-58d1-4891-8a76-d327c98d0c82.png?auto=webp&width=250 2x"
 								alt="Album Cover"
 								className="rounded-md"
 								width="40"
@@ -79,14 +102,14 @@ const AudioPlayer = () => {
 							/>
 
 							<div>
-								<h3 className="text-sm font-medium">Starlight</h3>
-								<p className="text-muted-foreground text-sm">Muse</p>
+								<h3 className="text-sm font-medium">The Breakfast Show</h3>
+								<p className="text-muted-foreground text-sm">with Sofia</p>
 							</div>
 						</div>
 
 						<div
 							id="playing2"
-							className="playing">
+							className="playing !hidden">
 							<div className="rect1"></div>
 							<div className="rect2"></div>
 							<div className="rect3"></div>
@@ -100,17 +123,40 @@ const AudioPlayer = () => {
 						</div>
 
 						<div className="flex items-center gap-2">
-							<Button
-								variant="ghost"
-								size="icon">
-								<Volume2Icon className="w-5 h-5" />
-							</Button>
+							<HoverCard openDelay={300}>
+								<HoverCardTrigger>
+									<Button
+										onClick={toggleMute}
+										variant="ghost"
+										size="icon">
+										{volume[0] === 0 ? (
+											<VolumeXIcon className="w-5 h-5" />
+										) : volume[0] <= 50 ? (
+											<Volume1Icon className="w-5 h-5" />
+										) : (
+											<Volume2Icon className="w-5 h-5" />
+										)}
+									</Button>
+								</HoverCardTrigger>
+								<HoverCardContent side="top">
+									<Slider
+										step={1}
+										value={volume}
+										onValueChange={handleVolumeChange}
+									/>
+								</HoverCardContent>
+							</HoverCard>
 
 							<Button
+								className="bg-black rounded-full hover:bg-black"
 								onClick={togglePlayPause}
 								variant="ghost"
 								size="icon">
-								{isPlaying ? <PauseIcon className="w-5 h-5" /> : <PlayIcon className="w-5 h-5" />}
+								{isPlaying ? (
+									<PauseIcon className="w-5 h-5 text-white" />
+								) : (
+									<PlayIcon className="w-5 h-5 text-white" />
+								)}
 							</Button>
 
 							<Button

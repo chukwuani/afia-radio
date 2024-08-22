@@ -16,7 +16,8 @@ const AudioPlayer = () => {
 
 	const { isOpen, onCollapse, isPlaying, onPause, onPlay } = useLivePlayer((state) => state);
 
-	const audioUrl = "https://stm01.virtualcast.com.br:8248/acusticacamaqua";
+	const audioUrl = process.env.NEXT_PUBLIC_STREAM_URL;
+
 	const [currentTime, setCurrentTime] = useState<number>(0);
 	const [duration, setDuration] = useState<number>(0);
 

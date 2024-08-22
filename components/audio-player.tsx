@@ -16,7 +16,7 @@ const AudioPlayer = () => {
 
 	const { isOpen, onCollapse, isPlaying, onPause, onPlay } = useLivePlayer((state) => state);
 
-	const audioUrl = process.env.NEXT_PUBLIC_STREAM_URL;
+	const audioUrl = "http://102.90.8.148:8000/stream";
 
 	const [currentTime, setCurrentTime] = useState<number>(0);
 	const [duration, setDuration] = useState<number>(0);

@@ -44,6 +44,14 @@ const nextConfig = {
 			},
 		],
 	},
+	async rewrites() {
+		return [
+			{
+				source: "/stream",
+				destination: "http://102.90.8.148:8000/stream",
+			},
+		];
+	},
 };
 
 export default nextConfig;

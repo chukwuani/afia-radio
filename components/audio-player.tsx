@@ -16,30 +16,28 @@ const AudioPlayer = () => {
 
 	const { isOpen, onCollapse, isPlaying, onPause, onPlay } = useLivePlayer((state) => state);
 
-	const audioUrl = "http://102.90.8.148:8000/stream";
-
 	const [currentTime, setCurrentTime] = useState<number>(0);
 	const [duration, setDuration] = useState<number>(0);
 
 	const audioRef = useRef<HTMLAudioElement | null>(null);
 
-	// useEffect(() => {
-	// 	const audio = new Audio(audioUrl);
-	// 	audioRef.current = audio;
+	useEffect(() => {
+		const audio = new Audio("/stream");
+		audioRef.current = audio;
 
-	// 	audio.addEventListener("loadedmetadata", () => {
-	// 		setDuration(audio.duration);
-	// 	});
+		audio.addEventListener("loadedmetadata", () => {
+			setDuration(audio.duration);
+		});
 
-	// 	audio.addEventListener("timeupdate", () => {
-	// 		setCurrentTime(audio.currentTime);
-	// 	});
+		audio.addEventListener("timeupdate", () => {
+			setCurrentTime(audio.currentTime);
+		});
 
-	// 	return () => {
-	// 		audio.pause();
-	// 		audio.src = "";
-	// 	};
-	// }, [audioUrl]);
+		return () => {
+			audio.pause();
+			audio.src = "";
+		};
+	}, []);
 
 	useEffect(() => {
 		if (audioRef.current) {
@@ -122,13 +120,6 @@ const AudioPlayer = () => {
 							<div className="rect4"></div>
 							<div className="rect5"></div>
 						</div>
-
-						<audio
-							ref={audioRef}
-							src="http://102.90.8.148:8000/stream"
-							controls
-							className="-z-10 hidden"
-						/>
 
 						<div className="flex items-center gap-2">
 							<HoverCard openDelay={300}>

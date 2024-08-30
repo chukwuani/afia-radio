@@ -3,8 +3,10 @@ import News from "@/components/news";
 import Podcasts from "@/components/podcasts";
 import Hero from "@/components/hero";
 import Radio from "@/components/radio";
-import Presenters from "@/components/presenters";
 import { Separator } from "@/components/ui/separator";
+import Countdown from "@/components/countdown";
+import PlayList from "@/components/playlist";
+import Advert from "@/components/layouts/advert";
 
 export default function Home() {
 	return (
@@ -12,21 +14,28 @@ export default function Home() {
 			<Hero />
 
 			<Radio />
+
 			<Separator />
+
+			<Countdown />
+
+			<Separator />
+
 			<Podcasts />
-			<img
-				className="mx-auto my-4"
-				loading="lazy"
-				decoding="async"
-				src="https://popcentraltv.com/wp-content/uploads/2024/04/banner-gif.gif"
-				width="1200"
-				height="250"
-				alt="Demo"></img>
+
+			<Separator />
+
+			<Advert />
+
+			<Separator />
+
 			<Music />
+
+			<PlayList />
+
 			<Separator />
+
 			<News />
-			<Separator />
-			<Presenters />
 		</main>
 	);
 }

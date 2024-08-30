@@ -9,13 +9,22 @@ import { cn } from "@/lib/utils";
 import { siteConfig } from "@/siteConfig";
 
 import { NavigationMenu, NavigationMenuList } from "@/components/ui/navigation-menu";
+import { Button } from "../ui/button";
+import { SearchIcon } from "lucide-react";
 
 export default function MainNav() {
 	const pathname = usePathname();
 
 	return (
-		<div className="hidden lg:flex w-full relative">
-			<NavigationMenu className="m-auto w-full">
+		<div className="hidden lg:flex items-center w-full relative">
+			<Image
+				src="/images/afia-indent.png"
+				alt="Afia Radio Home"
+				width={30}
+				height={30}
+			/>
+
+			<NavigationMenu className="ml-[50px] w-full">
 				<NavigationMenuList>
 					{siteConfig.mainNav.map((navItems, index) => (
 						<NavLink
@@ -29,6 +38,17 @@ export default function MainNav() {
 					))}
 				</NavigationMenuList>
 			</NavigationMenu>
+
+			<Button
+				variant="outline"
+				className="relative rounded-full ml-auto size-9 p-0 md:h-10 md:w-60 md:justify-start md:px-3 md:py-2">
+				<SearchIcon
+					className="size-4 mr-2 text-muted-foreground"
+					aria-hidden="true"
+				/>
+				<span className="inline-flex text-muted-foreground">Search...</span>
+				<span className="sr-only">Search products</span>
+			</Button>
 		</div>
 	);
 }

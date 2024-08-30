@@ -1,5 +1,7 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+
 import {
 	FacebookShareButton,
 	FacebookIcon,
@@ -20,8 +22,14 @@ import {
 	PinterestShareButton,
 	PinterestIcon,
 } from "next-share";
+import { absoluteUrl } from "@/lib/utils";
 
-const Share = ({ url }: { url: string }) => {
+const Share = () => {
+	const pathname = usePathname();
+	const url = absoluteUrl(pathname);
+
+	console.log(pathname, url);
+
 	return (
 		<section className="flex flex-col gap-4">
 			<p className="text-sm font-medium uppercase">Share :</p>

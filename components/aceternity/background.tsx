@@ -175,3 +175,12 @@ export const BackgroundGrid = ({
 		</div>
 	);
 };
+
+export const BackgroundGradient = () => {
+	return (
+		<img
+			src="https://jorahhh.github.io/Equalizer-Landing-Page---Responsive/assets/bg-main-desktop.png"
+			className="fixed top-0 left-0"
+		/>
+	);
+};

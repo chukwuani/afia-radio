@@ -145,7 +145,7 @@ export default async function PostPage({ params }: PageProps) {
 				components={components}
 			/>
 
-			<Share url="https://afiaradio.vercel.app" />
+			<Share />
 
 			<Separator className="my-4" />
 

@@ -48,7 +48,7 @@ const nextConfig = {
 		return [
 			{
 				source: "/stream",
-				destination: "http://102.90.8.148:8000/stream",
+				destination: process.env.NEXT_PUBLIC_STREAM_URL,
 			},
 		];
 	},

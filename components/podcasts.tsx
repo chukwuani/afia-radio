@@ -5,10 +5,10 @@ import { Link } from "@/components/ui/link";
 
 const Podcasts = () => {
 	return (
-		<Card className="flex flex-col gap-5 overflow-hidden border-none shadow-none p-6 lg:p-14 lg:py-8">
+		<Card className="flex flex-col gap-5 overflow-hidden border-none bg-transparent shadow-none p-6 lg:p-14 lg:py-8">
 			<section className="flex justify-between items-center gap-10">
 				<CardHeader className="px-0">
-					<CardTitle className="text-[#8B6AE9]">Stream Top Podcasts</CardTitle>
+					<CardTitle className="text-brand">Stream Top Podcasts</CardTitle>
 					<CardDescription>
 						Stream the best podcasts from a collection of insightful, and entertaining podcasts.
 					</CardDescription>
@@ -47,7 +47,7 @@ const Podcasts = () => {
 							<span className="absolute top-0 aspect-square rounded-md size-full bg-black/30 opacity-0 transition-opacity group-hover:opacity-100" />
 						</section>
 
-						<p className="text-base font-bold mt-3 mb-2 leading-none transition-colors group-hover:text-brand underline-offset-2 group-hover:underline">
+						<p className="text-base font-bold mt-3 mb-2 leading-none transition-colors group-hover:text-brand">
 							Sofia Davis
 						</p>
 

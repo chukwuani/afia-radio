@@ -1,35 +1,33 @@
 "use client";
 
 import Image from "next/image";
+import React from "react";
 
+import { useQuery } from "@tanstack/react-query";
+
+import NewsSkeleton from "@/components/skeleton/news-skeleton";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "@/components/ui/link";
+
 import { NewsTypes } from "@/types";
-import { useEffect, useState } from "react";
+import { formatDate } from "@/lib/utils";
 
 const News = () => {
-	const [news, setNews] = useState<NewsTypes[]>([]);
-
-	useEffect(() => {
-		const getNews = async () => {
-			const res = await fetch(
-				`${process.env.NEXT_PUBLIC_APP_URL}/api/news?cursor=""&limit=6`
-			).catch(console.log);
+	const { isPending, isError, data, error } = useQuery<NewsTypes[]>({
+		queryKey: ["news"],
+		queryFn: async () => {
+			const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/news?cursor=""&limit=6`);
 
 			const data = await res?.json();
-			setNews(data.news);
-		};
-
-		void getNews();
-
-		return () => setNews([]);
-	}, []);
+			return data.news;
+		},
+	});
 
 	return (
-		<Card className="flex flex-col gap-5 overflow-hidden border-none shadow-none p-6 lg:p-14 lg:py-8">
+		<Card className="flex flex-col gap-5 overflow-hidden border-none bg-transparent shadow-none p-6 lg:p-14 lg:py-8">
 			<section className="flex justify-between items-center gap-10">
 				<CardHeader className="px-0">
-					<CardTitle className="text-[#DA994D]">Entertainment News</CardTitle>
+					<CardTitle className="text-brand">Entertainment News</CardTitle>
 					<CardDescription>
 						Get the latest buzz on chart-toppers, rising stars, and industry shake-ups in the
 						dynamic world of music
@@ -45,7 +43,15 @@ const News = () => {
 			</section>
 
 			<CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 w-full px-0">
-				{news.map((item, index) => (
+				{isPending && (
+					<React.Fragment>
+						{Array.from({ length: 6 }).map((_, index) => (
+							<NewsSkeleton key={index} />
+						))}
+					</React.Fragment>
+				)}
+
+				{data?.map((item, index) => (
 					<a
 						key={index}
 						title={item.description}
@@ -62,13 +68,15 @@ const News = () => {
 							/>
 
 							<section className="flex flex-col gap-2 w-fit">
-								<p className="text-[15px] font-bold mt-3 mb-2 line-clamp-2 transition-colors group-hover:text-brand underline-offset-2 group-hover:underline">
+								<p className="text-[15px] font-bold mt-3 mb-2 line-clamp-2 transition-colors group-hover:text-brand">
 									{item.title}
 								</p>
 
 								<p className="text-[15px] text-muted-foreground line-clamp-2">{item.description}</p>
 
-								<p className="text-xs text-muted-foreground font-medium">July 4, 2023</p>
+								<p className="text-xs text-muted-foreground font-medium">
+									{formatDate(item._createdAt)}
+								</p>
 							</section>
 						</section>
 					</a>

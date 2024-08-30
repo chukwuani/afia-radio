@@ -14,11 +14,12 @@ const Radio = () => {
 	const updateImageSrc = (index: number) => {
 		return images[index];
 	};
+
 	return (
-		<Card className="flex flex-col gap-5 overflow-hidden border-none shadow-none p-6 lg:p-14 lg:py-8">
+		<Card className="flex flex-col gap-5 overflow-hidden border-none bg-transparent shadow-none p-6 lg:p-14 lg:py-8">
 			<section className="flex justify-between items-center gap-10">
 				<CardHeader className="px-0">
-					<CardTitle className="text-destructive dark:text-red-600">Afia Radio</CardTitle>
+					<CardTitle className="text-brand">Afia Radio</CardTitle>
 					<CardDescription> Live and local, just for you </CardDescription>
 				</CardHeader>
 
@@ -49,7 +50,7 @@ const Radio = () => {
 
 						<p className="text-xs text-muted-foreground font-medium mt-3 mb-2">4:00pm - 9:00pm</p>
 
-						<p className="text-base font-bold mt-3 mb-2 leading-none transition-colors group-hover:text-brand underline-offset-2 group-hover:underline">
+						<p className="text-base font-bold mt-3 mb-2 leading-none transition-colors group-hover:text-brand">
 							The Morning Show
 						</p>
 

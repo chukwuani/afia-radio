@@ -22,16 +22,16 @@ const Presenters = () => {
 	};
 
 	return (
-		<Card className="flex flex-col gap-5 overflow-hidden border-none shadow-none p-6 lg:p-14 lg:py-8">
+		<Card className="flex flex-col gap-5 overflow-hidden border-none bg-transparent shadow-none p-6 lg:p-14 lg:py-8">
 			<section className="flex justify-between items-center gap-10">
 				<CardHeader className="px-0">
-					<CardTitle className="text-[#F78E69]">Presenters</CardTitle>
+					<CardTitle className="text-brand">Presenters</CardTitle>
 					<CardDescription>Meet the people who make up Afia Radio.</CardDescription>
 				</CardHeader>
 			</section>
 
-			<CardContent className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6 lg:gap-8 w-full px-0">
-				{Array.from({ length: 10 }).map((_, index) => (
+			<CardContent className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:gap-8 w-full px-0">
+				{Array.from({ length: 8 }).map((_, index) => (
 					<a
 						key={index}
 						href="/podcasts/1"
@@ -45,7 +45,7 @@ const Presenters = () => {
 							/>
 						</section>
 
-						<p className="text-base font-bold mt-3 mb-2 leading-none transition-colors group-hover:text-brand underline-offset-2 group-hover:underline">
+						<p className="text-base font-bold mt-3 mb-2 leading-none transition-colors group-hover:text-brand">
 							Sofia Davis
 						</p>
 

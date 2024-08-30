@@ -4,9 +4,9 @@ import { Link } from "@/components/ui/link";
 const PodcastsPage = () => {
 	return (
 		<main className="relative flex flex-col gap-6 min-[1400px]:container">
-			<Card className="flex flex-col gap-5 overflow-hidden border-none shadow-none px-6 lg:px-8">
+			<Card className="flex flex-col gap-5 overflow-hidden border-none bg-transparent shadow-none px-6 lg:px-8">
 				<CardHeader className="px-0">
-					<CardTitle>Stream Top Podcasts</CardTitle>
+					<CardTitle className="text-[#8B6AE9]">Stream Top Podcasts</CardTitle>
 					<CardDescription> Stream the best podcasts from your favorite stations </CardDescription>
 				</CardHeader>
 
@@ -27,7 +27,7 @@ const PodcastsPage = () => {
 								<span className="absolute top-0 aspect-square rounded-md size-full bg-black/30 opacity-0 transition-opacity group-hover:opacity-100" />
 							</section>
 
-							<p className="text-sm font-bold mt-3 mb-2 leading-none transition-colors group-hover:text-brand underline-offset-2 group-hover:underline">
+							<p className="text-base font-bold mt-3 mb-3 leading-none transition-colors group-hover:text-brand">
 								Sofia Davis
 							</p>
 							<p className="text-sm text-muted-foreground line-clamp-2">

@@ -7,7 +7,7 @@ import { ModeToggle } from "@/components/layouts/mode-toggle";
 
 export default function Footer() {
 	return (
-		<footer className="w-full bg-[#F6F8F9] border-t-0 border-[hsla(240deg,5.9%,90%,47%)] dark:border-border mt-16">
+		<footer className="w-full bg-[#0f0f11] border-t-0 border-[hsla(240deg,5.9%,90%,47%)] dark:border-border mt-16">
 			<section className="px-8 pt-16 pb-16 min-[1400px]:container">
 				<section
 					id="footer-content"
@@ -25,15 +25,15 @@ export default function Footer() {
 									width={200}
 									height={200}
 									className="w-auto h-auto dark:hidden"
-									src={"/afia-logo.png"}
-									alt="Afia Radio"
-									title="Afia Radio"
+									src={"/images/afia-logo.png"}
+									alt="Afia Radio Home"
+									title="Afia Radio Home"
 								/>
 								<Image
 									width={200}
 									height={200}
 									className="w-auto h-auto hidden dark:flex"
-									src={"/afia-logo-dark.png"}
+									src={"/images/afia-logo-dark.png"}
 									alt="Afia Radio"
 									title="Afia Radio"
 								/>

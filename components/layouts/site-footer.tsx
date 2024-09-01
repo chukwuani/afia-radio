@@ -28,15 +28,7 @@ export default function Footer() {
 							<Image
 								width={200}
 								height={200}
-								className="w-auto h-auto dark:hidden"
-								src={"/images/afia-logo.png"}
-								alt="Afia Radio Home"
-								title="Afia Radio Home"
-							/>
-							<Image
-								width={200}
-								height={200}
-								className="w-auto h-auto hidden dark:flex"
+								className="w-auto h-auto "
 								src={"/images/afia-logo-dark.png"}
 								alt="Afia Radio"
 								title="Afia Radio"

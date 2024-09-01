@@ -35,9 +35,8 @@ export const Icons = {
 			viewBox="0 0 24 24"
 			width="24"
 			height="24"
-			color="#000000"
+			color="#ffffff"
 			fill="none"
-			className="dark:invert"
 			{...props}>
 			<path
 				d="M4 5L20 5"

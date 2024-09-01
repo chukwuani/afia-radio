@@ -34,7 +34,7 @@ const Hero = () => {
 								<span className="sr-only">Home</span>
 							</Link>
 
-							<p className="max-w-[350px] text-6xl md:text-6xl font-bold mt-3 mb-auto leading-none">
+							<p className="max-w-[250px] md:max-w-[350px] text-5xl md:text-6xl font-bold mt-3 mb-auto">
 								Radio, Music, Podcasts, All in One Place
 							</p>
 

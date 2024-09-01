@@ -55,11 +55,7 @@ export function MobileNav() {
 									<Image
 										width={80}
 										height={80}
-										src={
-											resolvedTheme === "light"
-												? "/images/afia-logo.png"
-												: "/images/afia-logo-dark.png"
-										}
+										src={"/images/afia-logo-dark.png"}
 										alt="Afia Radio Home"
 										title="Afia Radio Home"
 									/>

@@ -16,7 +16,7 @@ const Radio = () => {
 	};
 
 	return (
-		<Card className="flex flex-col gap-5 overflow-hidden border-0 border-b bg-transparent shadow-none p-6 lg:p-14 lg:py-8">
+		<Card className="flex flex-col gap-5 overflow-hidden border-0 border-b bg-transparent shadow-none p-6 lg:p-14 lg:py-8 rounded-none">
 			<section className="flex justify-between items-center gap-10">
 				<CardHeader className="px-0">
 					<CardTitle className="text-brand">Afia Radio</CardTitle>

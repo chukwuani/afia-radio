@@ -52,7 +52,7 @@ function CountdownTimer() {
 	const countFromDate = dayjs("2024-09-09T15:00:00").toDate();
 
 	return (
-		<Card className="flex flex-col gap-8 overflow-hidden border-0 border-b bg-transparent shadow-none p-6 lg:p-14 lg:py-8">
+		<Card className="flex flex-col gap-8 overflow-hidden border-0 border-b bg-transparent shadow-none p-6 lg:p-14 lg:py-8 rounded-none">
 			<section className="w-full text-center flex justify-between items-center gap-10">
 				<CardHeader className="p-0 w-full items-center">
 					<CardTitle className="text-brand text-3xl">Anniversary</CardTitle>
@@ -90,7 +90,7 @@ export const DigitUnit = ({
 
 	return (
 		<section className="flex flex-col gap-6 items-center max-md:w-full">
-			<section className="relative w-full max-md:max-w-[7rem] md:w-[10rem] aspect-square rounded-md shadow-[0px_10px_0px_0px_rgba(0,0,0,1)] bg-muted text-[1.7rem] sm:text-[2.25rem] md:text-[4.5rem] fcc__digit_block flex items-center justify-center text-center">
+			<section className="relative w-full max-md:max-w-[7rem] md:w-[10rem] aspect-square rounded-md shadow-[0px_10px_0px_0px_rgba(15,15,17,1)] bg-muted text-[1.7rem] sm:text-[2.25rem] md:text-[4.5rem] fcc__digit_block flex items-center justify-center text-center">
 				<p>{num?.toString().padStart(2, "0")}</p>
 			</section>
 

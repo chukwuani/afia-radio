@@ -18,7 +18,7 @@ const PlayList = () => {
 		"https://is1-ssl.mzstatic.com/image/thumb/Features112/v4/5a/7b/d3/5a7bd3a4-27dd-f3e3-98a7-cfd677cca9ff/cf6c857b-fc8b-4073-bd16-f29902ce164f.png/316x316SC.DN01.webp?l=en-GB",
 	];
 	return (
-		<Card className="flex flex-col gap-5 overflow-hidden border-none bg-[#0f0f11] shadow-none p-6 lg:p-14 lg:py-8">
+		<Card className="flex flex-col gap-5 overflow-hidden border-none bg-[#0f0f11] shadow-none p-6 lg:p-14 lg:py-8 rounded-none">
 			<CardContent className="flex flex-col gap-10 w-full px-0">
 				<CardHeader className="px-0">
 					<CardTitle className="text-brand">Weekly Top 10</CardTitle>

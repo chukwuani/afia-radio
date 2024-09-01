@@ -93,31 +93,6 @@ export const siteConfig = {
 			],
 		},
 		{
-			title: "Social",
-			items: [
-				{
-					title: "X",
-					href: links.x,
-					external: true,
-				},
-				{
-					title: "Facebook",
-					href: links.facebook,
-					external: true,
-				},
-				{
-					title: "Instagram",
-					href: links.instagram,
-					external: true,
-				},
-				{
-					title: "Youtube",
-					href: links.youtube,
-					external: true,
-				},
-			],
-		},
-		{
 			title: "Contact",
 			items: [
 				{

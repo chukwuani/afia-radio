@@ -15,15 +15,9 @@ export default function Home() {
 
 			<Radio />
 
-			<Separator />
-
 			<Countdown />
 
-			<Separator />
-
 			<Podcasts />
-
-			<Separator />
 
 			<Advert />
 
@@ -32,8 +26,6 @@ export default function Home() {
 			<Music />
 
 			<PlayList />
-
-			<Separator />
 
 			<News />
 		</main>

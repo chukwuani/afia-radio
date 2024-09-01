@@ -1,17 +1,21 @@
 "use client";
 
 import Image from "next/image";
+import React, { useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { IconProps } from "./icons";
-import { useEffect, useRef, useState } from "react";
-import { PauseIcon, Volume1Icon, VolumeXIcon } from "lucide-react";
-import { useLivePlayer } from "@/store/useLivePlayer";
-
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { Slider } from "./ui/slider";
+import { Slider } from "@/components/ui/slider";
 
-const AudioPlayer = () => {
+import { PauseIcon, Volume1Icon, VolumeXIcon } from "lucide-react";
+
+import { useLivePlayer } from "@/store/useLivePlayer";
+import { IconProps } from "./icons";
+import { useMediaQuery } from "@/hooks/use-media-query";
+
+const LiveAudioPlayer = () => {
+	const isDesktop = useMediaQuery("(min-width: 1024px)");
+
 	const [volume, setVolume] = useState([100]);
 
 	const { isOpen, onCollapse, isPlaying, onPause, onPlay } = useLivePlayer((state) => state);
@@ -56,22 +60,20 @@ const AudioPlayer = () => {
 	}, [volume]);
 
 	const togglePlayPause = () => {
-		if (audioRef.current) {
-			if (isPlaying) {
-				audioRef.current.pause();
-				onPause();
-			} else {
-				audioRef.current.play();
-				onPlay();
-			}
+		if (isPlaying) {
+			onPause();
+		} else {
+			onPlay();
 		}
 	};
 
 	const toggleMute = () => {
-		if (volume[0] === 0) {
-			setVolume([100]);
-		} else {
-			setVolume([0]);
+		if (isDesktop) {
+			if (volume[0] === 0) {
+				setVolume([100]);
+			} else {
+				setVolume([0]);
+			}
 		}
 	};
 
@@ -86,39 +88,23 @@ const AudioPlayer = () => {
 	};
 
 	return (
-		<>
+		<React.Fragment>
 			{isOpen && (
-				<div className="fixed max-md:w-full bottom-0 md:bottom-8 md:right-10 md:rounded-lg p-3 border shadow-lg mt-auto mx-auto flex flex-col items-center px-3 bg-background z-10">
+				<div className="fixed w-full md:max-w-sm bottom-0 md:bottom-8 md:right-10 md:rounded-lg p-3 border shadow-lg mt-auto mx-auto flex flex-col items-center px-3 bg-background z-10">
 					<div className="flex items-center w-full justify-between gap-10">
 						<div className="flex items-center gap-2">
 							<Image
 								src="https://images.audacy2-prod.ext.audacy.com/9d337f80-58d1-4891-8a76-d327c98d0c82.png?auto=webp&width=125 1x, https://images.audacy2-prod.ext.audacy.com/9d337f80-58d1-4891-8a76-d327c98d0c82.png?auto=webp&width=250 2x"
-								alt="Album Cover"
-								className="rounded-md"
+								alt="Show Cover"
+								className="rounded-md object-cover aspect-square"
 								width="40"
 								height="40"
-								style={{ aspectRatio: "40/40", objectFit: "cover" }}
 							/>
 
 							<div>
 								<h3 className="text-sm font-medium">The Breakfast Show</h3>
 								<p className="text-muted-foreground text-sm">with Sofia</p>
 							</div>
-						</div>
-
-						<div
-							id="playing2"
-							className="playing !hidden">
-							<div className="rect1"></div>
-							<div className="rect2"></div>
-							<div className="rect3"></div>
-							<div className="rect4"></div>
-							<div className="rect5"></div>
-							<div className="rect1"></div>
-							<div className="rect2"></div>
-							<div className="rect3"></div>
-							<div className="rect4"></div>
-							<div className="rect5"></div>
 						</div>
 
 						<div className="flex items-center gap-2">
@@ -171,30 +157,11 @@ const AudioPlayer = () => {
 					</div>
 				</div>
 			)}
-		</>
+		</React.Fragment>
 	);
 };
 
-export default AudioPlayer;
-
-function ForwardIcon(props: IconProps) {
-	return (
-		<svg
-			{...props}
-			xmlns="http://www.w3.org/2000/svg"
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			strokeWidth="2"
-			strokeLinecap="round"
-			strokeLinejoin="round">
-			<polyline points="15 17 20 12 15 7" />
-			<path d="M4 18v-2a4 4 0 0 1 4-4h12" />
-		</svg>
-	);
-}
+export default LiveAudioPlayer;
 
 function PlayIcon(props: IconProps) {
 	return (
@@ -210,25 +177,6 @@ function PlayIcon(props: IconProps) {
 			strokeLinecap="round"
 			strokeLinejoin="round">
 			<polygon points="6 3 20 12 6 21 6 3" />
-		</svg>
-	);
-}
-
-function RewindIcon(props: IconProps) {
-	return (
-		<svg
-			{...props}
-			xmlns="http://www.w3.org/2000/svg"
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			strokeWidth="2"
-			strokeLinecap="round"
-			strokeLinejoin="round">
-			<polygon points="11 19 2 12 11 5 11 19" />
-			<polygon points="22 19 13 12 22 5 22 19" />
 		</svg>
 	);
 }

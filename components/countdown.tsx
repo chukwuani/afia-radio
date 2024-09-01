@@ -52,7 +52,7 @@ function CountdownTimer() {
 	const countFromDate = dayjs("2024-09-09T15:00:00").toDate();
 
 	return (
-		<Card className="flex flex-col gap-8 overflow-hidden border-none bg-transparent shadow-none p-6 lg:p-14 lg:py-8">
+		<Card className="flex flex-col gap-8 overflow-hidden border-0 border-b bg-transparent shadow-none p-6 lg:p-14 lg:py-8">
 			<section className="w-full text-center flex justify-between items-center gap-10">
 				<CardHeader className="p-0 w-full items-center">
 					<CardTitle className="text-brand text-3xl">Anniversary</CardTitle>

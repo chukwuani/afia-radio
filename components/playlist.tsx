@@ -1,7 +1,8 @@
-import { Ellipsis, EllipsisVertical } from "lucide-react";
+import { EllipsisVertical } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { cn } from "@/lib/utils";
+import { Icons } from "./icons";
 
 const PlayList = () => {
 	const images = [
@@ -17,26 +18,14 @@ const PlayList = () => {
 		"https://is1-ssl.mzstatic.com/image/thumb/Features112/v4/5a/7b/d3/5a7bd3a4-27dd-f3e3-98a7-cfd677cca9ff/cf6c857b-fc8b-4073-bd16-f29902ce164f.png/316x316SC.DN01.webp?l=en-GB",
 	];
 	return (
-		<Card className="flex flex-col gap-5 overflow-hidden border-none bg-transparent shadow-none p-6 lg:p-14 lg:py-8">
+		<Card className="flex flex-col gap-5 overflow-hidden border-none bg-[#0f0f11] shadow-none p-6 lg:p-14 lg:py-8">
 			<CardContent className="flex flex-col gap-10 w-full px-0">
-				<section className="flex flex-col items-center max-md:text-center md:flex-row md:items-end gap-4">
-					{/* <img
-						alt="Product image"
-						className="rounded-md object-cover bg-black/30 size-[200px] aspect-square"
-						height="300"
-						src={
-							"https://images.audacy.com/cms/music/motleycrue-contesting-editorial-1920x1080-2.jpg/motleycrue-contesting-editorial-1920x1080-2-wide.jpg"
-						}
-					/> */}
-
-					<section className="flex flex-col">
-						<h1 className="text-4xl font-bold text-brand">Weekly Top 10</h1>
-
-						<p className="text-muted-foreground text-base">
-							Check out this week&apos;s ranking of the most popular music.
-						</p>
-					</section>
-				</section>
+				<CardHeader className="px-0">
+					<CardTitle className="text-brand">Weekly Top 10</CardTitle>
+					<CardDescription>
+						Check out this week&apos;s ranking of the most popular music.
+					</CardDescription>
+				</CardHeader>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-6 gap-x-10 w-full mx-auto">
 					{Array.from({ length: 10 }).map((_, index) => (
@@ -65,12 +54,12 @@ const PlayList = () => {
 							<Button
 								size="icon"
 								variant="ghost">
-								<PlayIcon className="w-4 h-4" />
+								<Icons.playIcon className="w-5 h-5" />
 							</Button>
 							<Button
 								size="icon"
 								variant="ghost">
-								<EllipsisVertical className="w-4 h-4" />
+								<EllipsisVertical className="w-5 h-5" />
 							</Button>
 						</div>
 					))}
@@ -81,21 +70,3 @@ const PlayList = () => {
 };
 
 export default PlayList;
-
-function PlayIcon(props) {
-	return (
-		<svg
-			{...props}
-			xmlns="http://www.w3.org/2000/svg"
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			strokeWidth="2"
-			strokeLinecap="round"
-			strokeLinejoin="round">
-			<polygon points="6 3 20 12 6 21 6 3" />
-		</svg>
-	);
-}

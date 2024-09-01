@@ -5,7 +5,7 @@ import { Link } from "@/components/ui/link";
 
 const Music = () => {
 	return (
-		<Card className="flex flex-col gap-5 overflow-hidden border-none bg-[#0f0f11] shadow-none p-6 lg:p-14 lg:py-8">
+		<Card className="flex flex-col gap-5 overflow-hidden border-none shadow-none p-6 lg:p-14 lg:py-8">
 			<section className="flex justify-between items-center gap-10">
 				<CardHeader className="px-0">
 					<CardTitle className="text-brand">Music Mixes</CardTitle>

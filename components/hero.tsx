@@ -21,7 +21,7 @@ const Hero = () => {
 						<section className="flex flex-col max-md:items-center max-md:text-center md:w-1/2 gap-6 relative">
 							<Link
 								href="/"
-								className="flex items-center">
+								className="flex items-center w-fit">
 								<Image
 									width={80}
 									height={80}
@@ -48,7 +48,7 @@ const Hero = () => {
 									onExpand();
 									onPlay();
 								}}
-								className="font-bold w-fit bg-brand rounded-full p-7 text-foreground">
+								className="font-bold w-fit bg-brand hover:bg-brand/90 rounded-full p-7 text-foreground">
 								<Radio className="mr-2" />
 								Listen live
 							</Button>
@@ -56,7 +56,7 @@ const Hero = () => {
 
 						<Image
 							alt="Product image"
-							className="rounded-lg object-cover md:w-1/2 h-[calc(100dvh-150px)]"
+							className="rounded-lg object-cover md:w-1/2 aspect-square"
 							height={900}
 							width={900}
 							quality={100}

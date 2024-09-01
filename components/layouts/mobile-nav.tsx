@@ -29,26 +29,8 @@ export function MobileNav() {
 	if (isDesktop) return null;
 
 	return (
-		<section className="flex lg:hidden gap-3 items-center justify-between w-full">
-			<Image
-				src="/images/afia-indent.png"
-				alt="Afia Radio Home"
-				width={30}
-				height={30}
-			/>
-
+		<section className="flex lg:hidden gap-3 items-center justify-between">
 			<section className="flex items-center">
-				<Button
-					variant="outline"
-					className="relative rounded-full ml-auto size-9 p-0 xl:h-10 xl:w-60 xl:justify-start xl:px-3 xl:py-2">
-					<SearchIcon
-						className="size-4 xl:mr-2 text-muted-foreground"
-						aria-hidden="true"
-					/>
-					<span className="hidden xl:inline-flex text-muted-foreground">Search...</span>
-					<span className="sr-only">Search products</span>
-				</Button>
-
 				<Sheet
 					open={open}
 					onOpenChange={setOpen}>
@@ -64,46 +46,70 @@ export function MobileNav() {
 
 					<SheetContent
 						side="right"
-						className="pl-1 pr-0 pt-9">
-						<div className="w-fit px-7">
-							<Link
-								href="/"
-								className="flex items-center space-x-2">
-								<Image
-									width={100}
-									height={100}
-									className="w-[100px]"
-									src={
-										resolvedTheme === "light"
-											? "/images/afia-logo.png"
-											: "/images/afia-logo-dark.png"
-									}
-									alt="Afia Radio Home"
-									title="Afia Radio Home"
-								/>
+						className="pl-6 pr-7 pt-9">
+						<section className="w-full flex flex-col h-full">
+							<section className="flex flex-col">
+								<Link
+									href="/"
+									className="flex items-center mb-3">
+									<Image
+										width={80}
+										height={80}
+										src={
+											resolvedTheme === "light"
+												? "/images/afia-logo.png"
+												: "/images/afia-logo-dark.png"
+										}
+										alt="Afia Radio Home"
+										title="Afia Radio Home"
+									/>
 
-								<span className="sr-only">Home</span>
-							</Link>
-						</div>
+									<span className="sr-only">Home</span>
+								</Link>
 
-						<ScrollArea className="my-4 h-[calc(100vh-8rem)] pl-6">
-							<div className="pl-1 pr-7">
-								<Accordion
-									type="multiple"
-									className="w-full">
-									{siteConfig.mainNav.map((item, index) => (
-										<MobileLink
-											key={index}
-											href={item.href}
-											pathname={pathname}
-											setOpen={setOpen}
-											disabled={item.disabled}>
-											{item.title}
-										</MobileLink>
-									))}
-								</Accordion>
+								{siteConfig.mainNav.map((item, index) => (
+									<MobileLink
+										key={index}
+										href={item.href}
+										pathname={pathname}
+										setOpen={setOpen}
+										disabled={item.disabled}>
+										{item.title}
+									</MobileLink>
+								))}
+							</section>
+
+							<div className="flex flex-col mt-auto">
+								<div className="flex flex-col mb-[1.25rem] gap-4 text-white text-[1.1em]">
+									<a
+										target={"_blank"}
+										rel={"noreferrer"}
+										href={siteConfig.links.x}>
+										X
+									</a>
+									<a
+										target={"_blank"}
+										rel={"noreferrer"}
+										href={siteConfig.links.instagram}>
+										Instagram
+									</a>
+									<a
+										target={"_blank"}
+										rel={"noreferrer"}
+										href={siteConfig.links.facebook}>
+										Facebook
+									</a>
+									<a
+										target={"_blank"}
+										rel={"noreferrer"}
+										href={siteConfig.links.youtube}>
+										Youtube
+									</a>
+								</div>
+
+								<p className="text-white text-[1.1em]">&#169; 2024 Afia Network.</p>
 							</div>
-						</ScrollArea>
+						</section>
 					</SheetContent>
 				</Sheet>
 			</section>
@@ -131,7 +137,7 @@ function MobileLink({
 		<Link
 			href={href}
 			className={cn(
-				"text-foreground/60 transition-colors hover:text-foreground text-sm capitalize py-4 border-b flex items-center gap-2",
+				"text-white transition-colors hover:text-foreground text-[1.1em] leading-tight capitalize py-4",
 				href === pathname && "text-brand hover:text-brand font-bold",
 				disabled && "pointer-events-none hover:no-underline opacity-60",
 				className

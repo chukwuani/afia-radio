@@ -10,7 +10,7 @@ import Header from "@/components/layouts/site-header";
 import Footer from "@/components/layouts/site-footer";
 
 import { siteConfig } from "@/siteConfig";
-import AudioPlayer from "@/components/audio-player";
+import LiveAudioPlayer from "@/components/live-audio-player";
 
 import { BackgroundGradient } from "@/components/aceternity/background";
 
@@ -35,7 +35,7 @@ export default function RootLayout({
 						enableSystem
 						disableTransitionOnChange>
 						<Header />
-						<AudioPlayer />
+						<LiveAudioPlayer />
 
 						{children}
 						<Footer />

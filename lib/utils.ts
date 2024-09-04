@@ -27,3 +27,17 @@ export function formatDate(date: Date | string | number, options: Intl.DateTimeF
 		...options,
 	}).format(new Date(date));
 }
+
+export function formatDuration(minutes: number): string {
+	if (minutes <= 60) {
+		return `${minutes} min${minutes !== 1 ? "s" : ""}`;
+	} else {
+		const hours = Math.floor(minutes / 60);
+		const remainingMinutes = minutes % 60;
+		let result = `${hours} hour${hours !== 1 ? "s" : ""}`;
+		if (remainingMinutes > 0) {
+			result += ` ${remainingMinutes} min${remainingMinutes !== 1 ? "s" : ""}`;
+		}
+		return result;
+	}
+}

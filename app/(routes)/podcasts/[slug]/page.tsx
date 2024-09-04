@@ -1,11 +1,11 @@
-"use client";
-
-import Image from "next/image";
+import { Metadata } from "next";
 
 import { Separator } from "@/components/ui/separator";
 import { Shell } from "@/components/layouts/shell";
 import { Icons } from "@/components/icons";
-import { Button } from "@/components/ui/button";
+
+import { getPodcastById } from "@/lib/actions/podcast";
+import { absoluteUrl, formatDate, formatDuration } from "@/lib/utils";
 
 interface PageProps {
 	params: {
@@ -13,83 +13,61 @@ interface PageProps {
 	};
 }
 
-// export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
-// 	const post = await getPostFromParams(params);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+	const podcast = await getPodcastById(params.slug);
 
-// 	if (!post) {
-// 		return {};
-// 	}
+	if (!podcast) {
+		return {};
+	}
 
-// 	const url = env.NEXT_PUBLIC_APP_URL;
+	const url = process.env.NEXT_PUBLIC_APP_URL!;
 
-// 	const ogUrl = new URL(`${url}/api/og`);
-// 	ogUrl.searchParams.set("title", post.title);
-// 	ogUrl.searchParams.set("type", "Blog Post");
-// 	ogUrl.searchParams.set("mode", "dark");
+	return {
+		metadataBase: new URL(url),
+		title: podcast.title,
+		description: podcast.description,
+		authors: { name: podcast.host },
+		openGraph: {
+			title: podcast.title,
+			description: podcast.description,
+			url: absoluteUrl(`/podcasts/${params.slug}`),
+			images: [podcast.coverArt],
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: podcast.title,
+			description: podcast.description,
+			images: [podcast.coverArt],
+		},
+	};
+}
 
-// 	return {
-// 		metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-// 		title: post.title,
-// 		description: post.description,
-// 		authors: post.authors.map((author) => ({
-// 			name: author,
-// 		})),
-// 		openGraph: {
-// 			title: post.title,
-// 			description: post.description,
-// 			type: "article",
-// 			url: absoluteUrl(post.slug),
-// 			images: [
-// 				{
-// 					url: ogUrl.toString(),
-// 					width: 1200,
-// 					height: 630,
-// 					alt: post.title,
-// 				},
-// 			],
-// 		},
-// 		twitter: {
-// 			card: "summary_large_image",
-// 			title: post.title,
-// 			description: post.description,
-// 			images: [ogUrl.toString()],
-// 		},
-// 	};
-// }
+export default async function PostPage({ params }: PageProps) {
+	const podcast = await getPodcastById(params.slug);
 
-export default function PostPage({ params }: PageProps) {
 	return (
 		<Shell
 			as="article"
 			variant="content">
 			<section className="flex flex-col gap-6 max-md:text-center max-md:items-center">
 				<section className="flex max-md:flex-col items-center gap-4">
-					<Image
-						src="https://images.audacy2-prod.ext.audacy.com/1c59b12e-b88f-4ae3-bde4-f45ee00018ee.jpg"
-						alt=""
+					<img
+						src={podcast?.coverArt}
+						alt={podcast?.title}
 						width={200}
 						height={200}
-						className="size-[150px] md:size-[200px] rounded-md aspect-square"
+						className="size-[150px] md:size-[200px] rounded-md object-cover aspect-square"
 					/>
 
-					<section className="flex flex-col gap-10">
-						<h1 className="text-4xl font-bold">Do You Work Here?</h1>
+					<section className="flex flex-col gap-2">
+						<h1 className="text-4xl font-bold">{podcast?.title}</h1>
+
+						<p className="text-muted-foreground text-sm mb-8">with {podcast?.host}</p>
 
 						<p className="text-muted-foreground text-[15px] md:text-base !leading-7 line-clamp-4">
-							What do you do? And how do you do it? Most of us spend a lot of time at work.
-							Sometimes our jobs define us, and Mike Simpson wants to learn about yours! From
-							paleontologist to Oscar Mayer Wienermobile driver.
+							{podcast?.description}
 						</p>
 					</section>
-				</section>
-
-				<section className="flex gap-3">
-					<Button className="rounded-full py-6 px-10">Follow</Button>
-					<Button
-						className="rounded-full py-6 px-10"
-						variant={"outline"}>
-						Share
-					</Button>
 				</section>
 			</section>
 
@@ -99,18 +77,18 @@ export default function PostPage({ params }: PageProps) {
 				<p className="text-lg font-bold">Episodes</p>
 
 				<section className="flex flex-col gap-6">
-					{Array.from({ length: 5 }).map((_, index) => (
+					{podcast?.episodes.map((item, index) => (
 						<section
 							key={index}
 							className="flex flex-col gap-4 border-b py-4 last-of-type:border-b-0">
 							<section className="flex items-center gap-4">
 								<section className="relative cursor-pointer min-w-[90px] aspect-square">
-									<Image
-										src="https://images.audacy2-prod.ext.audacy.com/1c59b12e-b88f-4ae3-bde4-f45ee00018ee.jpg"
-										alt=""
+									<img
+										src={podcast.coverArt}
+										alt={item.title}
 										width={90}
 										height={90}
-										className="size-[90px] rounded-md aspect-square"
+										className="size-[90px] rounded-md aspect-square object-cover"
 									/>
 
 									<section className="bg-black p-2 flex items-center justify-center rounded-full absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-10">
@@ -122,21 +100,18 @@ export default function PostPage({ params }: PageProps) {
 
 								<section className="flex flex-col">
 									<div className="flex items-center space-x-2 text-xs text-muted-foreground">
-										<p className="text-xs text-muted-foreground">Aug 7, 2024</p>
+										<p className="text-xs text-muted-foreground">{formatDate(item.releaseDate)}</p>
 										<div>•</div>
 
-										<div>12min</div>
+										<div>{formatDuration(item.duration)}</div>
 									</div>
 
-									<h1 className="text-[15px] leading-7">
-										It&apos;s time to shave down some horse teeth. Also, house cows!
-									</h1>
+									<h1 className="text-[15px] leading-7">{item.title}</h1>
 								</section>
 							</section>
 
 							<p className="text-muted-foreground text-[15px] leading-7 line-clamp-3">
-								We&apos;re headed to a ranch today to meet up with Dr. Katie Nenn. She&apos;s a
-								large animal veterinarian and runs NENN Equine.
+								{item.description}
 							</p>
 						</section>
 					))}

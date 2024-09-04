@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 
@@ -7,14 +8,14 @@ import { useQuery } from "@tanstack/react-query";
 
 import NewsSkeleton from "@/components/skeleton/news-skeleton";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Link } from "@/components/ui/link";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { buttonVariants } from "./ui/button";
 
 import { NewsTypes } from "@/types";
-import { formatDate } from "@/lib/utils";
-import { AspectRatio } from "./ui/aspect-ratio";
+import { cn, formatDate } from "@/lib/utils";
 
 const News = () => {
-	const { isPending, isError, data, error } = useQuery<NewsTypes[]>({
+	const { isPending, isError, data } = useQuery<NewsTypes[]>({
 		queryKey: ["news"],
 		queryFn: async () => {
 			const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/news?cursor=""&limit=4`);
@@ -37,23 +38,30 @@ const News = () => {
 
 				<Link
 					href="/news"
-					variant="outline"
-					className="hidden md:flex rounded-full">
+					className={cn(buttonVariants({ variant: "outline" }), "hidden md:flex rounded-full")}>
 					View All
 				</Link>
 			</section>
 
 			<CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full px-0">
+				{isError && (
+					<React.Fragment>
+						{Array.from({ length: 4 }).map((_, index) => (
+							<NewsSkeleton key={index} />
+						))}
+					</React.Fragment>
+				)}
+
 				{isPending && (
 					<React.Fragment>
-						{Array.from({ length: 6 }).map((_, index) => (
+						{Array.from({ length: 4 }).map((_, index) => (
 							<NewsSkeleton key={index} />
 						))}
 					</React.Fragment>
 				)}
 
 				{data?.map((item, index) => (
-					<a
+					<Link
 						key={index}
 						title={item.description}
 						href={`/news/${item.slug}`}
@@ -64,6 +72,7 @@ const News = () => {
 									src={item.mainImage}
 									alt={item.altText}
 									fill
+									sizes="100vw"
 									className="rounded-md border bg-muted object-cover"
 									priority
 								/>
@@ -81,15 +90,16 @@ const News = () => {
 								<p className="text-xs text-muted-foreground">{formatDate(item._createdAt)}</p>
 							</section>
 						</section>
-					</a>
+					</Link>
 				))}
 			</CardContent>
 
 			<Link
 				href="/news"
-				size="lg"
-				variant="outline"
-				className="flex md:hidden mx-auto rounded-full">
+				className={cn(
+					buttonVariants({ variant: "outline", size: "lg" }),
+					"flex md:hidden mx-auto rounded-full"
+				)}>
 				View All
 			</Link>
 		</Card>

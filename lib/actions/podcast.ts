@@ -9,3 +9,16 @@ export const getPodcasts = async () => {
 
 	return podcasts;
 };
+
+export const getPodcastById = async (id: string) => {
+	const podcast = await db.podcast.findUnique({
+		where: {
+			id,
+		},
+		include: {
+			episodes: true,
+		},
+	});
+
+	return podcast;
+};

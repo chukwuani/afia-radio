@@ -11,23 +11,29 @@ import Advert from "@/components/layouts/advert";
 export default function Home() {
 	return (
 		<main className="relative flex flex-col min-[1400px]:container">
-			<Hero />
+			{process.env.NEXT_PUBLIC_NODE_ENV === "development" ? (
+				<>
+					<Hero />
 
-			<Radio />
+					<Radio />
 
-			<Countdown />
+					<Podcasts />
 
-			<Podcasts />
+					<Advert />
 
-			<Advert />
+					<Separator />
 
-			<Separator />
+					<Music />
 
-			<Music />
+					<PlayList />
 
-			<PlayList />
-
-			<News />
+					<News />
+				</>
+			) : (
+				<section className="w-dvw h-dvh flex items-center justify-center">
+					<Countdown />
+				</section>
+			)}
 		</main>
 	);
 }

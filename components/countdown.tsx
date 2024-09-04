@@ -52,11 +52,11 @@ function CountdownTimer() {
 	const countFromDate = dayjs("2024-09-09T15:00:00").toDate();
 
 	return (
-		<Card className="flex flex-col gap-8 overflow-hidden border-0 border-b bg-transparent shadow-none p-6 lg:p-14 lg:py-8 rounded-none">
+		<Card className="flex flex-col gap-8 overflow-hidden border-0 bg-transparent shadow-none p-6 lg:p-14 lg:py-8 rounded-none">
 			<section className="w-full text-center flex justify-between items-center gap-10">
-				<CardHeader className="p-0 w-full items-center">
-					<CardTitle className="text-brand text-3xl">Anniversary</CardTitle>
-					<CardDescription className="text-sm max-w-[400px]">
+				<CardHeader className="p-0 w-full items-center gap-3">
+					<CardTitle className="text-brand text-5xl">Launch Countdown</CardTitle>
+					<CardDescription className="text-base max-w-[500px]">
 						Afia Radio turns one! One year of great radio, and we&apos;re just getting started. Tune
 						in now - let&apos;s celebrate together!
 					</CardDescription>

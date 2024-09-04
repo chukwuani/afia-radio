@@ -11,12 +11,13 @@ import { Link } from "@/components/ui/link";
 
 import { NewsTypes } from "@/types";
 import { formatDate } from "@/lib/utils";
+import { AspectRatio } from "./ui/aspect-ratio";
 
 const News = () => {
 	const { isPending, isError, data, error } = useQuery<NewsTypes[]>({
 		queryKey: ["news"],
 		queryFn: async () => {
-			const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/news?cursor=""&limit=6`);
+			const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/news?cursor=""&limit=4`);
 
 			const data = await res?.json();
 			return data.news;
@@ -42,7 +43,7 @@ const News = () => {
 				</Link>
 			</section>
 
-			<CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 w-full px-0">
+			<CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full px-0">
 				{isPending && (
 					<React.Fragment>
 						{Array.from({ length: 6 }).map((_, index) => (
@@ -57,26 +58,27 @@ const News = () => {
 						title={item.description}
 						href={`/news/${item.slug}`}
 						className="group cols-span-1 gap-2 w-full">
-						<section className="flex items-end gap-4">
-							<Image
-								alt={item.altText}
-								className="w-full max-w-[120px] aspect-square rounded-md object-cover"
-								width="200"
-								height="200"
-								quality={100}
-								src={item.mainImage}
-							/>
+						<section className="flex flex-col items-end gap-4">
+							<AspectRatio ratio={14 / 9}>
+								<Image
+									src={item.mainImage}
+									alt={item.altText}
+									fill
+									className="rounded-md border bg-muted object-cover"
+									priority
+								/>
+							</AspectRatio>
 
 							<section className="flex flex-col gap-2 w-fit">
-								<p className="text-[15px] font-bold mt-3 mb-2 line-clamp-2 transition-colors group-hover:text-brand">
+								<p className="text-sm font-bold mt-3 mb-2 line-clamp-2 transition-colors group-hover:text-brand">
 									{item.title}
 								</p>
 
-								<p className="text-[15px] text-muted-foreground line-clamp-2">{item.description}</p>
-
-								<p className="text-xs text-muted-foreground font-medium">
-									{formatDate(item._createdAt)}
+								<p className="text-sm leading-[1.7rem] text-muted-foreground line-clamp-2">
+									{item.description}
 								</p>
+
+								<p className="text-xs text-muted-foreground">{formatDate(item._createdAt)}</p>
 							</section>
 						</section>
 					</a>

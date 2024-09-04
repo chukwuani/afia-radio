@@ -1,12 +1,14 @@
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Link } from "@/components/ui/link";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const PodcastsPage = () => {
 	return (
 		<main className="relative flex flex-col gap-6 min-[1400px]:container">
-			<Card className="flex flex-col gap-5 overflow-hidden border-none bg-transparent shadow-none px-6 lg:px-8">
+			<Card className="flex flex-col gap-5 overflow-hidden border-none bg-transparent shadow-none p-6 lg:p-8">
 				<CardHeader className="px-0">
-					<CardTitle className="text-[#8B6AE9]">Stream Top Podcasts</CardTitle>
+					<CardTitle className="text-brand">Top Podcasts</CardTitle>
 					<CardDescription> Stream the best podcasts from your favorite stations </CardDescription>
 				</CardHeader>
 
@@ -38,10 +40,11 @@ const PodcastsPage = () => {
 				</CardContent>
 
 				<Link
-					variant="outline"
-					size="lg"
 					href="/podcasts"
-					className="flex mx-auto rounded-full">
+					className={cn(
+						buttonVariants({ variant: "outline", size: "lg" }),
+						"flex mx-auto rounded-full"
+					)}>
 					Load More
 				</Link>
 			</Card>

@@ -76,26 +76,30 @@ export function MobileNav() {
 							</section>
 
 							<div className="flex flex-col mt-auto">
-								<div className="flex flex-col mb-[1.25rem] gap-4 text-white text-[1.1em]">
+								<div className="flex flex-col mb-[1.25rem] gap-4 text-[1.1em]">
 									<a
+										className="text-foreground/60 hover:text-foreground"
 										target={"_blank"}
 										rel={"noreferrer"}
 										href={siteConfig.links.x}>
 										X
 									</a>
 									<a
+										className="text-foreground/60 hover:text-foreground"
 										target={"_blank"}
 										rel={"noreferrer"}
 										href={siteConfig.links.instagram}>
 										Instagram
 									</a>
 									<a
+										className="text-foreground/60 hover:text-foreground"
 										target={"_blank"}
 										rel={"noreferrer"}
 										href={siteConfig.links.facebook}>
 										Facebook
 									</a>
 									<a
+										className="text-foreground/60 hover:text-foreground"
 										target={"_blank"}
 										rel={"noreferrer"}
 										href={siteConfig.links.youtube}>
@@ -103,7 +107,7 @@ export function MobileNav() {
 									</a>
 								</div>
 
-								<p className="text-white text-[1.1em]">&#169; 2024 Afia Network.</p>
+								<p className="text-[1.1em] text-foreground/60">&#169; 2024 Afia Network.</p>
 							</div>
 						</section>
 					</SheetContent>
@@ -133,7 +137,7 @@ function MobileLink({
 		<Link
 			href={href}
 			className={cn(
-				"text-white transition-colors hover:text-foreground text-[1.1em] leading-tight capitalize py-4",
+				"text-foreground/60 transition-colors hover:text-foreground text-[1.1em] leading-tight capitalize py-4",
 				href === pathname && "text-brand hover:text-brand font-bold",
 				disabled && "pointer-events-none hover:no-underline opacity-60",
 				className

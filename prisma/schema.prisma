@@ -12,7 +12,8 @@ model Show {
     title       String
     host        String
     description String
-    duration    Int // in minutes
+    coverArt    String
+    duration    Int
     category    String
     tags        String[]
     schedule    Schedule[]
@@ -34,6 +35,7 @@ model Podcast {
     title       String
     host        String
     description String
+    coverArt    String
     category    String
     tags        String[]
     episodes    PodcastEpisode[]
@@ -56,6 +58,7 @@ model MusicPlaylist {
     id          String   @id @default(auto()) @map("_id") @db.ObjectId
     name        String
     description String
+    coverArt    String
     curator     String
     songs       Song[]   @relation(fields: [songIds], references: [id])
     songIds     String[] @db.ObjectId
@@ -67,22 +70,12 @@ model Song {
     id          String          @id @default(auto()) @map("_id") @db.ObjectId
     title       String
     artist      String
+    coverArt    String
     album       String?
     duration    Int // in seconds
     audioUrl    String
     playlists   MusicPlaylist[] @relation(fields: [playlistIds], references: [id])
     playlistIds String[]        @db.ObjectId
-}
-
-model NewsArticle {
-    id          String   @id @default(auto()) @map("_id") @db.ObjectId
-    title       String
-    content     String
-    author      String
-    category    String
-    tags        String[]
-    publishDate DateTime
-    updatedAt   DateTime @updatedAt
 }
 
 enum Day {

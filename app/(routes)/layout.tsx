@@ -31,14 +31,14 @@ export default function RootLayout({
 				<QueryProvider>
 					<ThemeProvider
 						attribute="class"
-						defaultTheme="light"
+						defaultTheme="dark"
 						enableSystem
 						disableTransitionOnChange>
-						<Header />
+						{process.env.NEXT_PUBLIC_NODE_ENV === "development" && <Header />}
 						<LiveAudioPlayer />
 
 						{children}
-						<Footer />
+						{process.env.NEXT_PUBLIC_NODE_ENV === "development" && <Footer />}
 					</ThemeProvider>
 				</QueryProvider>
 			</body>

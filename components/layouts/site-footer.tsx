@@ -9,6 +9,7 @@ import { Button, buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { Icons } from "../icons";
 import { Input } from "../ui/input";
+import JoinNewsletterForm from "../join-newsletter-form";
 
 export default function Footer() {
 	return (
@@ -65,25 +66,7 @@ export default function Footer() {
 						))}
 					</section>
 
-					<section
-						id="newsletter"
-						aria-labelledby="newsletter-heading"
-						className="space-y-3">
-						<h4 className="text-base font-medium">Subscribe to our newsletter</h4>
-						<form className="flex gap-2">
-							<Input
-								type="email"
-								placeholder="m@example.com"
-								className="flex-1"
-								required
-							/>
-							<Button
-								className="bg-brand hover:bg-brand/90 text-white font-medium"
-								type="submit">
-								Subscribe
-							</Button>
-						</form>
-					</section>
+					<JoinNewsletterForm />
 				</section>
 				<section
 					id="footer-bottom"

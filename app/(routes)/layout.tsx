@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
+import { Analytics } from "@vercel/analytics/react";
 
 import "../globals.css";
 
@@ -80,6 +81,7 @@ export default function RootLayout({
 						<LiveAudioPlayer />
 
 						{children}
+						<Analytics />
 						<Footer />
 						<Toaster richColors />
 					</ThemeProvider>

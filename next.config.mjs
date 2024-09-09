@@ -10,7 +10,7 @@ const nextConfig = {
 			},
 			{
 				protocol: "https",
-				hostname: "cdn.punchng.com",
+				hostname: "utfs.io",
 				port: "",
 				pathname: "/**",
 			},
@@ -20,23 +20,7 @@ const nextConfig = {
 			},
 			{
 				protocol: "https",
-				hostname: "assets-global.website-files.com",
-			},
-			{
-				protocol: "https",
-				hostname: "sonicdrive-music.webflow.io",
-			},
-			{
-				protocol: "https",
-				hostname: "cdn.prod.website-files.com",
-			},
-			{
-				protocol: "https",
-				hostname: "images.unsplash.com",
-			},
-			{
-				protocol: "https",
-				hostname: "plus.unsplash.com",
+				hostname: "i.scdn.co",
 			},
 			{
 				protocol: "https",

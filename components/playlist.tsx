@@ -1,34 +1,55 @@
-import { EllipsisVertical } from "lucide-react";
+"use client";
+
+import { Copy, EllipsisVertical, LibraryBig, Music2, UserRound } from "lucide-react";
+
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { cn } from "@/lib/utils";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Icons } from "./icons";
 
+import { cn, formatDurationShort, weekly_countdown } from "@/lib/utils";
+import { useAudioPlayerStore } from "@/store/useAudioPlayer";
+
+import { toast } from "sonner";
+import { PopoverClose } from "@radix-ui/react-popover";
+
 const PlayList = () => {
-	const images = [
-		"https://is1-ssl.mzstatic.com/image/thumb/Features112/v4/a5/59/1e/a5591eba-36e7-9aca-12a3-616449c3849b/aecf2603-8df7-4366-85e9-a74461232264.png/316x316SC.DN01.webp?l=en-GB",
-		"https://is1-ssl.mzstatic.com/image/thumb/Features112/v4/76/98/12/76981252-20c9-28de-71c7-1ae1c51cdb0b/83836a30-b4eb-4849-81d0-e904bd35ab83.png/316x316SC.DN01.webp?l=en-GB",
-		"https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/3d/b7/fe/3db7fe57-24ed-01a5-6d7c-35f871ba1f0c/U0MtTVQtVEVSLVByaW1hcnlfVGl0bGUtU2Vjb25kYXJ5X1RpdGxlLTIucG5n.png/316x316SC.DN01.webp?l=en-GB",
-		"https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/59/ad/c6/59adc6ab-c7c8-dc0c-6758-40fd304dac3c/U0MtTVMtV1ctTGl0dGxlX0JpdF9Db3VudHJ5LUFEQU1fSUQ9MTQ2NTI2NDQwNC5wbmc.png/316x316SC.DN01.webp?l=en-GB",
-		"https://is1-ssl.mzstatic.com/image/thumb/Features112/v4/5a/7b/d3/5a7bd3a4-27dd-f3e3-98a7-cfd677cca9ff/cf6c857b-fc8b-4073-bd16-f29902ce164f.png/316x316SC.DN01.webp?l=en-GB",
-		"https://is1-ssl.mzstatic.com/image/thumb/Features112/v4/a5/59/1e/a5591eba-36e7-9aca-12a3-616449c3849b/aecf2603-8df7-4366-85e9-a74461232264.png/316x316SC.DN01.webp?l=en-GB",
-		"https://is1-ssl.mzstatic.com/image/thumb/Features112/v4/76/98/12/76981252-20c9-28de-71c7-1ae1c51cdb0b/83836a30-b4eb-4849-81d0-e904bd35ab83.png/316x316SC.DN01.webp?l=en-GB",
-		"https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/3d/b7/fe/3db7fe57-24ed-01a5-6d7c-35f871ba1f0c/U0MtTVQtVEVSLVByaW1hcnlfVGl0bGUtU2Vjb25kYXJ5X1RpdGxlLTIucG5n.png/316x316SC.DN01.webp?l=en-GB",
-		"https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/59/ad/c6/59adc6ab-c7c8-dc0c-6758-40fd304dac3c/U0MtTVMtV1ctTGl0dGxlX0JpdF9Db3VudHJ5LUFEQU1fSUQ9MTQ2NTI2NDQwNC5wbmc.png/316x316SC.DN01.webp?l=en-GB",
-		"https://is1-ssl.mzstatic.com/image/thumb/Features112/v4/5a/7b/d3/5a7bd3a4-27dd-f3e3-98a7-cfd677cca9ff/cf6c857b-fc8b-4073-bd16-f29902ce164f.png/316x316SC.DN01.webp?l=en-GB",
-	];
+	const { onOpen, isPlaying, isLive, updateAudioInfo, title } = useAudioPlayerStore(
+		(state) => state
+	);
+
+	const copyLink = (url: string) => {
+		navigator.clipboard
+			.writeText(url)
+			.then(() => {
+				toast.success("Copied", { description: "Link copied to clipboard" });
+			})
+			.catch(() => {
+				toast.error("Copy failed", { description: "Link not copied to clipboard" });
+			});
+	};
+
 	return (
 		<Card className="flex flex-col gap-5 overflow-hidden border-none bg-[#0f0f11] shadow-none p-6 lg:p-14 lg:py-8 rounded-none">
 			<CardContent className="flex flex-col gap-10 w-full px-0">
 				<CardHeader className="px-0">
 					<CardTitle className="text-brand">Weekly Top 10</CardTitle>
 					<CardDescription>
-						Check out this week&apos;s ranking of the most popular music.
+						Check out this week&apos;s ranking of the most popular music. Powered by{" "}
+						<a
+							href="https://open.spotify.com/"
+							target="_blank"
+							rel="noreferrer"
+							className="transition-colors hover:text-foreground">
+							Spotify
+							<span className="sr-only">Spotify</span>
+						</a>
+						.
 					</CardDescription>
 				</CardHeader>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-6 gap-x-10 w-full mx-auto">
-					{Array.from({ length: 10 }).map((_, index) => (
+					{weekly_countdown.map((item, index) => (
 						<div
 							key={index}
 							className={cn(
@@ -37,30 +58,98 @@ const PlayList = () => {
 							)}>
 							<p className="text-muted-foreground text-xs">{index + 1}</p>
 							<img
-								src={images[index]}
-								alt="Album Cover"
+								src={item.album.images[2].url}
+								alt={item.name}
 								width={40}
 								height={40}
-								className="aspect-square object-cover"
+								className="aspect-square object-cover rounded-sm"
 							/>
 
 							<div className="flex-1">
-								<h3 className="font-medium text-sm">Active</h3>
-								<p className="text-muted-foreground text-sm">Asake</p>
+								<h3 className="font-medium text-sm">{item.name}</h3>
+								<span className="text-muted-foreground text-sm">
+									{item.artists.map((artist) => artist.name).join(", ")}
+								</span>
 							</div>
 
-							<div className="text-muted-foreground text-sm">3:45</div>
+							<div className="text-muted-foreground text-sm">
+								{formatDurationShort(item.duration_ms / 1000)}
+							</div>
 
-							<Button
-								size="icon"
-								variant="ghost">
-								<Icons.playIcon className="w-5 h-5" />
-							</Button>
-							<Button
-								size="icon"
-								variant="ghost">
-								<EllipsisVertical className="w-5 h-5" />
-							</Button>
+							{!isLive && isPlaying && title === item.name ? (
+								<Button
+									onClick={() => {
+										updateAudioInfo({
+											isPlaying: false,
+											audioId: "",
+										});
+									}}
+									size="icon"
+									variant="ghost">
+									<Icons.pauseIcon className="size-4" />
+								</Button>
+							) : (
+								<Button
+									onClick={() => {
+										onOpen();
+										updateAudioInfo({
+											audioId: item.id,
+											isPlaying: true,
+											audioUrl: item.preview_url,
+											coverArt: item.album.images[2].url,
+											isLive: false,
+											title: item.name,
+											artists: item.artists.map((artist) => artist.name),
+										});
+									}}
+									size="icon"
+									variant="ghost">
+									<Icons.playIcon className="w-5 h-5" />
+								</Button>
+							)}
+
+							<Popover>
+								<PopoverTrigger asChild>
+									<Button
+										size="icon"
+										variant="ghost">
+										<EllipsisVertical className="w-5 h-5" />
+									</Button>
+								</PopoverTrigger>
+								<PopoverContent className="bg-[#0f0f11] p-0 w-48">
+									<div className="flex flex-col p-1">
+										<a
+											target="_blank"
+											href={item.artists[0].external_urls.spotify}
+											className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground p-3 my-1">
+											<UserRound className="size-4 text-muted-foreground" />
+											<span className="text-sm">Go to artist</span>
+										</a>
+										<a
+											target="_blank"
+											href={item.album.external_urls.spotify}
+											className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground p-3 my-1">
+											<LibraryBig className="size-4 text-muted-foreground" />
+											<span className="text-sm">Go to album</span>
+										</a>
+										<a
+											target="_blank"
+											href={item.external_urls.spotify}
+											className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground p-3 my-1">
+											<Music2 className="size-4 text-muted-foreground" />
+											<span className="text-sm">Go to track</span>
+										</a>
+										<PopoverClose asChild>
+											<button
+												onClick={() => copyLink(item.external_urls.spotify)}
+												className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground p-3 my-1">
+												<Copy className="size-4 text-muted-foreground" />
+												<span className="text-sm">Copy link</span>
+											</button>
+										</PopoverClose>
+									</div>
+								</PopoverContent>
+							</Popover>
 						</div>
 					))}
 				</div>

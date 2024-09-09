@@ -24,13 +24,15 @@ const Radio = () => {
 		},
 	});
 
-	console.error(error);
+	if (isError) {
+		console.log(error);
+	}
 
 	return (
-		<Card className="flex flex-col gap-5 overflow-hidden border-0 border-b bg-transparent shadow-none p-6 lg:p-14 lg:py-8 rounded-none">
+		<Card className="flex flex-col gap-5 overflow-hidden border-0 bg-transparent shadow-none p-6 lg:p-14 lg:py-8 rounded-none">
 			<section className="flex justify-between items-center gap-10">
 				<CardHeader className="px-0">
-					<CardTitle className="text-brand">Afia Radio</CardTitle>
+					<CardTitle className="text-brand">Daily Radio Shows</CardTitle>
 					<CardDescription> Live and local, just for you </CardDescription>
 				</CardHeader>
 
@@ -42,7 +44,7 @@ const Radio = () => {
 			</section>
 
 			<CardContent className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:gap-8 w-full px-0">
-				{isPending && (
+				{isPending && !data && (
 					<React.Fragment>
 						{Array.from({ length: 4 }).map((_, index) => (
 							<RadioCardSkeleton key={index} />
@@ -50,7 +52,7 @@ const Radio = () => {
 					</React.Fragment>
 				)}
 
-				{isError && (
+				{isError && !data && (
 					<React.Fragment>
 						{Array.from({ length: 4 }).map((_, index) => (
 							<RadioCardSkeleton key={index} />

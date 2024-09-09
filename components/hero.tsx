@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button";
 
 import { Radio } from "lucide-react";
 
-import { useLivePlayer } from "@/store/useLivePlayer";
+import { useAudioPlayerStore } from "@/store/useAudioPlayer";
 
 const Hero = () => {
-	const { onExpand, onPlay } = useLivePlayer((state) => state);
+	const { onOpen, updateAudioInfo } = useAudioPlayerStore((state) => state);
 
 	return (
 		<Card className="w-full flex flex-col gap-1 overflow-hidden border-none bg-transparent shadow-none px-6 lg:px-14">
@@ -19,7 +19,7 @@ const Hero = () => {
 				<section className="col-span-1 rounded-md pt-12">
 					<div className="flex flex-col md:flex-row md:items-center gap-12 w-full">
 						<section className="flex flex-col md:w-1/2 gap-6 relative">
-							<Link
+							{/* <Link
 								href="/"
 								className="flex items-center w-fit">
 								<Image
@@ -32,10 +32,10 @@ const Hero = () => {
 								/>
 
 								<span className="sr-only">Home</span>
-							</Link>
+							</Link> */}
 
-							<p className="max-w-[200px] md:max-w-[400px] text-[2.5rem] leading-[3rem] lg:text-6xl font-bold mt-3 mb-auto">
-								Radio, Music, Podcasts, All in One Place
+							<p className="md:max-w-[400px] text-[2.5rem] leading-[3rem] lg:text-6xl font-bold mt-3 mb-auto">
+								24h Radio, Hit Music, Podcasts, All in One Place
 							</p>
 
 							<p className="text-[15px] !leading-7 md:text-base text-muted-foreground max-w-[400px]">
@@ -45,8 +45,13 @@ const Hero = () => {
 
 							<Button
 								onClick={() => {
-									onExpand();
-									onPlay();
+									onOpen();
+									updateAudioInfo({
+										isPlaying: true,
+										audioUrl: "/stream",
+										isLive: true,
+										audioId: "live",
+									});
 								}}
 								className="font-bold w-fit bg-brand hover:bg-brand/90 rounded-full p-7 text-foreground">
 								<Radio className="mr-2" />
@@ -56,11 +61,11 @@ const Hero = () => {
 
 						<Image
 							alt="Product image"
-							className="rounded-lg object-cover hidden max-h-[550px] md:block md:w-1/2 aspect-square"
+							className="rounded-lg object-cover max-h-[550px] md:w-1/2 aspect-square"
 							height={900}
 							width={900}
 							quality={100}
-							src="/images/vinyl-5.jpg"
+							src="/images/afia_anniversary.jpg"
 						/>
 					</div>
 				</section>

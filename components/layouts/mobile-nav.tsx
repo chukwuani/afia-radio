@@ -10,20 +10,15 @@ import { siteConfig } from "@/siteConfig";
 import { cn } from "@/lib/utils";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
-import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
+
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Icons } from "@/components/icons";
-
-import { useTheme } from "next-themes";
-import { SearchIcon } from "lucide-react";
 
 export function MobileNav() {
 	const pathname = usePathname();
 	const isDesktop = useMediaQuery("(min-width: 1024px)");
 
-	const { resolvedTheme } = useTheme();
 	const [open, setOpen] = React.useState(false);
 
 	if (isDesktop) return null;
@@ -56,6 +51,7 @@ export function MobileNav() {
 										width={80}
 										height={80}
 										src={"/images/afia-logo-dark.png"}
+										className="w-auto h-auto"
 										alt="Afia Radio Home"
 										title="Afia Radio Home"
 									/>
@@ -97,13 +93,6 @@ export function MobileNav() {
 										rel={"noreferrer"}
 										href={siteConfig.links.facebook}>
 										Facebook
-									</a>
-									<a
-										className="text-foreground/60 hover:text-foreground"
-										target={"_blank"}
-										rel={"noreferrer"}
-										href={siteConfig.links.youtube}>
-										Youtube
 									</a>
 								</div>
 

@@ -1,74 +1,53 @@
-import { type Metadata } from "next";
+import Image from "next/image";
 
-import { siteConfig } from "@/siteConfig";
-// import { absoluteUrl } from "@/lib/utils";
-
-import { Separator } from "@/components/ui/separator";
 import {
 	PageHeader,
 	PageHeaderDescription,
 	PageHeaderHeading,
 } from "@/components/layouts/page-header";
 import { Shell } from "@/components/layouts/shell";
+import { components } from "@/components/portable-component";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
-// export function generateMetadata({ params }: PageProps): Metadata {
-// 	const page = getPageFromParams(params);
+import { ABOUT_QUERY } from "@/sanity/lib/queries";
+import { sanityFetch } from "@/sanity/lib/client";
+import { TypedObject } from "sanity";
 
-// 	if (!page) {
-// 		return {};
-// 	}
+import { PortableText } from "@portabletext/react";
 
-// 	const url = absoluteUrl("/");
+export default async function AboutPage() {
+	const about: any = await sanityFetch({
+		query: ABOUT_QUERY,
+	});
 
-// 	const ogUrl = new URL(`${url}/api/og`);
-// 	ogUrl.searchParams.set("title", page.title);
-// 	ogUrl.searchParams.set("type", siteConfig.name);
-// 	ogUrl.searchParams.set("mode", "light");
+	const content: TypedObject[] = about?.body;
 
-// 	return {
-// 		title: page.title,
-// 		description: page.description,
-// 		openGraph: {
-// 			title: page.title,
-// 			description: page.description,
-// 			type: "article",
-// 			url: absoluteUrl(page.slug),
-// 			images: [
-// 				{
-// 					url: ogUrl.toString(),
-// 					width: 1200,
-// 					height: 630,
-// 					alt: page.title,
-// 				},
-// 			],
-// 		},
-// 		twitter: {
-// 			card: "summary_large_image",
-// 			title: page.title,
-// 			description: page.description,
-// 			images: [ogUrl.toString()],
-// 		},
-// 	};
-// }
-
-// export function generateStaticParams(): PageProps["params"][] {
-// 	return allPages.map((page) => ({
-// 		slug: page.slugAsParams.split("/"),
-// 	}));
-// }
-
-export default function AboutPage() {
 	return (
 		<Shell
 			as="article"
 			variant="content">
 			<PageHeader>
-				<PageHeaderHeading>About Afia</PageHeaderHeading>
+				<PageHeaderHeading>About Afia 993</PageHeaderHeading>
 				<PageHeaderDescription>
-					About the project and the author of the project.
+					Afia 99.3FM, Enugu. Your Number One Voice Of Enterprise! Discover the latest music tracks,
+					explore captivating podcasts, or tune in to radio shows.
 				</PageHeaderDescription>
 			</PageHeader>
-			<Separator className="my-4" />
+
+			<AspectRatio ratio={16 / 11}>
+				<Image
+					src={"/opengraph-image.jpg"}
+					alt={"Afia Radio"}
+					fill
+					className="rounded-md border bg-muted object-cover"
+					priority
+				/>
+			</AspectRatio>
+
+			<PortableText
+				value={content}
+				components={components}
+			/>
 		</Shell>
 	);
 }

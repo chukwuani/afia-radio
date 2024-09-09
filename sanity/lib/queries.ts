@@ -26,10 +26,30 @@ export const NEWS_QUERY = groq`*[_type == "news" && slug.current == $slug][0]{
   publishedAt
 }`;
 
+export const FILTER_NEWS_QUERY = groq`*[_type == "news" && (title match $searchQuery || description match $searchQuery)] {
+  _id,
+  _createdAt,
+  title,  
+  "slug": slug.current, 
+  "mainImage": mainImage.asset->url, 
+  "altText": mainImage.alt,
+  description, 
+  author->{
+    name,
+    "imageUrl": image.asset->url
+  },
+  readingTime,
+  publishedAt
+}`;
+
 export const PRIVACY_QUERY = groq`*[_type == "privacy"][0]{
   body
 }`;
 
 export const TERMS_QUERY = groq`*[_type == "terms"][0]{
+  body
+}`;
+
+export const ABOUT_QUERY = groq`*[_type == "about"][0]{
   body
 }`;

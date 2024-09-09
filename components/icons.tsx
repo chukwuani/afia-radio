@@ -69,9 +69,30 @@ export const Icons = {
 			viewBox="0 0 24 24"
 			{...props}>
 			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
+				fillRule="evenodd"
+				clipRule="evenodd"
 				d="M5.25 5.78987C5.25 4.42081 6.7512 3.58195 7.91717 4.29947L18.0091 10.5099C19.1196 11.1933 19.1196 12.8074 18.0091 13.4907L7.91717 19.7011C6.7512 20.4187 5.25 19.5798 5.25 18.2107V5.78987Z"
+				fill="currentColor"
+			/>
+		</svg>
+	),
+	pauseIcon: (props: IconProps) => (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			{...props}>
+			<path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M3.25 5C3.25 4.0335 4.0335 3.25 5 3.25H9C9.9665 3.25 10.75 4.0335 10.75 5V19C10.75 19.9665 9.9665 20.75 9 20.75H5C4.0335 20.75 3.25 19.9665 3.25 19V5Z"
+				fill="currentColor"
+			/>
+			<path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M13.25 5C13.25 4.0335 14.0335 3.25 15 3.25H19C19.9665 3.25 20.75 4.0335 20.75 5V19C20.75 19.9665 19.9665 20.75 19 20.75H15C14.0335 20.75 13.25 19.9665 13.25 19V5Z"
 				fill="currentColor"
 			/>
 		</svg>
@@ -192,6 +213,112 @@ export const Icons = {
 			strokeLinejoin="round"
 			{...props}>
 			<path d="M21 12a9 9 0 1 1-6.219-8.56" />
+		</svg>
+	),
+	track: (props: IconProps) => (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			{...props}>
+			<path
+				d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+				stroke="currentColor"
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+			<path
+				d="M9 6C7.62837 6.53566 6.53566 7.62837 6 9"
+				stroke="currentColor"
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+			<path
+				d="M14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14C13.1046 14 14 13.1046 14 12Z"
+				stroke="currentColor"
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+		</svg>
+	),
+	album: (props: IconProps) => (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			width="24"
+			height="24"
+			{...props}>
+			<path
+				d="M2 9C2 5.70017 2 4.05025 3.02513 3.02513C4.05025 2 5.70017 2 9 2H11C14.2998 2 15.9497 2 16.9749 3.02513C18 4.05025 18 5.70017 18 9V11C18 14.2998 18 15.9497 16.9749 16.9749C15.9497 18 14.2998 18 11 18H9C5.70017 18 4.05025 18 3.02513 16.9749C2 15.9497 2 14.2998 2 11V9Z"
+				stroke="currentColor"
+				stroke-width="1.5"
+			/>
+			<path
+				d="M18.2383 7C19.5732 7.08138 20.4232 7.30467 21.036 7.91738C22 8.88143 22 10.433 22 13.5363V15.4171C22 18.5203 22 20.0719 21.036 21.036C20.0719 22 18.5203 22 15.4171 22H13.5363C10.433 22 8.88143 22 7.91738 21.036C7.30467 20.4232 7.08138 19.5732 7 18.2383"
+				stroke="currentColor"
+				stroke-width="1.5"
+				stroke-linecap="round"
+			/>
+			<path
+				d="M11 12V6C11.2222 6.4 11.4 8.08 13 8.4M11 12C11 13.1046 10.1046 14 9 14C7.89543 14 7 13.1046 7 12C7 10.8954 7.89543 10 9 10C10.1046 10 11 10.8954 11 12Z"
+				stroke="currentColor"
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+		</svg>
+	),
+	copy: (props: IconProps) => (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			width={24}
+			height={24}
+			{...props}>
+			<path
+				d="M9 15C9 12.1716 9 10.7574 9.87868 9.87868C10.7574 9 12.1716 9 15 9L16 9C18.8284 9 20.2426 9 21.1213 9.87868C22 10.7574 22 12.1716 22 15V16C22 18.8284 22 20.2426 21.1213 21.1213C20.2426 22 18.8284 22 16 22H15C12.1716 22 10.7574 22 9.87868 21.1213C9 20.2426 9 18.8284 9 16L9 15Z"
+				stroke="currentColor"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+			<path
+				d="M16.9999 9C16.9975 6.04291 16.9528 4.51121 16.092 3.46243C15.9258 3.25989 15.7401 3.07418 15.5376 2.90796C14.4312 2 12.7875 2 9.5 2C6.21252 2 4.56878 2 3.46243 2.90796C3.25989 3.07417 3.07418 3.25989 2.90796 3.46243C2 4.56878 2 6.21252 2 9.5C2 12.7875 2 14.4312 2.90796 15.5376C3.07417 15.7401 3.25989 15.9258 3.46243 16.092C4.51121 16.9528 6.04291 16.9975 9 16.9999"
+				stroke="currentColor"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
+		</svg>
+	),
+	user: (props: IconProps) => (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			width={24}
+			height={24}
+			{...props}>
+			<path
+				d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+				stroke="currentColor"
+				strokeWidth="1.5"
+			/>
+			<path
+				d="M14.75 9.5C14.75 11.0188 13.5188 12.25 12 12.25C10.4812 12.25 9.25 11.0188 9.25 9.5C9.25 7.98122 10.4812 6.75 12 6.75C13.5188 6.75 14.75 7.98122 14.75 9.5Z"
+				stroke="currentColor"
+				strokeWidth="1.5"
+			/>
+			<path
+				d="M5.49994 19.0001L6.06034 18.0194C6.95055 16.4616 8.60727 15.5001 10.4016 15.5001H13.5983C15.3926 15.5001 17.0493 16.4616 17.9395 18.0194L18.4999 19.0001"
+				stroke="currentColor"
+				strokeWidth="1.5"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
 		</svg>
 	),
 };

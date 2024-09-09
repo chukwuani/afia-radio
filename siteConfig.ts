@@ -2,29 +2,22 @@ export type SiteConfig = typeof siteConfig;
 export type MainNav = typeof siteConfig.mainNav;
 
 const links = {
-	x: "https://twitter.com/afiatvofficial",
-	instagram: "https://instagram.com/afiatvofficial",
-	facebook: "https://facebook.com/afiatvofficial",
-	youtube: "https://youtube.com/@afiatvofficial",
+	x: "https://twitter.com/afia993enugu",
+	instagram: "https://instagram.com/afia993enugu",
+	facebook: "https://facebook.com/afia993enugu",
 };
 
 export const siteConfig = {
 	title: "AFIA Radio",
 	description:
-		"Listen without limits. Discover the latest music tracks, explore captivating podcasts, or tune in to radio shows - all on your schedule.",
-	url: "https://afiatv.net",
-	ogImage: "https://afiatv.net/opengraph-image.png",
+		"Afia 99.3FM, Enugu. Your Number One Voice Of Enterprise! Discover the latest music tracks, explore captivating podcasts, or tune in to radio shows.",
+	url: "https://afia993.com",
+	ogImage: "https://afia993.com/opengraph-image.jpg",
 	links,
 	mainNav: [
 		{
 			title: "Home",
 			href: "/",
-			external: false,
-			disabled: false,
-		},
-		{
-			title: "Playlists",
-			href: "/playlists",
 			external: false,
 			disabled: false,
 		},
@@ -56,11 +49,6 @@ export const siteConfig = {
 					external: false,
 				},
 				{
-					title: "Playlists",
-					href: "/playlists",
-					external: false,
-				},
-				{
 					title: "News",
 					href: "/news",
 					external: false,
@@ -73,11 +61,6 @@ export const siteConfig = {
 				{
 					title: "About us",
 					href: "/about",
-					external: false,
-				},
-				{
-					title: "Advertise with us",
-					href: "/advertise",
 					external: false,
 				},
 				{
@@ -102,7 +85,7 @@ export const siteConfig = {
 				},
 				{
 					title: "Editorial Team",
-					href: "mailto:editorial@afiatv.net",
+					href: "mailto:afia993enugu@gmail.com",
 					external: true,
 				},
 			],

@@ -18,7 +18,7 @@ const News = () => {
 	const { isPending, isError, data } = useQuery<NewsTypes[]>({
 		queryKey: ["news"],
 		queryFn: async () => {
-			const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/news?cursor=""&limit=4`);
+			const res = await fetch('/api/news?cursor=""&limit=4');
 
 			const data = await res?.json();
 			return data.news;
@@ -31,8 +31,8 @@ const News = () => {
 				<CardHeader className="px-0">
 					<CardTitle className="text-brand">Entertainment News</CardTitle>
 					<CardDescription>
-						Get the latest buzz on chart-toppers, rising stars, and industry shake-ups in the
-						dynamic world of music
+						Discover the hottest trends, breaking news, and exclusive stories from the world of
+						entertainment.
 					</CardDescription>
 				</CardHeader>
 
@@ -72,7 +72,7 @@ const News = () => {
 									src={item.mainImage}
 									alt={item.altText}
 									fill
-									sizes="100vw"
+									sizes="(min-width: 768px) 50vw, (min-width: 1024px) 25vw, 100vw"
 									className="rounded-md border bg-muted object-cover"
 									priority
 								/>

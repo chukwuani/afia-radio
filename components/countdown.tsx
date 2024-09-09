@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/
 import Countdown from "react-countdown";
 import dayjs from "dayjs";
 
-const Completionist = () => <span>You are good to go!</span>;
+import Island from "./island";
 
 const renderer = ({
 	days,
@@ -23,27 +23,39 @@ const renderer = ({
 	completed: boolean;
 }) => {
 	if (completed) {
-		return <Completionist />;
+		return <Island />;
 	} else {
 		return (
-			<>
-				<DigitUnit
-					number={days}
-					unit="day"
-				/>
-				<DigitUnit
-					number={hours}
-					unit="hour"
-				/>
-				<DigitUnit
-					number={minutes}
-					unit="minute"
-				/>
-				<DigitUnit
-					number={seconds}
-					unit="second"
-				/>
-			</>
+			<Card className="w-full h-dvh z-[999999] fixed top-0 left-0 bg-background flex flex-col gap-8 justify-center overflow-hidden border-0 shadow-none p-6 lg:p-14 lg:py-8 rounded-none">
+				<section className="w-full text-center flex justify-between items-center gap-10">
+					<CardHeader className="p-0 w-full items-center gap-3">
+						<CardTitle className="text-brand text-5xl">Launch Countdown</CardTitle>
+						<CardDescription className="text-base max-w-[500px]">
+							Afia Radio turns one! One year of great radio, and we&apos;re just getting started.
+							Tune in now - let&apos;s celebrate together!
+						</CardDescription>
+					</CardHeader>
+				</section>
+
+				<CardContent className="flex items-center justify-center gap-6 lg:gap-8 w-full px-0">
+					<DigitUnit
+						number={days}
+						unit="day"
+					/>
+					<DigitUnit
+						number={hours}
+						unit="hour"
+					/>
+					<DigitUnit
+						number={minutes}
+						unit="minute"
+					/>
+					<DigitUnit
+						number={seconds}
+						unit="second"
+					/>
+				</CardContent>
+			</Card>
 		);
 	}
 };
@@ -52,24 +64,10 @@ function CountdownTimer() {
 	const countFromDate = dayjs("2024-09-09T15:00:00").toDate();
 
 	return (
-		<Card className="flex flex-col gap-8 overflow-hidden border-0 bg-transparent shadow-none p-6 lg:p-14 lg:py-8 rounded-none">
-			<section className="w-full text-center flex justify-between items-center gap-10">
-				<CardHeader className="p-0 w-full items-center gap-3">
-					<CardTitle className="text-brand text-5xl">Launch Countdown</CardTitle>
-					<CardDescription className="text-base max-w-[500px]">
-						Afia Radio turns one! One year of great radio, and we&apos;re just getting started. Tune
-						in now - let&apos;s celebrate together!
-					</CardDescription>
-				</CardHeader>
-			</section>
-
-			<CardContent className="flex items-center justify-center gap-6 lg:gap-8 w-full px-0">
-				<Countdown
-					date={countFromDate}
-					renderer={renderer}
-				/>
-			</CardContent>
-		</Card>
+		<Countdown
+			date={countFromDate}
+			renderer={renderer}
+		/>
 	);
 }
 

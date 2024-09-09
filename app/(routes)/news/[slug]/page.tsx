@@ -17,6 +17,7 @@ import { NewsTypes } from "@/types";
 import { NEWS_QUERY } from "@/sanity/lib/queries";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Share from "@/components/layouts/share";
+import { Metadata } from "next";
 
 interface PageProps {
 	params: {
@@ -24,49 +25,39 @@ interface PageProps {
 	};
 }
 
-// export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
-// 	const post = await getPostFromParams(params);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+	const news: NewsTypes = await sanityFetch({
+		query: NEWS_QUERY,
+		params: {
+			slug: params.slug.replace("/", ""),
+		},
+	});
 
-// 	if (!post) {
-// 		return {};
-// 	}
+	if (!news) {
+		return {};
+	}
 
-// 	const url = env.NEXT_PUBLIC_APP_URL;
+	const url = process.env.NEXT_PUBLIC_APP_URL!;
 
-// 	const ogUrl = new URL(`${url}/api/og`);
-// 	ogUrl.searchParams.set("title", post.title);
-// 	ogUrl.searchParams.set("type", "Blog Post");
-// 	ogUrl.searchParams.set("mode", "dark");
-
-// 	return {
-// 		metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-// 		title: post.title,
-// 		description: post.description,
-// 		authors: post.authors.map((author) => ({
-// 			name: author,
-// 		})),
-// 		openGraph: {
-// 			title: post.title,
-// 			description: post.description,
-// 			type: "article",
-// 			url: absoluteUrl(post.slug),
-// 			images: [
-// 				{
-// 					url: ogUrl.toString(),
-// 					width: 1200,
-// 					height: 630,
-// 					alt: post.title,
-// 				},
-// 			],
-// 		},
-// 		twitter: {
-// 			card: "summary_large_image",
-// 			title: post.title,
-// 			description: post.description,
-// 			images: [ogUrl.toString()],
-// 		},
-// 	};
-// }
+	return {
+		metadataBase: new URL(url),
+		title: news.title,
+		description: news.description,
+		authors: { name: news.author.name },
+		openGraph: {
+			title: news.title,
+			description: news.description,
+			url: absoluteUrl(`/news/${params.slug}`),
+			images: [news.mainImage],
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: news.title,
+			description: news.description,
+			images: [news.mainImage],
+		},
+	};
+}
 
 export default async function PostPage({ params }: PageProps) {
 	const news: NewsTypes = await sanityFetch({
@@ -104,16 +95,14 @@ export default async function PostPage({ params }: PageProps) {
 				<h1 className="inline-block text-4xl font-bold leading-tight">{news.title}</h1>
 
 				<div className="flex items-center space-x-4 pt-4">
-					<Link
-						key={author._id}
-						href={`/authors/${author.name}`}
-						className="flex items-center space-x-2 text-sm">
+					<section className="flex items-center space-x-2 text-sm">
 						<Image
 							src={author.imageUrl}
 							alt={author.name}
 							width={40}
 							height={40}
-							className="rounded-full size-10 object-cover bg-white"
+							quality={100}
+							className="rounded-full size-10 object-cover"
 						/>
 						<div className="flex-1 text-left leading-tight">
 							<p className="font-medium">{author.name}</p>
@@ -126,7 +115,7 @@ export default async function PostPage({ params }: PageProps) {
 								<div>{news.readingTime}min</div>
 							</div>
 						</div>
-					</Link>
+					</section>
 				</div>
 			</div>
 
@@ -145,7 +134,7 @@ export default async function PostPage({ params }: PageProps) {
 				components={components}
 			/>
 
-			<Share />
+			<Share title={news.title} />
 
 			<Separator className="my-4" />
 

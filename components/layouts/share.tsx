@@ -24,11 +24,11 @@ import {
 } from "next-share";
 import { absoluteUrl } from "@/lib/utils";
 
-const Share = () => {
+const Share = ({ title }: { title: string }) => {
 	const pathname = usePathname();
 	const url = absoluteUrl(pathname);
 
-	console.log(pathname, url);
+	console.log(url);
 
 	return (
 		<section className="flex flex-col gap-4">
@@ -37,26 +37,16 @@ const Share = () => {
 			<section className="flex gap-2">
 				<FacebookShareButton
 					url={url}
-					quote={"next-share is a social share buttons for your next React apps."}
-					hashtag={"#nextshare"}>
+					quote={title}>
 					<FacebookIcon
 						size={32}
 						round
 					/>
 				</FacebookShareButton>
 
-				<PinterestShareButton
-					url={url}
-					media={"next-share is a social share buttons for your next React apps."}>
-					<PinterestIcon
-						size={32}
-						round
-					/>
-				</PinterestShareButton>
-
 				<RedditShareButton
 					url={url}
-					title={"next-share is a social share buttons for your next React apps."}>
+					title={title}>
 					<RedditIcon
 						size={32}
 						round
@@ -65,7 +55,7 @@ const Share = () => {
 
 				<TelegramShareButton
 					url={url}
-					title={"next-share is a social share buttons for your next React apps."}>
+					title={title}>
 					<TelegramIcon
 						size={32}
 						round
@@ -74,7 +64,7 @@ const Share = () => {
 
 				<TwitterShareButton
 					url={url}
-					title={"next-share is a social share buttons for your next React apps."}>
+					title={title}>
 					<TwitterIcon
 						size={32}
 						round
@@ -83,7 +73,7 @@ const Share = () => {
 
 				<WhatsappShareButton
 					url={url}
-					title={"next-share is a social share buttons for your next React apps."}
+					title={title}
 					separator=":: ">
 					<WhatsappIcon
 						size={32}
@@ -91,31 +81,15 @@ const Share = () => {
 					/>
 				</WhatsappShareButton>
 
-				<LinkedinShareButton url={url}>
-					<LinkedinIcon
-						size={32}
-						round
-					/>
-				</LinkedinShareButton>
-
 				<EmailShareButton
 					url={url}
-					subject={"Next Share"}
-					body="body">
+					subject={title}
+					body={url}>
 					<EmailIcon
 						size={32}
 						round
 					/>
 				</EmailShareButton>
-
-				<FacebookMessengerShareButton
-					url={url}
-					appId={""}>
-					<FacebookMessengerIcon
-						size={32}
-						round
-					/>
-				</FacebookMessengerShareButton>
 			</section>
 		</section>
 	);

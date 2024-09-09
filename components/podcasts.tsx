@@ -11,6 +11,7 @@ import { getPodcasts } from "@/lib/actions/podcast";
 import { useQuery } from "@tanstack/react-query";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
+import Image from "next/image";
 
 const Podcasts = () => {
 	const { isPending, isError, data, error } = useQuery({
@@ -21,8 +22,6 @@ const Podcasts = () => {
 			return podcasts;
 		},
 	});
-
-	console.error(error);
 
 	return (
 		<Card className="flex flex-col gap-5 overflow-hidden border-0 border-b bg-transparent shadow-none p-6 lg:p-14 lg:py-8 rounded-none">

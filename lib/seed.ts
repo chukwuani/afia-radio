@@ -117,6 +117,7 @@ export async function seedShow() {
 					category: "Regular",
 					tags: [showData.name.toLowerCase().replace(/\s+/g, "-")],
 					coverArt: showData.coverArt,
+					showNote: "",
 					schedule: {
 						create: weekdays.map((day) => ({
 							day: day as Day,
@@ -140,6 +141,7 @@ export async function seedShow() {
 					duration: calculateDuration(showData.startTime, showData.endTime),
 					category: "Weekend",
 					tags: [showData.name.toLowerCase().replace(/\s+/g, "-"), "saturday"],
+					showNote: "",
 					schedule: {
 						create: {
 							day: "SATURDAY",
@@ -163,6 +165,7 @@ export async function seedShow() {
 					duration: calculateDuration(showData.startTime, showData.endTime),
 					category: "Weekend",
 					tags: [showData.name.toLowerCase().replace(/\s+/g, "-"), "sunday"],
+					showNote: "",
 					schedule: {
 						create: {
 							day: "SUNDAY",

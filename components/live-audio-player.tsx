@@ -9,105 +9,81 @@ import { Slider } from "@/components/ui/slider";
 
 import { PauseIcon, Volume1Icon, VolumeXIcon } from "lucide-react";
 
-import { useLivePlayer } from "@/store/useLivePlayer";
 import { IconProps } from "./icons";
-import { useMediaQuery } from "@/hooks/use-media-query";
+import useAudioPlayer from "@/hooks/use-audio-player";
+import { Progress } from "./ui/progress";
+import { useQuery } from "@tanstack/react-query";
+import { getCurrentShow } from "@/lib/actions/radio";
+import LiveIndicator from "./live-indicator";
+import { useAudioPlayerStore } from "@/store/useAudioPlayer";
+import { formatDurationShort } from "@/lib/utils";
 
 const LiveAudioPlayer = () => {
-	const isDesktop = useMediaQuery("(min-width: 1024px)");
+	const { isPending, data } = useQuery({
+		queryKey: ["now_playing"],
+		queryFn: async () => {
+			const nowPlaying = await getCurrentShow();
 
-	const [volume, setVolume] = useState([100]);
+			return nowPlaying;
+		},
+	});
 
-	const { isOpen, onCollapse, isPlaying, onPause, onPlay } = useLivePlayer((state) => state);
+	const {
+		isLive,
+		isPlaying,
+		isOpen,
+		onCollapse,
+		title,
+		artists,
+		coverArt,
+		updateAudioInfo,
+		audioUrl,
+		activeAudioId,
+	} = useAudioPlayerStore((state) => state);
 
-	const [currentTime, setCurrentTime] = useState<number>(0);
-	const [duration, setDuration] = useState<number>(0);
-
-	const audioRef = useRef<HTMLAudioElement | null>(null);
-
-	useEffect(() => {
-		const audio = new Audio("/stream");
-		audioRef.current = audio;
-
-		audio.addEventListener("loadedmetadata", () => {
-			setDuration(audio.duration);
-		});
-
-		audio.addEventListener("timeupdate", () => {
-			setCurrentTime(audio.currentTime);
-		});
-
-		return () => {
-			audio.pause();
-			audio.src = "";
-		};
-	}, []);
-
-	useEffect(() => {
-		if (audioRef.current) {
-			if (isPlaying) {
-				audioRef.current.play();
-			} else {
-				audioRef.current.pause();
-			}
-		}
-	}, [isPlaying]);
-
-	useEffect(() => {
-		if (audioRef.current) {
-			audioRef.current.volume = volume[0] / 100;
-		}
-	}, [volume]);
-
-	const togglePlayPause = () => {
-		if (isPlaying) {
-			onPause();
-		} else {
-			onPlay();
-		}
-	};
-
-	const toggleMute = () => {
-		if (isDesktop) {
-			if (volume[0] === 0) {
-				setVolume([100]);
-			} else {
-				setVolume([0]);
-			}
-		}
-	};
-
-	const handleVolumeChange = (newVolume: number[]) => {
-		setVolume(newVolume);
-	};
-
-	const formatTime = (time: number): string => {
-		const minutes = Math.floor(time / 60);
-		const seconds = Math.floor(time % 60);
-		return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-	};
+	const { currentTime, duration, volume, handleVolumeChange, toggleMute, togglePlayPause } =
+		useAudioPlayer(activeAudioId!, audioUrl, isLive);
 
 	return (
 		<React.Fragment>
 			{isOpen && (
-				<div className="fixed w-full md:max-w-sm bottom-0 md:bottom-8 md:right-10 md:rounded-lg p-3 border shadow-lg mt-auto mx-auto flex flex-col items-center px-3 bg-background z-10">
-					<div className="flex items-center w-full justify-between gap-10">
-						<div className="flex items-center gap-2">
-							<Image
-								src="https://images.audacy2-prod.ext.audacy.com/9d337f80-58d1-4891-8a76-d327c98d0c82.png?auto=webp&width=125 1x, https://images.audacy2-prod.ext.audacy.com/9d337f80-58d1-4891-8a76-d327c98d0c82.png?auto=webp&width=250 2x"
-								alt="Show Cover"
-								className="rounded-md object-cover aspect-square"
-								width="40"
-								height="40"
-							/>
+				<div className="fixed w-full bottom-0 left-0 p-3 border border-b-0 flex flex-col items-center px-3 bg-background z-10 gap-2">
+					<div className="grid grid-cols-2 md:grid-cols-3 w-full gap-5">
+						{isLive ? (
+							<div className="flex items-center w-full gap-3">
+								<Image
+									src={data?.show.coverArt ?? "/images/music_placeholder.jpg"}
+									alt={data?.show.title ?? "Afia 99.3 Enugu"}
+									className="rounded-sm object-cover aspect-square"
+									width="50"
+									height="50"
+								/>
 
-							<div>
-								<h3 className="text-sm font-medium">The Breakfast Show</h3>
-								<p className="text-muted-foreground text-sm">with Sofia</p>
+								<div>
+									<h3 className="text-sm font-medium">{data?.show.title ?? "Afia 99.3 Enugu"}</h3>
+									<p className="text-muted-foreground text-sm">
+										{data?.show.host ? `with ${data?.show.host}` : "Afia Radio"}
+									</p>
+								</div>
 							</div>
-						</div>
+						) : (
+							<div className="flex items-center w-full gap-3">
+								<Image
+									src={coverArt}
+									alt={"audioData.title as string"}
+									className="rounded-sm object-cover aspect-square"
+									width="50"
+									height="50"
+								/>
 
-						<div className="flex items-center gap-2">
+								<div>
+									<h3 className="text-sm font-medium">{title}</h3>
+									<p className="text-muted-foreground text-sm">{artists.join(", ")}</p>
+								</div>
+							</div>
+						)}
+
+						<div className="flex justify-end md:justify-center items-center gap-2">
 							<HoverCard openDelay={300}>
 								<HoverCardTrigger>
 									<Button
@@ -147,7 +123,11 @@ const LiveAudioPlayer = () => {
 							<Button
 								onClick={() => {
 									onCollapse();
-									onPause();
+									updateAudioInfo({
+										isPlaying: false,
+										audioUrl: "",
+										audioId: "",
+									});
 								}}
 								variant="ghost"
 								size="icon">
@@ -155,6 +135,32 @@ const LiveAudioPlayer = () => {
 							</Button>
 						</div>
 					</div>
+
+					<section className="w-full md:w-1/3 md:mx-auto">
+						{isLive ? (
+							<div className="flex items-center justify-between gap-4">
+								<Progress
+									value={100}
+									className="flex-1 h-1"
+								/>
+
+								<LiveIndicator />
+							</div>
+						) : (
+							<div className="flex items-center justify-between gap-4">
+								<span className="text-xs text-muted-foreground">
+									{formatDurationShort(currentTime)}
+								</span>
+								<Progress
+									value={(currentTime / duration) * 100}
+									className="flex-1 h-1"
+								/>
+								<span className="text-xs text-muted-foreground">
+									{formatDurationShort(duration)}
+								</span>
+							</div>
+						)}
+					</section>
 				</div>
 			)}
 		</React.Fragment>

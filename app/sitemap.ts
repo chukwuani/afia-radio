@@ -1,20 +1,20 @@
 import { type MetadataRoute } from "next";
 
 import { absoluteUrl } from "@/lib/utils";
-import db from "@/lib/prismadb";
+import { NewsTypes, ShowWithHost } from "@/types";
+
+import axios from "axios";
 import { groq } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/client";
-import { NewsTypes } from "@/types";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	async function getAllShows() {
 		try {
-			return await db.show.findMany({
-				select: {
-					id: true,
-				},
-				take: 50000, // Google's limit is 50,000 URLs per sitemap
-			});
+			const { data } = await axios.get<ShowWithHost[]>(
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/shows/`
+			);
+
+			return data;
 		} catch (err) {
 			return [];
 		}

@@ -1,9 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { MobileNav } from "@/components/layouts/mobile-nav";
 import MainNav from "@/components/layouts/main-nav";
 import SearchComboBox from "@/components/search-combobox";
-import Link from "next/link";
 
 export default function SiteHeader() {
 	return (
@@ -19,8 +19,6 @@ export default function SiteHeader() {
 						width={30}
 						height={30}
 					/>
-
-					{/* <p className="text-sm text-foreground font-bold">99.3FM</p> */}
 				</Link>
 
 				<MainNav />

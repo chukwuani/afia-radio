@@ -2,26 +2,35 @@
 
 import React from "react";
 import Link from "next/link";
-
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import PodcastCardSkeleton from "./skeleton/podcast-card-skeleton";
-
-import { getPodcasts } from "@/lib/actions/podcast";
-
-import { useQuery } from "@tanstack/react-query";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "./ui/button";
 import Image from "next/image";
 
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import PodcastCardSkeleton from "@/components/skeleton/podcast-card-skeleton";
+
+import { Podcast } from "@/types";
+import { cn } from "@/lib/utils";
+
+import { useQuery } from "@tanstack/react-query";
+import * as Sentry from "@sentry/nextjs";
+import axios from "axios";
+
 const Podcasts = () => {
-	const { isPending, isError, data, error } = useQuery({
+	const { isPending, isError, data, error, refetch } = useQuery({
 		queryKey: ["top_podcasts"],
 		queryFn: async () => {
-			const podcasts = await getPodcasts();
+			const { data: podcasts } = await axios.get<Podcast[]>(
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/podcasts/`
+			);
 
 			return podcasts;
 		},
 	});
+
+	if (isError) {
+		Sentry.captureException(error);
+		refetch();
+	}
 
 	return (
 		<Card className="flex flex-col gap-5 overflow-hidden border-0 border-b bg-transparent shadow-none p-6 lg:p-14 lg:py-8 rounded-none">
@@ -63,11 +72,12 @@ const Podcasts = () => {
 						href={`/podcasts/${podcast.id}`}
 						className="group cols-span-1 gap-2 w-full text-left">
 						<section className="flex items-center justify-center relative">
-							<img
+							<Image
+								src={podcast.coverArt}
 								alt={podcast.title}
 								className="aspect-square rounded-md object-cover bg-black/30 w-full"
-								height="300"
-								src={podcast.coverArt}
+								width={300}
+								height={300}
 							/>
 
 							<span className="absolute top-0 aspect-square rounded-md size-full bg-black/30 opacity-0 transition-opacity group-hover:opacity-100" />

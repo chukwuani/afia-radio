@@ -39,7 +39,7 @@ export const siteConfig = {
 			title: "Explore",
 			items: [
 				{
-					title: "Live Radio",
+					title: "Radio Shows",
 					href: "/radio",
 					external: false,
 				},
@@ -79,13 +79,13 @@ export const siteConfig = {
 			title: "Contact",
 			items: [
 				{
-					title: "Info@afiatv.net",
-					href: "mailto:info@afiatv.net",
+					title: "Info@afia993.com",
+					href: "mailto:info@afia993.com",
 					external: false,
 				},
 				{
 					title: "Editorial Team",
-					href: "mailto:afia993enugu@gmail.com",
+					href: "mailto:editor@afia993.com",
 					external: true,
 				},
 			],

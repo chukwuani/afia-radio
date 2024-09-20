@@ -9,15 +9,16 @@ interface AudioPlayerState {
 	coverArt: string;
 	title: string;
 	artists: string[];
+	volume: number;
 	activeAudioId: string | null;
-	setIsLive: (isLive: boolean) => void;
 	setIsPlaying: (isPlaying: boolean) => void;
 	onOpen: () => void;
 	onCollapse: () => void;
+	setVolume: (volume: number) => void;
 	updateAudioInfo: (info: {
 		audioId: string;
 		isPlaying?: boolean;
-		audioUrl?: string;
+		audioUrl: string;
 		coverArt?: string;
 		isLive?: boolean;
 		title?: string;
@@ -37,7 +38,8 @@ export const useAudioPlayerStore = create<AudioPlayerState, [["zustand/persist",
 			title: "",
 			artists: [],
 			activeAudioId: null,
-			setIsLive: (isLive) => set({ isLive }),
+			volume: 100,
+			setVolume: (volume) => set({ volume }),
 			setIsPlaying: (isPlaying) => set({ isPlaying }),
 			onOpen: () => set({ isOpen: true }),
 			onCollapse: () => set({ isOpen: false }),

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const { nextui } = require("@nextui-org/react");
 
 const svgToDataUri = require("mini-svg-data-uri");
 
@@ -12,6 +13,7 @@ const config = {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
+		"./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
 	],
 	prefix: "",
 	theme: {
@@ -106,6 +108,36 @@ const config = {
 						transform: "translateY(-50%)",
 					},
 				},
+				/**
+				 * Original source:
+				 * @see https://github.com/juliusmarminge/acme-corp/blob/main/tooling/tailwind/index.ts
+				 */
+				"fade-up": {
+					"0%": {
+						opacity: "0",
+						transform: "translateY(10px)",
+					},
+					"75%": {
+						opacity: "0.6",
+					},
+					"100%": {
+						opacity: "1",
+						transform: "translateY(0)",
+					},
+				},
+				"fade-down": {
+					"0%": {
+						opacity: "0",
+						transform: "translateY(-10px)",
+					},
+					"75%": {
+						opacity: "0.6",
+					},
+					"100%": {
+						opacity: "1",
+						transform: "translateY(0)",
+					},
+				},
 			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
@@ -115,6 +147,8 @@ const config = {
 				third: "moveInCircle 40s linear infinite",
 				fourth: "moveHorizontal 40s ease infinite",
 				fifth: "moveInCircle 20s ease infinite",
+				"fade-up": "fade-up 0.5s ease-out",
+				"fade-down": "fade-down 0.5s ease-out",
 			},
 		},
 	},
@@ -142,6 +176,7 @@ const config = {
 				{ values: flattenColorPalette(theme("backgroundColor")), type: "color" }
 			);
 		},
+		nextui(),
 	],
 } satisfies Config;
 

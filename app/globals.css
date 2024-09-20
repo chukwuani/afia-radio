@@ -4,7 +4,7 @@
 
 @layer base {
 	:root {
-		--background: 240 10% 3.9%;
+		--background: 0 0% 4.71%;
 		--foreground: 0 0% 98%;
 
 		--card: 240 10% 3.9%;
@@ -37,7 +37,7 @@
 	}
 
 	.dark {
-		--background: 240 10% 3.9%;
+		--background: 0 0% 4.71%;
 		--foreground: 0 0% 98%;
 
 		--card: 240 10% 3.9%;
@@ -79,13 +79,4 @@
 	img {
 		@apply max-w-full h-auto;
 	}
-}
-
-.no-scrollbar::-webkit-scrollbar {
-	display: none;
-}
-
-.no-scrollbar {
-	scrollbar-width: none;
-	-ms-overflow-style: none;
 }

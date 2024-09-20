@@ -1,7 +1,12 @@
-import { sanityFetch } from "@/sanity/lib/client";
-import { NewsTypes } from "@/types";
-import { groq } from "next-sanity";
 import { NextResponse, type NextRequest } from "next/server";
+
+
+
+import { sanityFetch } from "@/sanity/lib/client";
+import { groq } from "next-sanity";
+import { NewsTypes } from "@/types";
+
+import * as Sentry from "@sentry/nextjs"
 
 export async function GET(req: NextRequest) {
 	const searchParams = req.nextUrl.searchParams;
@@ -55,7 +60,7 @@ export async function GET(req: NextRequest) {
 			nextCursor,
 		});
 	} catch (error) {
-		console.log(error);
+		Sentry.captureException(error)
 		return new Response("Internal Error", { status: 500 });
 	}
 }

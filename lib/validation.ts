@@ -6,11 +6,4 @@ export const emailSchema = z.object({
 	}),
 });
 
-export const joinNewsletterSchema = z.object({
-	email: emailSchema.shape.email,
-	token: z.string(),
-	subject: z.string().optional(),
-});
-
-export type JoinNewsletterSchema = z.infer<typeof joinNewsletterSchema>;
 export type EmailSchema = z.infer<typeof emailSchema>;

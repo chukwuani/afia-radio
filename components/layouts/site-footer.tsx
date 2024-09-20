@@ -17,7 +17,7 @@ export default function Footer() {
 	const { isOpen } = useAudioPlayerStore((state) => state);
 
 	return (
-		<footer className={cn("w-full bg-[#0f0f11]", isOpen && "pb-[100px]")}>
+		<footer className={cn("w-full bg-[#0F0F0F]", isOpen && "pb-[100px]")}>
 			<Shell>
 				<section
 					id="footer-content"
@@ -78,7 +78,15 @@ export default function Footer() {
 					aria-labelledby="footer-bottom-heading"
 					className="flex items-center space-x-4">
 					<div className="flex-1 text-left text-sm leading-loose text-muted-foreground">
-						© 2024 Afia Network. All Rights Reserved
+						© 2024 Afia Network. All Rights Reserved. Built by{" "}
+						<Link
+							href="https://twitter.com/_stevecodes"
+							target="_blank"
+							rel="noreferrer"
+							className="font-semibold transition-colors hover:text-foreground underline">
+							Stephen.
+							<span className="sr-only">Twitter</span>
+						</Link>
 					</div>
 
 					<div className="flex items-center space-x-1">

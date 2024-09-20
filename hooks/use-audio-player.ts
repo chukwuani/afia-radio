@@ -2,30 +2,36 @@ import { useState, useEffect, useRef } from "react";
 import { useMediaQuery } from "./use-media-query";
 import { useAudioPlayerStore } from "@/store/useAudioPlayer";
 
+import * as Sentry from "@sentry/nextjs";
+
 interface AudioPlayerHookReturn {
+	isLoading: boolean;
 	currentTime: number;
 	duration: number;
-	volume: number[];
+	volume: number;
 	togglePlayPause: () => void;
 	seekTo: (time: number) => void;
-	handleVolumeChange: (newVolume: number[]) => void;
+	handleVolumeChange: (newVolume: number) => void;
 	toggleMute: () => void;
-	isPlaying: boolean;
 }
 
-const useAudioPlayer = (
-	audioId: string,
-	audioUrl: string,
-	isLive: boolean
-): AudioPlayerHookReturn => {
-	const { isPlaying, activeAudioId, setIsPlaying, updateAudioInfo, stopAllAudio } =
-		useAudioPlayerStore();
+const useAudioPlayer = (): AudioPlayerHookReturn => {
+	const {
+		isPlaying,
+		activeAudioId,
+		setIsPlaying,
+		updateAudioInfo,
+		audioUrl,
+		isLive,
+		volume,
+		setVolume,
+	} = useAudioPlayerStore();
 
+	const [isLoading, setIsLoading] = useState(false);
 	const [currentTime, setCurrentTime] = useState<number>(0);
 	const [duration, setDuration] = useState<number>(0);
 
 	const isDesktop = useMediaQuery("(min-width: 1024px)");
-	const [volume, setVolume] = useState([100]);
 
 	const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -33,9 +39,11 @@ const useAudioPlayer = (
 		const audio = new Audio(audioUrl);
 		audioRef.current = audio;
 
-		audio.addEventListener("loadedmetadata", () => {
-			setDuration(audio.duration);
-		});
+		if (!isLive) {
+			audio.addEventListener("loadedmetadata", () => {
+				setDuration(audio.duration);
+			});
+		}
 
 		audio.addEventListener("timeupdate", () => {
 			setCurrentTime(audio.currentTime);
@@ -49,25 +57,31 @@ const useAudioPlayer = (
 			audio.pause();
 			audio.src = "";
 		};
-	}, [audioUrl, setIsPlaying]);
+	}, [audioUrl, isLive, setIsPlaying]);
 
 	useEffect(() => {
 		if (audioRef.current) {
-			if (isPlaying && activeAudioId === audioId) {
-				audioRef.current.play().catch((err) => {
-					console.log(err);
-					setIsPlaying(false);
-				});
+			if (isPlaying && activeAudioId) {
+				setIsLoading(true);
+
+				audioRef.current
+					.play()
+					.catch((error: Error) => {
+						Sentry.captureException(error);
+
+						setIsPlaying(false);
+					})
+					.finally(() => setIsLoading(false));
 			} else {
 				audioRef.current.pause();
 			}
 		}
-	}, [isPlaying, activeAudioId, audioId]);
+	}, [isPlaying, activeAudioId, setIsPlaying]);
 
 	const togglePlayPause = () => {
 		if (!audioRef.current) return;
 
-		if (isPlaying && activeAudioId === audioId) {
+		if (isPlaying) {
 			if (isLive) {
 				updateAudioInfo({
 					audioUrl: "",
@@ -89,31 +103,32 @@ const useAudioPlayer = (
 	const seekTo = (time: number) => {
 		if (!audioRef.current || isLive) return;
 		audioRef.current.currentTime = time;
+
 		setCurrentTime(time);
 	};
 
 	useEffect(() => {
-		if (audioRef.current) {
-			audioRef.current.volume = volume[0] / 100;
+		if (audioRef.current && activeAudioId) {
+			audioRef.current.volume = volume / 100;
 		}
-	}, [volume]);
+	}, [activeAudioId, volume]);
 
 	const toggleMute = () => {
 		if (isDesktop) {
-			if (volume[0] === 0) {
-				setVolume([100]);
+			if (volume === 0) {
+				setVolume(100);
 			} else {
-				setVolume([0]);
+				setVolume(0);
 			}
 		}
 	};
 
-	const handleVolumeChange = (newVolume: number[]) => {
+	const handleVolumeChange = (newVolume: number) => {
 		setVolume(newVolume);
 	};
 
 	return {
-		isPlaying: isPlaying && activeAudioId === audioId,
+		isLoading,
 		currentTime,
 		duration,
 		volume,

@@ -28,8 +28,6 @@ const Share = ({ title }: { title: string }) => {
 	const pathname = usePathname();
 	const url = absoluteUrl(pathname);
 
-	console.log(url);
-
 	return (
 		<section className="flex flex-col gap-4">
 			<p className="text-sm font-medium uppercase">Share :</p>

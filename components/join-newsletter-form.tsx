@@ -2,16 +2,19 @@
 
 import React from "react";
 
+import * as Sentry from "@sentry/nextjs";
+
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { Icons } from "./icons";
 
+import { cn, unknownError } from "@/lib/utils";
 import { type EmailSchema, emailSchema } from "@/lib/validation";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { cn, unknownError } from "@/lib/utils";
-import { Icons } from "./icons";
+import axios, { AxiosError } from "axios";
 
 const JoinNewsletterForm = () => {
 	const [loading, setLoading] = React.useState(false);
@@ -32,36 +35,32 @@ const JoinNewsletterForm = () => {
 	const onSubmit = async (data: EmailSchema) => {
 		setLoading(true);
 		try {
-			const response = await fetch("/api/email/newsletter", {
-				method: "POST",
-				body: JSON.stringify({
-					email: data.email,
-				}),
+			await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/email/newsletter`, {
+				email: data.email,
 			});
 
-			if (!response.ok) {
-				switch (response.status) {
+			toast.success("Thank You for Joining Us!", {
+				description: "You have been subscribed to our newsletter.",
+			});
+
+			reset();
+		} catch (err) {
+			Sentry.captureException(err);
+
+			if (err instanceof AxiosError) {
+				switch (err.status) {
 					case 409:
 						toast.error("You're Part of the Family", {
 							description: "You are already subscribed to our newsletter.",
 						});
 						break;
-					case 422:
+					case 400:
 						toast.error("Error", { description: "Invalid input." });
 						break;
 					default:
-						toast.error(unknownError);
+						toast.error("Subscription Unsuccessful", { description: unknownError });
 				}
-				return;
 			}
-
-			toast.success("Thank You for Joining Us!", {
-				description: "You have been subscribed to our newsletter.",
-			});
-			reset();
-		} catch (err) {
-			console.log(err);
-			toast.error("Subscription Unsuccessful", { description: unknownError });
 		} finally {
 			setLoading(false);
 		}

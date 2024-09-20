@@ -7,8 +7,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/
 import Countdown from "react-countdown";
 import dayjs from "dayjs";
 
-import Island from "./island";
-
 const renderer = ({
 	days,
 	hours,
@@ -23,7 +21,7 @@ const renderer = ({
 	completed: boolean;
 }) => {
 	if (completed) {
-		return <Island />;
+		return <p>Completed!</p>;
 	} else {
 		return (
 			<Card className="w-full h-dvh z-[999999] fixed top-0 left-0 bg-background flex flex-col gap-8 justify-center overflow-hidden border-0 shadow-none p-6 lg:p-14 lg:py-8 rounded-none">

@@ -19,8 +19,12 @@ const Shows = () => {
 	const { isPending, isError, data, error, refetch } = useQuery({
 		queryKey: ["radio_shows"],
 		queryFn: async () => {
+			const today = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"][
+				now.getDay()
+			];
+
 			const { data: schedule } = await axios.get<ScheduleWithShowAndHost[]>(
-				`${process.env.NEXT_PUBLIC_BACKEND_URL}/shows/schedule/monday`
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/shows/schedule/${today}`
 			);
 
 			const { data: nowPlaying } = await axios.get<ScheduleWithShowAndHost>(

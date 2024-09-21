@@ -19,6 +19,7 @@ const Shows = () => {
 	const { isPending, isError, data, error, refetch } = useQuery({
 		queryKey: ["radio_shows"],
 		queryFn: async () => {
+			const now = new Date();
 			const today = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"][
 				now.getDay()
 			];

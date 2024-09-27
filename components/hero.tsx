@@ -49,25 +49,26 @@ const Hero = () => {
 			</section>
 
 			<div
-				className="flex animate-fade-up w-[70%] m-auto max-h-[550px] md:w-[50%] lg:w-[60%] aspect-square"
+				className="flex justify-end animate-fade-up w-[70%] m-auto max-h-[550px] md:w-[50%] lg:w-[60%] aspect-square"
 				style={{ animationDelay: "0.10s", animationFillMode: "both" }}>
 				<Image
 					alt="Studio mic"
-					className="grayscale-[50%] rounded-lg object-cover w-full aspect-square"
+					className="grayscale-[50%] rounded-lg object-contain w-auto aspect-square"
 					height={900}
 					width={900}
 					quality={100}
-					src="/images/mic.jpg"
+					src="/images/tourism.jpg"
 				/>
+
 				<Badge
 					className="absolute bottom-4 right-4 z-20 line-clamp-1 text-xs"
 					variant="secondary">
 					<a
 						target="_blank"
 						rel="noopener noreferrer"
-						href="https://unsplash.com/photos/black-and-gray-condenser-microphone-p44B3PKChs4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+						href="https://www.vecteezy.com/free-vector/travel"
 						className="hover:underline">
-						Kelly Sikkema
+						Vectezzy
 					</a>
 				</Badge>
 			</div>

@@ -54,96 +54,6 @@ export const unknownError = "An unknown error occurred. Please try again later."
 export const weekly_countdown = [
 	{
 		preview_url:
-			"https://p.scdn.co/mp3-preview/e52ef8c3fe18d460b6eb2c6c7e523bd80bf1d656?cid=cfe923b2d660439caf2b557b21f31221",
-		is_playable: true,
-		explicit: false,
-		type: "track",
-		episode: false,
-		track: true,
-		album: {
-			is_playable: true,
-			type: "album",
-			album_type: "album",
-			href: "https://api.spotify.com/v1/albums/3kS42vslfpYnxWkGN4JvlW",
-			id: "3kS42vslfpYnxWkGN4JvlW",
-			images: [
-				{
-					url: "https://i.scdn.co/image/ab67616d0000b2737c45c1c29c18a5e0b46fc117",
-					width: 640,
-					height: 640,
-				},
-				{
-					url: "https://i.scdn.co/image/ab67616d00001e027c45c1c29c18a5e0b46fc117",
-					width: 300,
-					height: 300,
-				},
-				{
-					url: "https://i.scdn.co/image/ab67616d000048517c45c1c29c18a5e0b46fc117",
-					width: 64,
-					height: 64,
-				},
-			],
-			name: "Lungu Boy",
-			release_date: "2024-08-08",
-			release_date_precision: "day",
-			uri: "spotify:album:3kS42vslfpYnxWkGN4JvlW",
-			artists: [
-				{
-					external_urls: {
-						spotify: "https://open.spotify.com/artist/3a1tBryiczPAZpgoZN9Rzg",
-					},
-					href: "https://api.spotify.com/v1/artists/3a1tBryiczPAZpgoZN9Rzg",
-					id: "3a1tBryiczPAZpgoZN9Rzg",
-					name: "Asake",
-					type: "artist",
-					uri: "spotify:artist:3a1tBryiczPAZpgoZN9Rzg",
-				},
-			],
-			external_urls: {
-				spotify: "https://open.spotify.com/album/3kS42vslfpYnxWkGN4JvlW",
-			},
-			total_tracks: 15,
-		},
-		artists: [
-			{
-				external_urls: {
-					spotify: "https://open.spotify.com/artist/3a1tBryiczPAZpgoZN9Rzg",
-				},
-				href: "https://api.spotify.com/v1/artists/3a1tBryiczPAZpgoZN9Rzg",
-				id: "3a1tBryiczPAZpgoZN9Rzg",
-				name: "Asake",
-				type: "artist",
-				uri: "spotify:artist:3a1tBryiczPAZpgoZN9Rzg",
-			},
-			{
-				external_urls: {
-					spotify: "https://open.spotify.com/artist/3tVQdUvClmAT7URs9V3rsp",
-				},
-				href: "https://api.spotify.com/v1/artists/3tVQdUvClmAT7URs9V3rsp",
-				id: "3tVQdUvClmAT7URs9V3rsp",
-				name: "Wizkid",
-				type: "artist",
-				uri: "spotify:artist:3tVQdUvClmAT7URs9V3rsp",
-			},
-		],
-		disc_number: 1,
-		track_number: 2,
-		duration_ms: 219628,
-		external_ids: {
-			isrc: "USUYG1566014",
-		},
-		external_urls: {
-			spotify: "https://open.spotify.com/track/13VXuHw3O8Yt7VwRIDqSo4",
-		},
-		href: "https://api.spotify.com/v1/tracks/13VXuHw3O8Yt7VwRIDqSo4",
-		id: "13VXuHw3O8Yt7VwRIDqSo4",
-		name: "MMS",
-		popularity: 75,
-		uri: "spotify:track:13VXuHw3O8Yt7VwRIDqSo4",
-		is_local: false,
-	},
-	{
-		preview_url:
 			"https://p.scdn.co/mp3-preview/d18e7046cae8c030491032aa7c6a0bef5a17cafa?cid=cfe923b2d660439caf2b557b21f31221",
 		is_playable: true,
 		explicit: true,
@@ -264,9 +174,9 @@ export const weekly_countdown = [
 	},
 	{
 		preview_url:
-			"https://p.scdn.co/mp3-preview/414d433a2242ea4b19016ed816f9278379053cf9?cid=cfe923b2d660439caf2b557b21f31221",
+			"https://p.scdn.co/mp3-preview/e52ef8c3fe18d460b6eb2c6c7e523bd80bf1d656?cid=cfe923b2d660439caf2b557b21f31221",
 		is_playable: true,
-		explicit: true,
+		explicit: false,
 		type: "track",
 		episode: false,
 		track: true,
@@ -327,29 +237,107 @@ export const weekly_countdown = [
 			},
 			{
 				external_urls: {
-					spotify: "https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY",
+					spotify: "https://open.spotify.com/artist/3tVQdUvClmAT7URs9V3rsp",
 				},
-				href: "https://api.spotify.com/v1/artists/0Y5tJX1MQlPlqiwlOH1tJY",
-				id: "0Y5tJX1MQlPlqiwlOH1tJY",
-				name: "Travis Scott",
+				href: "https://api.spotify.com/v1/artists/3tVQdUvClmAT7URs9V3rsp",
+				id: "3tVQdUvClmAT7URs9V3rsp",
+				name: "Wizkid",
 				type: "artist",
-				uri: "spotify:artist:0Y5tJX1MQlPlqiwlOH1tJY",
+				uri: "spotify:artist:3tVQdUvClmAT7URs9V3rsp",
 			},
 		],
 		disc_number: 1,
-		track_number: 6,
-		duration_ms: 172597,
+		track_number: 2,
+		duration_ms: 219628,
 		external_ids: {
-			isrc: "USUYG1561631",
+			isrc: "USUYG1566014",
 		},
 		external_urls: {
-			spotify: "https://open.spotify.com/track/1qxKva4IzWde7m2jLpZvDU",
+			spotify: "https://open.spotify.com/track/13VXuHw3O8Yt7VwRIDqSo4",
 		},
-		href: "https://api.spotify.com/v1/tracks/1qxKva4IzWde7m2jLpZvDU",
-		id: "1qxKva4IzWde7m2jLpZvDU",
-		name: "Active",
-		popularity: 73,
-		uri: "spotify:track:1qxKva4IzWde7m2jLpZvDU",
+		href: "https://api.spotify.com/v1/tracks/13VXuHw3O8Yt7VwRIDqSo4",
+		id: "13VXuHw3O8Yt7VwRIDqSo4",
+		name: "MMS",
+		popularity: 75,
+		uri: "spotify:track:13VXuHw3O8Yt7VwRIDqSo4",
+		is_local: false,
+	},
+	{
+		album: {
+			album_type: "single",
+			total_tracks: 1,
+			external_urls: {
+				spotify: "https://open.spotify.com/album/5BRKHZh6Y0voiEQ4YsGdCr",
+			},
+			href: "https://api.spotify.com/v1/albums/5BRKHZh6Y0voiEQ4YsGdCr",
+			id: "5BRKHZh6Y0voiEQ4YsGdCr",
+			images: [
+				{
+					url: "https://i.scdn.co/image/ab67616d0000b273a5d282e7e725c238a1fb9f2f",
+					height: 640,
+					width: 640,
+				},
+				{
+					url: "https://i.scdn.co/image/ab67616d00001e02a5d282e7e725c238a1fb9f2f",
+					height: 300,
+					width: 300,
+				},
+				{
+					url: "https://i.scdn.co/image/ab67616d00004851a5d282e7e725c238a1fb9f2f",
+					height: 64,
+					width: 64,
+				},
+			],
+			name: "Awolowo",
+			release_date: "2024-08-07",
+			release_date_precision: "day",
+			type: "album",
+			uri: "spotify:album:5BRKHZh6Y0voiEQ4YsGdCr",
+			artists: [
+				{
+					external_urls: {
+						spotify: "https://open.spotify.com/artist/5HmfRnwYc5vNyWxRfP9U74",
+					},
+					href: "https://api.spotify.com/v1/artists/5HmfRnwYc5vNyWxRfP9U74",
+					id: "5HmfRnwYc5vNyWxRfP9U74",
+					name: "Fido",
+					type: "artist",
+					uri: "spotify:artist:5HmfRnwYc5vNyWxRfP9U74",
+				},
+			],
+			is_playable: true,
+		},
+		artists: [
+			{
+				external_urls: {
+					spotify: "https://open.spotify.com/artist/5HmfRnwYc5vNyWxRfP9U74",
+				},
+				href: "https://api.spotify.com/v1/artists/5HmfRnwYc5vNyWxRfP9U74",
+				id: "5HmfRnwYc5vNyWxRfP9U74",
+				name: "Fido",
+				type: "artist",
+				uri: "spotify:artist:5HmfRnwYc5vNyWxRfP9U74",
+			},
+		],
+		disc_number: 1,
+		duration_ms: 135576,
+		explicit: false,
+		external_ids: {
+			isrc: "DGA072424590",
+		},
+		external_urls: {
+			spotify: "https://open.spotify.com/track/1136eJrkWsDvReASbjLTaU",
+		},
+		href: "https://api.spotify.com/v1/tracks/1136eJrkWsDvReASbjLTaU",
+		id: "1136eJrkWsDvReASbjLTaU",
+		is_playable: true,
+		name: "Awolowo",
+		popularity: 69,
+		preview_url:
+			"https://p.scdn.co/mp3-preview/b161f67f08f3c27f943b3f2d4beebf9b56100274?cid=cfe923b2d660439caf2b557b21f31221",
+		track_number: 1,
+		type: "track",
+		uri: "spotify:track:1136eJrkWsDvReASbjLTaU",
 		is_local: false,
 	},
 	{
@@ -444,87 +432,7 @@ export const weekly_countdown = [
 	},
 	{
 		preview_url:
-			"https://p.scdn.co/mp3-preview/674f19751b41a24c91aef575be4714575a41b3be?cid=cfe923b2d660439caf2b557b21f31221",
-		is_playable: true,
-		explicit: false,
-		type: "track",
-		episode: false,
-		track: true,
-		album: {
-			is_playable: true,
-			type: "album",
-			album_type: "album",
-			href: "https://api.spotify.com/v1/albums/2DDaN7Pgx9uDPd8IbWWW9H",
-			id: "2DDaN7Pgx9uDPd8IbWWW9H",
-			images: [
-				{
-					url: "https://i.scdn.co/image/ab67616d0000b27319df46a8fa3d972ff4c84275",
-					width: 640,
-					height: 640,
-				},
-				{
-					url: "https://i.scdn.co/image/ab67616d00001e0219df46a8fa3d972ff4c84275",
-					width: 300,
-					height: 300,
-				},
-				{
-					url: "https://i.scdn.co/image/ab67616d0000485119df46a8fa3d972ff4c84275",
-					width: 64,
-					height: 64,
-				},
-			],
-			name: "HEIS",
-			release_date: "2024-07-10",
-			release_date_precision: "day",
-			uri: "spotify:album:2DDaN7Pgx9uDPd8IbWWW9H",
-			artists: [
-				{
-					external_urls: {
-						spotify: "https://open.spotify.com/artist/46pWGuE3dSwY3bMMXGBvVS",
-					},
-					href: "https://api.spotify.com/v1/artists/46pWGuE3dSwY3bMMXGBvVS",
-					id: "46pWGuE3dSwY3bMMXGBvVS",
-					name: "Rema",
-					type: "artist",
-					uri: "spotify:artist:46pWGuE3dSwY3bMMXGBvVS",
-				},
-			],
-			external_urls: {
-				spotify: "https://open.spotify.com/album/2DDaN7Pgx9uDPd8IbWWW9H",
-			},
-			total_tracks: 11,
-		},
-		artists: [
-			{
-				external_urls: {
-					spotify: "https://open.spotify.com/artist/46pWGuE3dSwY3bMMXGBvVS",
-				},
-				href: "https://api.spotify.com/v1/artists/46pWGuE3dSwY3bMMXGBvVS",
-				id: "46pWGuE3dSwY3bMMXGBvVS",
-				name: "Rema",
-				type: "artist",
-				uri: "spotify:artist:46pWGuE3dSwY3bMMXGBvVS",
-			},
-		],
-		disc_number: 1,
-		track_number: 7,
-		duration_ms: 137684,
-		external_ids: {
-			isrc: "NGUM72400019",
-		},
-		external_urls: {
-			spotify: "https://open.spotify.com/track/7ySC0IjVS1PMEdsZOvsUK2",
-		},
-		href: "https://api.spotify.com/v1/tracks/7ySC0IjVS1PMEdsZOvsUK2",
-		id: "7ySC0IjVS1PMEdsZOvsUK2",
-		name: "OZEBA",
-		popularity: 73,
-		uri: "spotify:track:7ySC0IjVS1PMEdsZOvsUK2",
-		is_local: false,
-	},
-	{
-		preview_url:
-			"https://p.scdn.co/mp3-preview/9efa217f0314decbe4457aaddb362e843301971f?cid=cfe923b2d660439caf2b557b21f31221",
+			"https://p.scdn.co/mp3-preview/414d433a2242ea4b19016ed816f9278379053cf9?cid=cfe923b2d660439caf2b557b21f31221",
 		is_playable: true,
 		explicit: true,
 		type: "track",
@@ -534,152 +442,82 @@ export const weekly_countdown = [
 			is_playable: true,
 			type: "album",
 			album_type: "album",
-			href: "https://api.spotify.com/v1/albums/1dfsKiTgOKzA8sLHCNMuKc",
-			id: "1dfsKiTgOKzA8sLHCNMuKc",
+			href: "https://api.spotify.com/v1/albums/3kS42vslfpYnxWkGN4JvlW",
+			id: "3kS42vslfpYnxWkGN4JvlW",
 			images: [
 				{
-					url: "https://i.scdn.co/image/ab67616d0000b2734763d04b6cee4f1d3a24ccc5",
+					url: "https://i.scdn.co/image/ab67616d0000b2737c45c1c29c18a5e0b46fc117",
 					width: 640,
 					height: 640,
 				},
 				{
-					url: "https://i.scdn.co/image/ab67616d00001e024763d04b6cee4f1d3a24ccc5",
+					url: "https://i.scdn.co/image/ab67616d00001e027c45c1c29c18a5e0b46fc117",
 					width: 300,
 					height: 300,
 				},
 				{
-					url: "https://i.scdn.co/image/ab67616d000048514763d04b6cee4f1d3a24ccc5",
+					url: "https://i.scdn.co/image/ab67616d000048517c45c1c29c18a5e0b46fc117",
 					width: 64,
 					height: 64,
 				},
 			],
-			name: "Stubborn",
-			release_date: "2024-06-21",
+			name: "Lungu Boy",
+			release_date: "2024-08-08",
 			release_date_precision: "day",
-			uri: "spotify:album:1dfsKiTgOKzA8sLHCNMuKc",
+			uri: "spotify:album:3kS42vslfpYnxWkGN4JvlW",
 			artists: [
 				{
 					external_urls: {
-						spotify: "https://open.spotify.com/artist/1E5hfn5BduN2nnoZCJmUVG",
+						spotify: "https://open.spotify.com/artist/3a1tBryiczPAZpgoZN9Rzg",
 					},
-					href: "https://api.spotify.com/v1/artists/1E5hfn5BduN2nnoZCJmUVG",
-					id: "1E5hfn5BduN2nnoZCJmUVG",
-					name: "Victony",
+					href: "https://api.spotify.com/v1/artists/3a1tBryiczPAZpgoZN9Rzg",
+					id: "3a1tBryiczPAZpgoZN9Rzg",
+					name: "Asake",
 					type: "artist",
-					uri: "spotify:artist:1E5hfn5BduN2nnoZCJmUVG",
+					uri: "spotify:artist:3a1tBryiczPAZpgoZN9Rzg",
 				},
 			],
 			external_urls: {
-				spotify: "https://open.spotify.com/album/1dfsKiTgOKzA8sLHCNMuKc",
+				spotify: "https://open.spotify.com/album/3kS42vslfpYnxWkGN4JvlW",
 			},
-			total_tracks: 14,
+			total_tracks: 15,
 		},
 		artists: [
 			{
 				external_urls: {
-					spotify: "https://open.spotify.com/artist/1E5hfn5BduN2nnoZCJmUVG",
+					spotify: "https://open.spotify.com/artist/3a1tBryiczPAZpgoZN9Rzg",
 				},
-				href: "https://api.spotify.com/v1/artists/1E5hfn5BduN2nnoZCJmUVG",
-				id: "1E5hfn5BduN2nnoZCJmUVG",
-				name: "Victony",
+				href: "https://api.spotify.com/v1/artists/3a1tBryiczPAZpgoZN9Rzg",
+				id: "3a1tBryiczPAZpgoZN9Rzg",
+				name: "Asake",
 				type: "artist",
-				uri: "spotify:artist:1E5hfn5BduN2nnoZCJmUVG",
+				uri: "spotify:artist:3a1tBryiczPAZpgoZN9Rzg",
+			},
+			{
+				external_urls: {
+					spotify: "https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY",
+				},
+				href: "https://api.spotify.com/v1/artists/0Y5tJX1MQlPlqiwlOH1tJY",
+				id: "0Y5tJX1MQlPlqiwlOH1tJY",
+				name: "Travis Scott",
+				type: "artist",
+				uri: "spotify:artist:0Y5tJX1MQlPlqiwlOH1tJY",
 			},
 		],
 		disc_number: 1,
 		track_number: 6,
-		duration_ms: 202958,
+		duration_ms: 172597,
 		external_ids: {
-			isrc: "QZWA32200683",
+			isrc: "USUYG1561631",
 		},
 		external_urls: {
-			spotify: "https://open.spotify.com/track/6qS9yoAUIXNfno5t4YLQdn",
+			spotify: "https://open.spotify.com/track/1qxKva4IzWde7m2jLpZvDU",
 		},
-		href: "https://api.spotify.com/v1/tracks/6qS9yoAUIXNfno5t4YLQdn",
-		id: "6qS9yoAUIXNfno5t4YLQdn",
-		name: "Risk",
-		popularity: 70,
-		uri: "spotify:track:6qS9yoAUIXNfno5t4YLQdn",
-		is_local: false,
-	},
-	{
-		preview_url:
-			"https://p.scdn.co/mp3-preview/1bceb8fd3233a6a477778751ca674b63abea0633?cid=cfe923b2d660439caf2b557b21f31221",
-		is_playable: true,
-		explicit: false,
-		type: "track",
-		episode: false,
-		track: true,
-		album: {
-			is_playable: true,
-			type: "album",
-			album_type: "album",
-			href: "https://api.spotify.com/v1/albums/38tvoGnBsZNd8FJg2YsCT4",
-			id: "38tvoGnBsZNd8FJg2YsCT4",
-			images: [
-				{
-					url: "https://i.scdn.co/image/ab67616d0000b273a5db6e3fd57954a028540e44",
-					width: 640,
-					height: 640,
-				},
-				{
-					url: "https://i.scdn.co/image/ab67616d00001e02a5db6e3fd57954a028540e44",
-					width: 300,
-					height: 300,
-				},
-				{
-					url: "https://i.scdn.co/image/ab67616d00004851a5db6e3fd57954a028540e44",
-					width: 64,
-					height: 64,
-				},
-			],
-			name: "Loseyi Professor",
-			release_date: "2024-07-12",
-			release_date_precision: "day",
-			uri: "spotify:album:38tvoGnBsZNd8FJg2YsCT4",
-			artists: [
-				{
-					external_urls: {
-						spotify: "https://open.spotify.com/artist/4zmZ8lVLzGc84S4v2B1rLx",
-					},
-					href: "https://api.spotify.com/v1/artists/4zmZ8lVLzGc84S4v2B1rLx",
-					id: "4zmZ8lVLzGc84S4v2B1rLx",
-					name: "Seyi Vibez",
-					type: "artist",
-					uri: "spotify:artist:4zmZ8lVLzGc84S4v2B1rLx",
-				},
-			],
-			external_urls: {
-				spotify: "https://open.spotify.com/album/38tvoGnBsZNd8FJg2YsCT4",
-			},
-			total_tracks: 7,
-		},
-		artists: [
-			{
-				external_urls: {
-					spotify: "https://open.spotify.com/artist/4zmZ8lVLzGc84S4v2B1rLx",
-				},
-				href: "https://api.spotify.com/v1/artists/4zmZ8lVLzGc84S4v2B1rLx",
-				id: "4zmZ8lVLzGc84S4v2B1rLx",
-				name: "Seyi Vibez",
-				type: "artist",
-				uri: "spotify:artist:4zmZ8lVLzGc84S4v2B1rLx",
-			},
-		],
-		disc_number: 1,
-		track_number: 2,
-		duration_ms: 164317,
-		external_ids: {
-			isrc: "USA2P2444757",
-		},
-		external_urls: {
-			spotify: "https://open.spotify.com/track/5hphSVebVxTpDfrk09W0hS",
-		},
-		href: "https://api.spotify.com/v1/tracks/5hphSVebVxTpDfrk09W0hS",
-		id: "5hphSVebVxTpDfrk09W0hS",
-		name: "Doha",
-		popularity: 68,
-		uri: "spotify:track:5hphSVebVxTpDfrk09W0hS",
+		href: "https://api.spotify.com/v1/tracks/1qxKva4IzWde7m2jLpZvDU",
+		id: "1qxKva4IzWde7m2jLpZvDU",
+		name: "Active",
+		popularity: 73,
+		uri: "spotify:track:1qxKva4IzWde7m2jLpZvDU",
 		is_local: false,
 	},
 	{
@@ -761,6 +599,84 @@ export const weekly_countdown = [
 		popularity: 71,
 		uri: "spotify:track:1N8G6PUj14v0VG8evbRSxp",
 		is_local: false,
+	},
+	{
+		album: {
+			album_type: "album",
+			artists: [
+				{
+					external_urls: {
+						spotify: "https://open.spotify.com/artist/1E5hfn5BduN2nnoZCJmUVG",
+					},
+					href: "https://api.spotify.com/v1/artists/1E5hfn5BduN2nnoZCJmUVG",
+					id: "1E5hfn5BduN2nnoZCJmUVG",
+					name: "Victony",
+					type: "artist",
+					uri: "spotify:artist:1E5hfn5BduN2nnoZCJmUVG",
+				},
+			],
+			external_urls: {
+				spotify: "https://open.spotify.com/album/1dfsKiTgOKzA8sLHCNMuKc",
+			},
+			href: "https://api.spotify.com/v1/albums/1dfsKiTgOKzA8sLHCNMuKc",
+			id: "1dfsKiTgOKzA8sLHCNMuKc",
+			images: [
+				{
+					url: "https://i.scdn.co/image/ab67616d0000b2734763d04b6cee4f1d3a24ccc5",
+					width: 640,
+					height: 640,
+				},
+				{
+					url: "https://i.scdn.co/image/ab67616d00001e024763d04b6cee4f1d3a24ccc5",
+					width: 300,
+					height: 300,
+				},
+				{
+					url: "https://i.scdn.co/image/ab67616d000048514763d04b6cee4f1d3a24ccc5",
+					width: 64,
+					height: 64,
+				},
+			],
+			is_playable: true,
+			name: "Stubborn",
+			release_date: "2024-06-21",
+			release_date_precision: "day",
+			total_tracks: 14,
+			type: "album",
+			uri: "spotify:album:1dfsKiTgOKzA8sLHCNMuKc",
+		},
+		artists: [
+			{
+				external_urls: {
+					spotify: "https://open.spotify.com/artist/1E5hfn5BduN2nnoZCJmUVG",
+				},
+				href: "https://api.spotify.com/v1/artists/1E5hfn5BduN2nnoZCJmUVG",
+				id: "1E5hfn5BduN2nnoZCJmUVG",
+				name: "Victony",
+				type: "artist",
+				uri: "spotify:artist:1E5hfn5BduN2nnoZCJmUVG",
+			},
+		],
+		disc_number: 1,
+		duration_ms: 202958,
+		explicit: true,
+		external_ids: {
+			isrc: "QZWA32200683",
+		},
+		external_urls: {
+			spotify: "https://open.spotify.com/track/6qS9yoAUIXNfno5t4YLQdn",
+		},
+		href: "https://api.spotify.com/v1/tracks/6qS9yoAUIXNfno5t4YLQdn",
+		id: "6qS9yoAUIXNfno5t4YLQdn",
+		is_local: false,
+		is_playable: true,
+		name: "Risk",
+		popularity: 70,
+		preview_url:
+			"https://p.scdn.co/mp3-preview/9efa217f0314decbe4457aaddb362e843301971f?cid=cfe923b2d660439caf2b557b21f31221",
+		track_number: 6,
+		type: "track",
+		uri: "spotify:track:6qS9yoAUIXNfno5t4YLQdn",
 	},
 	{
 		preview_url:
@@ -920,6 +836,86 @@ export const weekly_countdown = [
 		name: "Stronger",
 		popularity: 71,
 		uri: "spotify:track:4KZMoDuxwSYP63bhbnMqe3",
+		is_local: false,
+	},
+	{
+		preview_url:
+			"https://p.scdn.co/mp3-preview/674f19751b41a24c91aef575be4714575a41b3be?cid=cfe923b2d660439caf2b557b21f31221",
+		is_playable: true,
+		explicit: false,
+		type: "track",
+		episode: false,
+		track: true,
+		album: {
+			is_playable: true,
+			type: "album",
+			album_type: "album",
+			href: "https://api.spotify.com/v1/albums/2DDaN7Pgx9uDPd8IbWWW9H",
+			id: "2DDaN7Pgx9uDPd8IbWWW9H",
+			images: [
+				{
+					url: "https://i.scdn.co/image/ab67616d0000b27319df46a8fa3d972ff4c84275",
+					width: 640,
+					height: 640,
+				},
+				{
+					url: "https://i.scdn.co/image/ab67616d00001e0219df46a8fa3d972ff4c84275",
+					width: 300,
+					height: 300,
+				},
+				{
+					url: "https://i.scdn.co/image/ab67616d0000485119df46a8fa3d972ff4c84275",
+					width: 64,
+					height: 64,
+				},
+			],
+			name: "HEIS",
+			release_date: "2024-07-10",
+			release_date_precision: "day",
+			uri: "spotify:album:2DDaN7Pgx9uDPd8IbWWW9H",
+			artists: [
+				{
+					external_urls: {
+						spotify: "https://open.spotify.com/artist/46pWGuE3dSwY3bMMXGBvVS",
+					},
+					href: "https://api.spotify.com/v1/artists/46pWGuE3dSwY3bMMXGBvVS",
+					id: "46pWGuE3dSwY3bMMXGBvVS",
+					name: "Rema",
+					type: "artist",
+					uri: "spotify:artist:46pWGuE3dSwY3bMMXGBvVS",
+				},
+			],
+			external_urls: {
+				spotify: "https://open.spotify.com/album/2DDaN7Pgx9uDPd8IbWWW9H",
+			},
+			total_tracks: 11,
+		},
+		artists: [
+			{
+				external_urls: {
+					spotify: "https://open.spotify.com/artist/46pWGuE3dSwY3bMMXGBvVS",
+				},
+				href: "https://api.spotify.com/v1/artists/46pWGuE3dSwY3bMMXGBvVS",
+				id: "46pWGuE3dSwY3bMMXGBvVS",
+				name: "Rema",
+				type: "artist",
+				uri: "spotify:artist:46pWGuE3dSwY3bMMXGBvVS",
+			},
+		],
+		disc_number: 1,
+		track_number: 7,
+		duration_ms: 137684,
+		external_ids: {
+			isrc: "NGUM72400019",
+		},
+		external_urls: {
+			spotify: "https://open.spotify.com/track/7ySC0IjVS1PMEdsZOvsUK2",
+		},
+		href: "https://api.spotify.com/v1/tracks/7ySC0IjVS1PMEdsZOvsUK2",
+		id: "7ySC0IjVS1PMEdsZOvsUK2",
+		name: "OZEBA",
+		popularity: 73,
+		uri: "spotify:track:7ySC0IjVS1PMEdsZOvsUK2",
 		is_local: false,
 	},
 ];

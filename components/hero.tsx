@@ -53,14 +53,14 @@ const Hero = () => {
 				style={{ animationDelay: "0.10s", animationFillMode: "both" }}>
 				<Image
 					alt="Studio mic"
-					className="grayscale-[50%] rounded-lg object-contain w-auto aspect-square"
+					className="grayscale-[50%] rounded-lg object-cover w-full aspect-square"
 					height={900}
 					width={900}
 					quality={100}
-					src="/images/tourism.jpg"
+					src="/images/mic.jpg"
 				/>
 
-				<Badge
+				{/* <Badge
 					className="absolute bottom-4 right-4 z-20 line-clamp-1 text-xs"
 					variant="secondary">
 					<a
@@ -70,7 +70,7 @@ const Hero = () => {
 						className="hover:underline">
 						Vectezzy
 					</a>
-				</Badge>
+				</Badge> */}
 			</div>
 		</section>
 	);

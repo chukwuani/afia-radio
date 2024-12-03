@@ -36,7 +36,7 @@ const Hero = () => {
 							onOpen();
 							updateAudioInfo({
 								isPlaying: true,
-								audioUrl: "/stream",
+								audioUrl: process.env.NEXT_PUBLIC_STREAM_URL,
 								isLive: true,
 								audioId: "live",
 							});

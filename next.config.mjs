@@ -21,14 +21,6 @@ const nextConfig = {
 			},
 		],
 	},
-	async rewrites() {
-		return [
-			{
-				source: "/stream",
-				destination: process.env.NEXT_PUBLIC_STREAM_URL,
-			},
-		];
-	},
 };
 
 // Make sure adding Sentry options is the last code to run before exporting

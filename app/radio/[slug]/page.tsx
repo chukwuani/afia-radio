@@ -65,7 +65,8 @@ export default async function PostPage({ params }: PageProps) {
 	return (
 		<Shell
 			as="article"
-			variant="content">
+			variant="content"
+			className="gap-0">
 			<section className="flex flex-col gap-6 max-md:text-center max-md:items-center">
 				<section className="flex max-md:flex-col items-center gap-4">
 					<Image
@@ -92,7 +93,9 @@ export default async function PostPage({ params }: PageProps) {
 								Show Note
 							</h2>
 
-							<p className="mt-6 text-muted-foreground whitespace-pre-line">{show.description}</p>
+							<p className="mt-6 leading-7 text-muted-foreground whitespace-pre-line">
+								{show.description}
+							</p>
 						</div>
 
 						{show.host.bio && (
@@ -103,7 +106,7 @@ export default async function PostPage({ params }: PageProps) {
 											Meet the Host
 										</h2>
 
-										<p className="mt-6 text-muted-foreground whitespace-pre-line">
+										<p className="mt-6 leading-7 text-muted-foreground whitespace-pre-line">
 											{show.host.bio}
 										</p>
 									</div>

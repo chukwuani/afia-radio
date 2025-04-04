@@ -15,4 +15,5 @@ const Advert = () => {
 		</section>
 	);
 };
+
 export default Advert;

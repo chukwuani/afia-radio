@@ -49,15 +49,16 @@ const Hero = () => {
 			</section>
 
 			<div
-				className="flex justify-end animate-fade-up w-[70%] m-auto max-h-[550px] md:w-[50%] lg:w-[60%] aspect-square"
+				className="flex justify-end animate-fade-up m-auto max-h-[550px] md:w-[50%] lg:w-[60%] aspect-square"
 				style={{ animationDelay: "0.10s", animationFillMode: "both" }}>
 				<Image
-					alt="Studio mic"
-					className="grayscale-[50%] rounded-lg object-cover w-full aspect-square"
+					alt="Hero Image"
+					priority
+					className="rounded-lg object-cover w-full aspect-square"
 					height={900}
 					width={900}
 					quality={100}
-					src="/images/mic.jpg"
+					src="/images/opengraph-image.jpg"
 				/>
 
 				{/* <Badge

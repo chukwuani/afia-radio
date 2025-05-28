@@ -17,6 +17,10 @@ const config = {
 	],
 	prefix: "",
 	theme: {
+		fontFamily: {
+			epilogue: ["var(--font-epilogue)", "sans-serif"],
+			haffer: ["var(--font-haffer)", "sans-serif"],
+		},
 		container: {
 			center: true,
 			padding: "2rem",

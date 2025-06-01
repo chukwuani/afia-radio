@@ -95,7 +95,7 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body className={`${epilogue.variable} ${haffer.variable}`}>
+      <body className={`${epilogue.variable} ${haffer.variable} font-epilogue`}>
         <QueryProvider>
           <NextUIProvider>
             <ThemeProvider

@@ -50,3 +50,43 @@
 		@apply max-w-full h-auto;
 	}
 }
+
+.animated-menu-icon,
+.animated-menu-icon:before,
+.animated-menu-icon:after {
+  transition: transform 0.25s;
+}
+
+.animated-menu-icon:before,
+.animated-menu-icon:after {
+  background-color: var(--color);
+}
+
+.animated-menu-icon,
+.animated-menu-icon:before,
+.animated-menu-icon:after {
+  width: 1.8rem;
+  height: 0.125rem;
+  border-radius: 0.125rem;
+  transform: rotate(0);
+}
+
+.animated-menu-icon {
+  --color: white;
+  position: absolute;
+}
+
+.animated-menu-icon:before {
+  top: -0.2125rem;
+}
+
+.animated-menu-icon:after {
+  top: 0.2125rem;
+}
+
+.animated-menu-icon:before,
+.animated-menu-icon:after {
+  position: absolute;
+  left: 0;
+  content: "";
+}

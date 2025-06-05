@@ -27,6 +27,16 @@ const PodcastsPage = () => {
       coverArt: "/images/jamb-utme.png",
       streamUrl:
         "https://8kvl2urisy.ufs.sh/f/BxfEHnSVCZL4wtInR1CPvXQOzMIsblKGqCm0NZ9Vpajo8BLy",
+      dateAndTime: "May 23, 2025",
+    },
+    {
+      id: "nigeria-s-police-brutality-epidemic",
+      title: "Nigeria's Police Brutality Epidemic",
+      description: "",
+      coverArt: "/images/jamb-utme.png",
+      streamUrl:
+        "https://8kvl2urisy.ufs.sh/f/BxfEHnSVCZL4ScSFue7ybrm3XPNhkdKwcO8ITp9lt4ufUMQg",
+      dateAndTime: "June 1, 2025",
     },
   ];
 
@@ -88,7 +98,9 @@ const PodcastsPage = () => {
               </section>
 
               <section className="flex items-center space-x-2 text-xs text-muted-foreground mt-3 mb-2 font-medium">
-                <p className="text-xs text-muted-foreground">May 23, 2025</p>
+                <p className="text-xs text-muted-foreground">
+                  {item.dateAndTime}
+                </p>
                 <div>•</div>
 
                 <div>15min</div>

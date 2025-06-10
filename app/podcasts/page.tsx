@@ -28,6 +28,7 @@ const PodcastsPage = () => {
       streamUrl:
         "https://8kvl2urisy.ufs.sh/f/BxfEHnSVCZL4wtInR1CPvXQOzMIsblKGqCm0NZ9Vpajo8BLy",
       dateAndTime: "May 23, 2025",
+      duration: "15min",
     },
     {
       id: "nigeria-s-police-brutality-epidemic",
@@ -37,6 +38,18 @@ const PodcastsPage = () => {
       streamUrl:
         "https://8kvl2urisy.ufs.sh/f/BxfEHnSVCZL4ScSFue7ybrm3XPNhkdKwcO8ITp9lt4ufUMQg",
       dateAndTime: "June 1, 2025",
+      duration: "15min",
+    },
+    {
+      id: "the-dangerous-power-of-careless-speech",
+      title:
+        "The Dangerous Power of Careless Speech. (A Case Study on Speed Darlington)",
+      description: "",
+      coverArt: "/images/jamb-utme.png",
+      streamUrl:
+        "https://8kvl2urisy.ufs.sh/f/BxfEHnSVCZL4Vb2mcPvpeShdvgTrfmZn28kOQWtKu47RaI16",
+      dateAndTime: "June 9, 2025",
+      duration: "10min",
     },
   ];
 
@@ -103,7 +116,7 @@ const PodcastsPage = () => {
                 </p>
                 <div>•</div>
 
-                <div>15min</div>
+                <div>{item.duration}</div>
               </section>
 
               <p className="text-base font-bold mt-3 mb-3 tracking-wide transition-colors group-hover:text-brand">

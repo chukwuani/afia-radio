@@ -14,6 +14,15 @@ const PodcastsPage = () => {
 
 	const podcasts = [
 		{
+			id: "dstv-in-transition",
+			title: "DStv in Transition",
+			description: "",
+			coverArt: "/images/jamb-utme.png",
+			streamUrl: "https://8kvl2urisy.ufs.sh/f/BxfEHnSVCZL4blE3iTyiAEWSHheaCgmYBwLMt1qUjy3IOp5c",
+			dateAndTime: "July 4, 2025",
+			duration: "8min",
+		},
+		{
 			id: "Netflix-s-New-Price-Tag-Luxury-or-Necessity",
 			title: "Netflix's New Price Tag, Luxury or Necessity",
 			description: "",

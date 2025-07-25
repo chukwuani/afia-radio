@@ -14,6 +14,15 @@ const PodcastsPage = () => {
 
 	const podcasts = [
 		{
+			id: "special-report-buhari-s-death",
+			title: "BUHARI'S DEATH",
+			description: "",
+			coverArt: "/images/jamb-utme.png",
+			streamUrl: "https://8kvl2urisy.ufs.sh/f/BxfEHnSVCZL48iNfbXcBkW3ej6hyHd0mRwrzV2GaXf4JP9S5",
+			dateAndTime: "July 24, 2025",
+			duration: "19min",
+		},
+		{
 			id: "dstv-in-transition",
 			title: "DStv in Transition",
 			description: "",

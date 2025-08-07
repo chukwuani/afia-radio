@@ -14,6 +14,19 @@ export interface NewsTypes {
 	author: AuthorTypes;
 }
 
+export interface PodcastTypes {
+	_id: string;
+	_createdAt: string;
+	title: string;
+	description: string;
+	slug: string;
+	coverArt: string;
+	altText: string;
+	publishedAt: Date;
+	duration: number;
+	uploadUrl: string;
+}
+
 export interface AuthorTypes {
 	_id: string;
 	_createdAt: string;

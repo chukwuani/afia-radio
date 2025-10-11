@@ -15,8 +15,10 @@ export default async function RadioSchedule() {
 		<Card className="flex flex-col gap-5 overflow-hidden border-0 bg-transparent shadow-none p-6 lg:p-14 lg:py-8 rounded-none">
 			<section className="flex justify-between items-center gap-10">
 				<CardHeader className="px-0">
-					<CardTitle className="text-brand">Daily Radio Schedule</CardTitle>
-					<CardDescription>
+					<CardTitle className="text-brand font-anton text-[36px] md:text-[50px] leading-[1.1em] font-normal tracking-[.5px]">
+						Daily Radio Schedule
+					</CardTitle>
+					<CardDescription className="font-dm-sans text-muted-foreground text-sm md:text-base">
 						Stay tuned to your favorite shows and never miss a beat.
 					</CardDescription>
 				</CardHeader>

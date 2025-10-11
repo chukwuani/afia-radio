@@ -20,8 +20,6 @@ const ScheduleTabs = ({ data }: { data: ScheduleWithShow[] }) => {
 				key="Sunday"
 				title="Sunday">
 				<section className="flex flex-col gap-5">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">SUNDAY</h2>
-
 					<CardContent className="flex flex-col gap-6 lg:gap-8 w-full px-0">
 						{data
 							.filter((item) => item.day === "SUNDAY")
@@ -60,8 +58,6 @@ const ScheduleTabs = ({ data }: { data: ScheduleWithShow[] }) => {
 				key="Monday"
 				title="Monday">
 				<section className="flex flex-col gap-5">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">MONDAY</h2>
-
 					<CardContent className="flex flex-col gap-6 lg:gap-8 w-full px-0">
 						{data
 							.filter((item) => item.day === "MONDAY")
@@ -100,8 +96,6 @@ const ScheduleTabs = ({ data }: { data: ScheduleWithShow[] }) => {
 				key="Tuesday"
 				title="Tuesday">
 				<section className="flex flex-col gap-5">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">TUESDAY</h2>
-
 					<CardContent className="flex flex-col gap-6 lg:gap-8 w-full px-0">
 						{data
 							.filter((item) => item.day === "TUESDAY")
@@ -140,8 +134,6 @@ const ScheduleTabs = ({ data }: { data: ScheduleWithShow[] }) => {
 				key="Wednesday"
 				title="Wednesday">
 				<section className="flex flex-col gap-5">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">WEDNESDAY</h2>
-
 					<CardContent className="flex flex-col gap-6 lg:gap-8 w-full px-0">
 						{data
 							.filter((item) => item.day === "WEDNESDAY")
@@ -180,8 +172,6 @@ const ScheduleTabs = ({ data }: { data: ScheduleWithShow[] }) => {
 				key="Thursday"
 				title="Thursday">
 				<section className="flex flex-col gap-5">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">THURSDAY</h2>
-
 					<CardContent className="flex flex-col gap-6 lg:gap-8 w-full px-0">
 						{data
 							.filter((item) => item.day === "THURSDAY")
@@ -220,8 +210,6 @@ const ScheduleTabs = ({ data }: { data: ScheduleWithShow[] }) => {
 				key="Friday"
 				title="Friday">
 				<section className="flex flex-col gap-5">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">FRIDAY</h2>
-
 					<CardContent className="flex flex-col gap-6 lg:gap-8 w-full px-0">
 						{data
 							.filter((item) => item.day === "FRIDAY")
@@ -260,8 +248,6 @@ const ScheduleTabs = ({ data }: { data: ScheduleWithShow[] }) => {
 				key="Saturday"
 				title="Saturday">
 				<section className="flex flex-col gap-5">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">SATURDAY</h2>
-
 					<CardContent className="flex flex-col gap-6 lg:gap-8 w-full px-0">
 						{data
 							.filter((item) => item.day === "SATURDAY")

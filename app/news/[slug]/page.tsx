@@ -92,7 +92,7 @@ export default async function PostPage({ params }: PageProps) {
 			</Link>
 
 			<div className="space-y-2">
-				<h1 className="inline-block text-4xl font-bold leading-tight">{news.title}</h1>
+				<h1 className="inline-block text-[36px] lg:text-[68px] font-normal tracking-[-1px] leading-[110%] font-anton">{news.title}</h1>
 
 				<div className="flex items-center space-x-4 pt-4">
 					<section className="flex items-center space-x-2 text-sm">
@@ -124,7 +124,7 @@ export default async function PostPage({ params }: PageProps) {
 					src={news.mainImage}
 					alt={news.altText}
 					fill
-					className="rounded-md border bg-muted object-cover"
+					className="rounded-md border-0 bg-muted object-cover"
 					priority
 				/>
 			</AspectRatio>

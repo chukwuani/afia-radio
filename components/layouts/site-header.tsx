@@ -7,7 +7,7 @@ import SearchComboBox from "@/components/search-combobox";
 
 export default function SiteHeader() {
 	return (
-		<header className="sticky top-0 z-50 w-full bg-background">
+		<header className="sticky top-0 z-[1000] w-full bg-background">
 			<div className="px-6 lg:px-14 py-2 flex  items-center">
 				<Link
 					className="flex items-center gap-2"

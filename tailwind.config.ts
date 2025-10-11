@@ -19,7 +19,10 @@ const config = {
 	theme: {
 		fontFamily: {
 			epilogue: ["var(--font-epilogue)", "sans-serif"],
-			haffer: ["var(--font-haffer)", "sans-serif"],
+			"fjalla-one": ["var(--font-fjalla-one)", "sans-serif"],
+			inter: ["var(--font-inter)", "sans-serif"],
+			"dm-sans": ["var(--font-dm-sans)", "sans-serif"],
+			anton: ["var(--font-anton)", "sans-serif"],
 		},
 		container: {
 			center: true,

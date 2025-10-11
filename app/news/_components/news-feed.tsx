@@ -25,7 +25,7 @@ const NewsFeed = () => {
 
 	return (
 		<>
-			<CardContent className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8 w-full px-0">
+			<CardContent className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 lg:gap-8 w-full px-0">
 				{status === "pending" ? (
 					<React.Fragment>
 						{Array.from({ length: 8 }).map((_, index) => (
@@ -54,22 +54,27 @@ const NewsFeed = () => {
 													src={item.mainImage}
 													alt={item.altText}
 													fill
-													className="rounded-md border bg-muted object-cover"
+													className="rounded-md bg-muted object-cover"
 													priority
 												/>
 											</AspectRatio>
 
 											<section className="flex flex-col gap-2 w-fit">
-												<p className="text-sm font-bold mt-3 mb-2 line-clamp-2 transition-colors group-hover:text-brand">
+												<section className="flex gap-2 items-center">
+													<p className="text-xs text-muted-foreground font-medium capitalize">
+														By {item.author.name} -{" "}
+													</p>
+													<p className="text-xs text-muted-foreground font-medium inline-flex capitalize">
+														{formatDate(item._createdAt)}
+													</p>
+												</section>
+
+												<p className="font-anton text-[24px] leading-[140%] tracking-normal mt-1 mb-2 line-clamp-2 transition-colors group-hover:text-brand">
 													{item.title}
 												</p>
 
-												<p className="text-sm leading-[1.7rem] text-muted-foreground line-clamp-2">
+												<p className="text-sm font-dm-sans text-muted-foreground line-clamp-2">
 													{item.description}
-												</p>
-
-												<p className="text-xs text-muted-foreground">
-													{formatDate(item._createdAt)}
 												</p>
 											</section>
 										</section>
@@ -90,8 +95,8 @@ const NewsFeed = () => {
 				{isFetchingNextPage
 					? "Loading more..."
 					: hasNextPage
-						? "Load More"
-						: "Nothing more to load"}
+					? "Load More"
+					: "Nothing more to load"}
 			</Button>
 		</>
 	);

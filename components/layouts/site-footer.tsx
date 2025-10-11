@@ -17,25 +17,29 @@ export default function Footer() {
   const { isOpen } = useAudioPlayerStore((state) => state);
 
   return (
-    <footer className={cn("w-full bg-[#0F0F0F]", isOpen && "pb-[100px]")}>
-      <Shell>
+    <footer className={cn("w-full bg-[#0F0F0F] bg-[url('/images/footer-bg.png')] bg-no-repeat bg-cover", isOpen && "pb-[100px]")}>
+      <Shell className="!gap-0 md:!pt-[60px]">
         <section
           id="footer-content"
           aria-labelledby="footer-content-heading"
           className="flex flex-col gap-10 lg:flex-row lg:gap-20 mb-4"
         >
           <section
-            className="max-w-[300px] w-full"
+            className="max-w-[300px] w-full flex flex-col-reverse lg:flex-col gap-[40px] lg:gap-[74px]"
             id="footer-branding"
             aria-labelledby="footer-branding-heading"
           >
+            <p className="text-[12px] leading-[180%] font-epilogue text-muted-foreground">
+              Afia 99.3 FM is your go-to station for music, culture, and stories that celebrate the Igbo spirit — from top hits to conversations that shape our community.
+            </p>
+
             <Link
               href="/"
               className="flex w-full h-auto max-w-[200px] items-center space-x-2"
             >
               <Image
-                width={200}
-                height={200}
+                width={100}
+                height={92}
                 className="w-auto h-auto "
                 src={"/images/afia-logo-dark.png"}
                 alt="Afia Radio"
@@ -53,7 +57,7 @@ export default function Footer() {
           >
             {siteConfig.footerNav.map((item) => (
               <div key={item.title} className="space-y-3">
-                <h4 className="text-base font-medium">{item.title}</h4>
+                <h4 className="text-[14px] leading-[16px] font-epilogue mb-7">{item.title}</h4>
                 <ul className="space-y-2.5">
                   {item.items.map((link) => (
                     <li key={link.title}>
@@ -61,7 +65,7 @@ export default function Footer() {
                         href={link.href}
                         target={link?.external ? "_blank" : undefined}
                         rel={link?.external ? "noreferrer" : undefined}
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        className="text-[12px] leading-[16px] text-muted-foreground transition-colors hover:text-foreground font-epilogue"
                       >
                         {link.title}
                         <span className="sr-only">{link.title}</span>
@@ -81,7 +85,7 @@ export default function Footer() {
           aria-labelledby="footer-bottom-heading"
           className="flex items-center space-x-4"
         >
-          <div className="flex-1 text-left text-sm leading-loose text-muted-foreground">
+          <div className="flex-1 text-left text-xs leading-loose text-muted-foreground">
             © 2025 Afia Network. All Rights Reserved.
           </div>
 

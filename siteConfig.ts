@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export type SiteConfig = typeof siteConfig;
 export type MainNav = typeof siteConfig.mainNav;
 
@@ -22,6 +24,12 @@ export const siteConfig = {
 			disabled: false,
 		},
 		{
+			title: "Radio Shows",
+			href: "/radio",
+			external: false,
+			disabled: false,
+		},
+		{
 			title: "Podcasts",
 			href: "/podcasts",
 			external: false,
@@ -32,6 +40,12 @@ export const siteConfig = {
 			href: "/news",
 			external: false,
 			disabled: false,
+		},
+		{
+			title: "Charts & Top 10",
+			href: "/charts",
+			external: false,
+			disabled: true,
 		},
 	],
 	footerNav: [

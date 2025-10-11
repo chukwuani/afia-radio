@@ -3,7 +3,7 @@ import Hero from "@/components/hero";
 import Shows from "@/components/shows";
 import WeeklyCountdown from "@/components/weekly-countdown";
 import Advert from "@/components/layouts/advert";
-import Podcasts from "@/components/podcasts";
+import JoinCommunity from "@/components/join-community";
 
 export default async function Home() {
   return (
@@ -12,11 +12,11 @@ export default async function Home() {
 
       <Shows />
 
-      {/* <Podcasts /> */}
-
       <Advert />
 
       <WeeklyCountdown />
+
+      <JoinCommunity />
 
       <News />
     </main>

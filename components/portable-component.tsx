@@ -3,14 +3,14 @@ import { cn } from "@/lib/utils";
 export const components = {
   block: {
     h1: ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => (
-      <h1 className={"mt-2 scroll-m-20 font-epilogue text-4xl font-bold"}>
+      <h1 className={"scroll-m-20 font-dm-sans text-4xl font-bold"}>
         {children}
       </h1>
     ),
     h2: ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => (
       <h2
         className={
-          "mt-6 scroll-m-20 border-b pb-2 font-epilogue text-2xl font-semibold tracking-tight first:mt-0"
+          "scroll-m-20 border-b pb-2 font-dm-sans text-2xl font-semibold tracking-tight first:mt-0"
         }
       >
         {children}
@@ -19,7 +19,7 @@ export const components = {
     h3: ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => (
       <h3
         className={
-          "mt-8 scroll-m-20 font-epilogue text-xl font-semibold tracking-tight"
+          "scroll-m-20 font-dm-sans text-xl font-semibold tracking-tight"
         }
       >
         {children}
@@ -28,19 +28,19 @@ export const components = {
     h4: ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => (
       <h4
         className={
-          "mt-8 scroll-m-20 font-epilogue text-lg font-semibold tracking-tight"
+          "scroll-m-20 font-dm-sans text-lg font-semibold tracking-tight"
         }
       >
         {children}
       </h4>
     ),
     h5: ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => (
-      <h5 className={"mt-8 scroll-m-20 text-lg font-semibold tracking-tight"}>
+      <h5 className={"scroll-m-20 text-lg font-semibold tracking-tight"}>
         {children}
       </h5>
     ),
     h6: ({ children }: React.HTMLAttributes<HTMLHeadingElement>) => (
-      <h6 className={"mt-8 scroll-m-20 text-base font-semibold tracking-tight"}>
+      <h6 className={"scroll-m-20 text-base font-semibold tracking-tight"}>
         {children}
       </h6>
     ),
@@ -48,7 +48,7 @@ export const components = {
       <p className={"leading-7"}>{children}</p>
     ),
     blockquote: ({ children }: React.HTMLAttributes<HTMLElement>) => (
-      <blockquote className={"mt-6 border-l-2 pl-6 italic"}>
+      <blockquote className={"border-l-2 pl-6 italic"}>
         {children}
       </blockquote>
     ),

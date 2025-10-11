@@ -25,6 +25,10 @@ export async function GET(req: NextRequest) {
 				publishedAt,
         		title, 
         		description, 
+				author->{
+    				name,
+    				"imageUrl": image.asset->url
+  				},
         		"slug": slug.current, 
         		"mainImage": mainImage.asset->url, 
         		"altText": mainImage.alt
@@ -44,6 +48,10 @@ export async function GET(req: NextRequest) {
 				publishedAt,
         		title, 
         		description, 
+				author->{
+    				name,
+    				"imageUrl": image.asset->url
+  				},
         		"slug": slug.current, 
         		"mainImage": mainImage.asset->url, 
         		"altText": mainImage.alt

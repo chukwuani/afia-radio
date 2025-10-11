@@ -98,7 +98,7 @@ const PodcastFeed = () => {
 												<div>{item.duration}mins</div>
 											</section>
 
-											<p className="text-base font-bold mt-3 mb-3 tracking-wide transition-colors group-hover:text-brand">
+											<p className="font-anton text-[24px] leading-[140%] tracking-normal mt-1 mb-2 line-clamp-2 transition-colors group-hover:text-brand">
 												{item.title}
 											</p>
 

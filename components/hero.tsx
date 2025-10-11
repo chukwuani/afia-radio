@@ -1,70 +1,167 @@
 "use client";
 
-import Image from "next/image";
 import { Radio } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { useAudioPlayerStore } from "@/store/useAudioPlayer";
+import { Heading } from "./heading";
 
 const Hero = () => {
-  const { onOpen, updateAudioInfo } = useAudioPlayerStore((state) => state);
+	const { onOpen, updateAudioInfo } = useAudioPlayerStore((state) => state);
 
-  return (
-    <section className="flex flex-col md:flex-row overflow-hidden border-none bg-transparent shadow-none md:px-6 lg:px-14  md:items-center gap-12 w-full pt-12">
-      <section className="flex flex-col max-md:text-center max-md:items-center md:w-[44%] gap-8 relative max-md:px-6">
-        <h1
-          className="text-5xl sm:text-[4rem] sm:leading-[4.5rem] text-pretty text-primary leading-[4rem] -tracking-[.053rem] font-epilogue font-normal mt-3 mb-auto animate-fade-up"
-          style={{ animationDelay: "0.20s", animationFillMode: "both" }}
-        >
-          24hrs Radio, Hit Music, Podcasts, All in One Place
-        </h1>
+	const images = [
+		{
+			src: "/images/mixer-2.jpg",
+			alt: "Modern Minimalist Objects",
+			name: "Modern Minimalist Objects",
+		},
+		{
+			src: "/images/tape-2.jpg",
+			alt: "Pastel Gradient Torus",
+			name: "Pastel Gradient Torus",
+		},
+		{
+			src: "/images/mixer-3.jpg",
+			alt: "Child Astronaut Art",
+			name: "Child Astronaut Art",
+		},
+		{
+			src: "/images/record.jpg",
+			alt: "Whimsical Blue Creature",
+			name: "Whimsical Blue Creature",
+		},
+		{
+			src: "/images/vinyl-2.jpg",
+			alt: "Cartoon Snail",
+			name: "Cartoon Snail",
+		},
+		{
+			src: "/images/tape.jpg",
+			alt: "Futuristic Gradient Object",
+			name: "Futuristic Gradient Object",
+		},
+		{
+			src: "/images/mic.jpg",
+			alt: "Pastel Pink Chair",
+			name: "Pastel Pink Chair",
+		},
+		{
+			src: "/images/vinyl.jpg",
+			alt: "Whimsical Blue Creature",
+			name: "Whimsical Blue Creature",
+		},
+		{
+			src: "/images/tape-3.jpg",
+			alt: "Cartoon Snail",
+			name: "Cartoon Snail",
+		},
+		{
+			src: "/images/tape.jpg",
+			alt: "Futuristic Gradient Object",
+			name: "Futuristic Gradient Object",
+		},
+	];
 
-        <p
-          className="text-[15px] font-epilogue !leading-7 md:text-base text-muted-foreground max-w-[400px] animate-fade-up"
-          style={{ animationDelay: "0.30s", animationFillMode: "both" }}
-        >
-          Your go-to spot for Igbo vibes, anywhere in the world. Enjoy non-stop
-          music, news, and pure entertainment. Listen live now
-        </p>
+	const ImageItem = ({ src, alt, name }: { src: string; alt: string; name: string }) => (
+		<li className="flex-shrink-0">
+			<div className="relative w-80 h-48 overflow-hidden">
+				<img
+					width={2400}
+					height={1350}
+					title={name}
+					src={src}
+					alt={alt}
+					className="block w-full h-full object-cover object-center"
+				/>
+			</div>
+		</li>
+	);
 
-        <div
-          className="flex animate-fade-up"
-          style={{ animationDelay: "0.40s", animationFillMode: "both" }}
-        >
-          <Button
-            onClick={() => {
-              onOpen();
-              updateAudioInfo({
-                isPlaying: true,
-                audioUrl: process.env.NEXT_PUBLIC_STREAM_URL!,
-                isLive: true,
-                audioId: "live",
-              });
-            }}
-            className="font-normal w-fit bg-brand hover:bg-brand/90 rounded-full p-7 text-foreground z-10 h-14 text-base px-5 font-haffer text-[0.75rem] tracking-[2.4px] uppercase"
-          >
-            Listen live
-            <Radio className="ml-2" />
-          </Button>
-        </div>
-      </section>
+	const CarouselRow = ({ imageSet, offset = 0 }: { imageSet: typeof images; offset: number }) => (
+		<div className="relative overflow-hidden">
+			<section className="flex w-full h-full max-w-full max-h-full place-items-center m-0 p-0 list-none opacity-100 overflow-hidden">
+				<ul
+					className="flex w-full h-full max-w-full max-h-full place-items-center m-0 p-0 list-none gap-1 relative flex-row"
+					style={{
+						willChange: "transform",
+						transform: `translateX(${offset}px)`,
+					}}>
+					{imageSet.map((img, index) => (
+						<ImageItem key={index} {...img} />
+					))}
+					{/* Duplicate items for seamless scrolling */}
+					{imageSet.map((img, index) => (
+						<ImageItem key={`duplicate-${index}`} {...img} aria-hidden="true" />
+					))}
+				</ul>
+			</section>
+		</div>
+	);
 
-      <div
-        className="flex justify-end animate-fade-up m-auto max-h-[550px] md:w-[50%] aspect-[4/3]"
-        style={{ animationDelay: "0.10s", animationFillMode: "both" }}
-      >
-        <Image
-          alt="Hero Image"
-          priority
-          className="rounded-[2rem] sm:h-[450px] sm:rounded-[4.5rem] max-md:rounded-none object-cover"
-          height={900}
-          width={900}
-          quality={100}
-          src="/images/opengraph-image.jpg"
-        />
-      </div>
-    </section>
-  );
+	// Define different image sets for each row
+	const row1Images = images.slice(0, 5);
+	const row2Images = images.slice(5, 10);
+	const row3Images = images.slice(0, 5);
+
+	return (
+		<section className="flex flex-col items-center pt-28 md:pt-[180px] pb-6 lg:pb-12 relative w-full overflow-hidden">
+			<section
+				className="absolute top-[-320px] right-[-240px] left-[-80px]"
+				style={{
+					willChange: "transform",
+					opacity: 1,
+					transform: "rotate(20deg) skewX(-20deg) skewY(-10deg)",
+					mask: "linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%) add",
+				}}>
+				<div className="space-y-1">
+					<CarouselRow imageSet={row1Images} offset={-1620} />
+					<CarouselRow imageSet={row2Images} offset={0} />
+					<CarouselRow imageSet={row3Images} offset={-1620} />
+				</div>
+			</section>
+
+			<div className="flex flex-col text-start items-start w-full justify-center px-6 md:px-14 gap-[50px] py-0 relative">
+				<div className="flex flex-col">
+					<Heading className="text-[44px] leading-[4rem] -tracking-[.053rem] lg:text-[70px] lg:leading-[1.2em] lg:-tracking-[1.5px] font-anton font-normal max-w-[600px]">
+						24hrs Radio, Hit Music, Podcasts, All in One Place
+					</Heading>
+
+					{/* Subheading text */}
+					<div className="flex flex-col max-w-[480px] w-full items-center relative mt-6">
+						<p className="font-dm-sans font-medium text-muted-foreground text-sm md:text-base leading-[28px]">
+							Your go-to spot for Igbo vibes, anywhere in the world. Enjoy non-stop music, news, and
+							pure entertainment. Listen live now.
+						</p>
+					</div>
+				</div>
+
+				{/* Call to action buttons */}
+				<div className="flex items-center justify-center">
+					<Button
+						onClick={() => {
+							onOpen();
+							updateAudioInfo({
+								isPlaying: true,
+								audioUrl: process.env.NEXT_PUBLIC_STREAM_URL!,
+								isLive: true,
+								audioId: "live",
+							});
+						}}
+						className="group relative flex transform items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-brand hover:bg-brand/90 px-5 text-base/7 font-medium text-white transition-all duration-300 h-12">
+						<span className="relative z-10 flex items-center gap-2">
+							<span className="text-[0.75rem] tracking-[2.4px] uppercase font-dm-sans">
+								Listen Live
+							</span>
+
+							<Radio className="ml-2" />
+						</span>
+
+						<div className="ease-[cubic-bezier(0.19,1,0.22,1)] absolute -left-[75px] -top-[50px] -z-10 h-[155px] w-8 rotate-[35deg] bg-white opacity-20 transition-all duration-500 group-hover:left-[120%]" />
+					</Button>
+				</div>
+			</div>
+		</section>
+	);
 };
 
 export default Hero;

@@ -7,7 +7,8 @@ import { privacyType } from "./schemaTypes/privacyType";
 import { termsType } from "./schemaTypes/termsTypes";
 import { aboutType } from "./schemaTypes/aboutType";
 import { podcastType } from "./schemaTypes/podcastType";
+import { tvNewsType } from "./schemaTypes/tvNewsType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-	types: [blockContentType, newsType, authorType, privacyType, termsType, aboutType, podcastType],
+	types: [blockContentType, newsType, authorType, privacyType, termsType, aboutType, podcastType, tvNewsType],
 };

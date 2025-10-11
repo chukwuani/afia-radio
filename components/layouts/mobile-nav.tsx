@@ -37,7 +37,7 @@ export function MobileNav() {
             </Button>
           </SheetTrigger>
 
-          <SheetContent side="right" className="pl-6 pr-7 pt-9">
+          <SheetContent side="right" className="pl-6 pr-7 pt-9 z-[1001]">
             <section className="w-full flex flex-col h-full">
               <section className="flex flex-col">
                 <Link href="/" className="flex items-center mb-3">
@@ -69,7 +69,7 @@ export function MobileNav() {
               <div className="flex flex-col mt-auto">
                 <div className="flex flex-col mb-[1.25rem] gap-4 text-[1.1em]">
                   <a
-                    className="text-foreground/60 hover:text-foreground"
+                    className="text-foreground/60 text-sm hover:text-foreground"
                     target={"_blank"}
                     rel={"noreferrer"}
                     href={siteConfig.links.x}
@@ -77,7 +77,7 @@ export function MobileNav() {
                     X
                   </a>
                   <a
-                    className="text-foreground/60 hover:text-foreground"
+                    className="text-foreground/60 text-sm hover:text-foreground"
                     target={"_blank"}
                     rel={"noreferrer"}
                     href={siteConfig.links.instagram}
@@ -85,7 +85,7 @@ export function MobileNav() {
                     Instagram
                   </a>
                   <a
-                    className="text-foreground/60 hover:text-foreground"
+                    className="text-foreground/60 text-sm hover:text-foreground"
                     target={"_blank"}
                     rel={"noreferrer"}
                     href={siteConfig.links.facebook}
@@ -94,7 +94,7 @@ export function MobileNav() {
                   </a>
                 </div>
 
-                <p className="text-[1.1em] text-foreground/60">
+                <p className="text-sm text-foreground/60">
                   &#169; 2025 Afia Network.
                 </p>
               </div>
@@ -127,7 +127,7 @@ function MobileLink({
     <Link
       href={href}
       className={cn(
-        "text-foreground/60 transition-colors hover:text-foreground text-[1.1em] leading-tight capitalize py-4",
+        "text-foreground/60 transition-colors hover:text-foreground text-sm capitalize py-4",
         href === pathname && "text-brand hover:text-brand font-bold",
         disabled && "pointer-events-none hover:no-underline opacity-60",
         className

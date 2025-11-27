@@ -21,7 +21,7 @@ import { Metadata } from "next";
 
 interface PageProps {
 	params: {
-		slug: string;
+		slug: string[];
 	};
 }
 
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 	const news: NewsTypes = await sanityFetch({
 		query: NEWS_QUERY,
 		params: {
-			slug: params.slug.replace("/", ""),
+			slug: params.slug.length > 1 ? `${params.slug[0]}/${params.slug[1]}` : params.slug[0],
 		},
 	});
 
@@ -63,10 +63,10 @@ export default async function PostPage({ params }: PageProps) {
 	const news: NewsTypes = await sanityFetch({
 		query: NEWS_QUERY,
 		params: {
-			slug: params.slug.replace("/", ""),
+			slug: params.slug.length > 1 ? `${params.slug[0]}/${params.slug[1]}` : params.slug[0],
 		},
 	});
-
+	
 	if (!news) {
 		notFound();
 	}

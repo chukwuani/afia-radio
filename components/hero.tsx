@@ -12,53 +12,53 @@ const Hero = () => {
 	const images = [
 		{
 			src: "/images/mixer-2.jpg",
-			alt: "Modern Minimalist Objects",
-			name: "Modern Minimalist Objects",
+			alt: "",
+			name: "",
 		},
 		{
 			src: "/images/tape-2.jpg",
-			alt: "Pastel Gradient Torus",
-			name: "Pastel Gradient Torus",
+			alt: "",
+			name: "",
 		},
 		{
 			src: "/images/mixer-3.jpg",
-			alt: "Child Astronaut Art",
-			name: "Child Astronaut Art",
+			alt: "",
+			name: "",
 		},
 		{
 			src: "/images/record.jpg",
-			alt: "Whimsical Blue Creature",
-			name: "Whimsical Blue Creature",
+			alt: "",
+			name: "",
 		},
 		{
 			src: "/images/vinyl-2.jpg",
-			alt: "Cartoon Snail",
-			name: "Cartoon Snail",
+			alt: "",
+			name: "",
 		},
 		{
 			src: "/images/tape.jpg",
-			alt: "Futuristic Gradient Object",
-			name: "Futuristic Gradient Object",
+			alt: "",
+			name: "",
 		},
 		{
 			src: "/images/mic.jpg",
-			alt: "Pastel Pink Chair",
-			name: "Pastel Pink Chair",
+			alt: "",
+			name: "",
 		},
 		{
 			src: "/images/vinyl.jpg",
-			alt: "Whimsical Blue Creature",
-			name: "Whimsical Blue Creature",
+			alt: "",
+			name: "",
 		},
 		{
 			src: "/images/tape-3.jpg",
-			alt: "Cartoon Snail",
-			name: "Cartoon Snail",
+			alt: "",
+			name: "",
 		},
 		{
 			src: "/images/tape.jpg",
-			alt: "Futuristic Gradient Object",
-			name: "Futuristic Gradient Object",
+			alt: "",
+			name: "",
 		},
 	];
 

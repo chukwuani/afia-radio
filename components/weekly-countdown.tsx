@@ -18,6 +18,7 @@ import { EllipsisHorizontalIcon } from "@sanity/icons";
 import { useQuery } from "@tanstack/react-query";
 
 const WeeklyCountdown = () => {
+	const ONE_WEEK = 1000 * 60 * 60 * 24 * 7; // 7 days in milliseconds
 	const { onOpen, isPlaying, isLive, updateAudioInfo, title, setIsPlaying } = useAudioPlayerStore(
 		(state) => state
 	);
@@ -39,6 +40,8 @@ const WeeklyCountdown = () => {
 
 			return result.items;
 		},
+		    gcTime: ONE_WEEK, // Keep data in cache for 1 week
+    staleTime: ONE_WEEK, // Consider data fresh for 1 week
 	});
 
 	const copyLink = (url: string) => {

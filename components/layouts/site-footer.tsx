@@ -86,7 +86,7 @@ export default function Footer() {
           className="flex items-center space-x-4"
         >
           <div className="flex-1 text-left text-xs leading-loose text-muted-foreground">
-            © 2025 Afia Network. All Rights Reserved.
+            © 2026 Afia Network. All Rights Reserved.
           </div>
 
           <div className="flex items-center space-x-1">

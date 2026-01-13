@@ -23,7 +23,7 @@ export default defineConfig({
   plugins: [
     workflowManager({
       // Required: List of document types to include in workflow
-      schemaTypes: ['post', 'article', 'product'],
+      schemaTypes: ['radioNews', 'article', 'news'],
       
       // Optional: Custom workflow states
       states: [

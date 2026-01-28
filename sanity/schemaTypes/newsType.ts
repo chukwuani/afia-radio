@@ -102,6 +102,12 @@ export const newsType = defineType({
 			type: "number",
 		}),
 		defineField({
+			name: "tags",
+			type: "string",
+			title: "SEO Tags",
+			description: "Comma (,) separated keywords for SEO purposes",
+		}),
+		defineField({
 			name: "body",
 			type: "blockContent",
 		}),

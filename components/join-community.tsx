@@ -23,7 +23,7 @@ function JoinCommunity() {
 					</section>
 
 					<Link
-						href="https://8kvl2urisy.ufs.sh/f/BxfEHnSVCZL4SuGJF57ybrm3XPNhkdKwcO8ITp9lt4ufUMQg"
+						href="https://8kvl2urisy.ufs.sh/f/BxfEHnSVCZL4TXhTVDok1nogCRMi5KbcAq4TH8vSesBjthIW"
 						target="_blank"
 						rel="noreferrer"
 						className={cn(

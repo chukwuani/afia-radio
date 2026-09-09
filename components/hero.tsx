@@ -1,10 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { Radio } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { useAudioPlayerStore } from "@/store/useAudioPlayer";
 import { Heading } from "./heading";
+
+import { cn } from "@/lib/utils";
+import { Icons } from "./icons";
 
 const Hero = () => {
 	const { onOpen, updateAudioInfo } = useAudioPlayerStore((state) => state);
@@ -136,7 +140,7 @@ const Hero = () => {
 				</div>
 
 				{/* Call to action buttons */}
-				<div className="flex items-center justify-center">
+				<div className="flex items-center justify-center gap-4 flex-wrap">
 					<Button
 						onClick={() => {
 							onOpen();
@@ -158,6 +162,17 @@ const Hero = () => {
 
 						<div className="ease-[cubic-bezier(0.19,1,0.22,1)] absolute -left-[75px] -top-[50px] -z-10 h-[155px] w-8 rotate-[35deg] bg-white opacity-20 transition-all duration-500 group-hover:left-[120%]" />
 					</Button>
+
+					<Link
+								href="/live"
+								target="_blank"
+								className={cn(
+									buttonVariants({ variant: "outline" }),
+									"inline-flex text-xs font-normal has-[>svg]:!px-2",
+								)}>
+								<Icons.live className="!size-3 lg:!size-4" />
+								Live
+							</Link>
 				</div>
 			</div>
 		</section>
